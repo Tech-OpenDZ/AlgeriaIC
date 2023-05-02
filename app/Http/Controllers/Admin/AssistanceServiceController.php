@@ -1,0 +1,319 @@
+<?php
+
+
+namespace App\Http\Controllers\Admin;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\AssistanceService;
+use App\Models\AssistanceServiceTranslate;
+use DataTables;
+use Auth;
+use LaravelLocalization;
+use DB;
+
+class AssistanceServiceController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        // echo "<pre>";print_r($sections);exit();
+        if($request->ajax()){
+            $sections = AssistanceService::with('localeAll');
+            return Datatables::of($sections)
+                ->addIndexColumn()
+                ->addColumn('title', function($row){
+                    foreach($row->localeAll as $row_data) {
+                        if($row_data->locale == "en") {
+                            $row_title = $row_data->title;
+                        }
+                        return $row_title;
+                    }
+                })
+                ->addColumn('description', function($row){
+                    foreach($row->localeAll as $row_data) {
+                        if($row_data->locale == "en") {
+                            $row_description = $row_data->description;
+                        }
+                        return html_entity_decode(strip_tags($row_description));
+                    }
+                })
+                ->addColumn('category', function($row){
+                    foreach($row->localeAll as $row_data) {
+                        if($row_data->locale == "en") {
+                            $row_category = $row_data->category;
+                        }
+                        return html_entity_decode(strip_tags($row_category));
+                    }
+                })
+                ->addColumn('services_image', function($row){
+                    $services_image = $row->services_image;
+                    $service_icon =  trim($services_image, '"');
+                    return $service_icon;
+                })
+                ->addColumn('action', function($sections){
+                    if (\Auth::user()->can('assistance-service-edit')) {
+                        $editbtn = '<a href="' . route('manage-assistance-services.edit', [$sections->id]) . '" title="edit"><i class="fas fa-edit" aria-hidden="true" style="color: #3699FF;"></i></a>&nbsp';
+                    } else {
+                        $editbtn = '';
+                    }
+                    if (\Auth::user()->can('assistance-service-delete')) {
+                        $deletebtn = '<a href="javascript:void(0)" data-href="' . route('manage-assistance-services.destroy', [$sections->id]) . '" rel="tooltip" title="Delete" class="delete_bi_report_btn"><i class="far fa-trash-alt" style="color: #F64E60;"></i></a>';
+                    } else {
+                        $deletebtn = '';
+                    }
+                    return $editbtn.$deletebtn;
+                })
+                ->editColumn('status', function($sections){
+                    if($sections->status == 1){
+                        $status = '<span class="label label-lg font-weight-bold label-light-primary label-inline">Active</span>';
+                        return $status;
+                    }else{
+                        $status = '<span class="label label-inline label-light-danger font-weight-bold">Inactive</span>';
+                        return $status;
+                    }
+                })
+                ->editColumn('created_at', function ($row) {
+                    return [
+                        'display' => e($row->created_at->format('m/d/Y')),
+                        'timestamp' => $row->created_at->timestamp
+                    ];
+                })
+                ->filter(function ($instance) use ($request) {
+                    if ($request->get('status') == '0' || $request->get('status') == '1') {
+                        $instance->where('status', $request->get('status'));
+                    }
+                    if (!empty($request->get('search'))) {
+                        $instance->whereHas('localeAll', function($w) use($request){
+                            $search = $request->get('search');
+                            $w->where('title', 'LIKE', "%$search%")
+                                ->orWhere('description', 'LIKE', "%$search%")
+                                ->orWhere('category', 'LIKE', "%$search%");
+                        });
+                    }
+
+                })
+                ->rawColumns(['action','status','services_image'])
+                ->make(true);
+        }
+        return view('admin.assistance_services.index');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $display_order = AssistanceService::max('display_order');
+        if($display_order ==0)
+            $display_order = 1;
+        else
+            $display_order++;
+        // echo "<pre>";print_r($display_order);exit();
+        return view('admin.assistance_services.create',compact('display_order'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $validatedData = $request->validate([
+            'title_in_english'         => 'required',
+            'title_in_arabic'          => 'required',
+            'title_in_french'          => 'required',
+            'description_in_english'   => 'required',
+            'description_in_arabic'    => 'required',
+            'description_in_french'    => 'required',
+            'category_in_english'   => 'required',
+            'category_in_arabic'    => 'required',
+            'category_in_french'    => 'required'
+        ]);
+
+        $assistance_data = [
+            [  'title' => $request->title_in_english,
+                'description' => $request->description_in_english,
+                'category' => $request->category_in_english,
+                'locale'      => "en"
+            ],
+            [  'title' => $request->title_in_arabic,
+                'description' => $request->description_in_arabic,
+                'category' => $request->category__in_arabic,
+                'locale'      => "ar"
+            ],
+            [  'title' => $request->title_in_french,
+                'description' => $request->description_in_french,
+                'category' => $request->category_in_french,
+                'locale'      => "fr"
+            ],
+        ];
+
+        $assistance = new AssistanceService();
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageSaveAsName = time() . "_image." . $image->getClientOriginalExtension();
+            $upload_path = storage_path('app/public/uploads/assistance_service/');
+            $logo_image_url = $imageSaveAsName;
+            if($request->image){
+                if(file_exists($upload_path.$request->image)) {
+                    unlink($upload_path.$request->image);
+                }
+            }
+            $success = $image->move($upload_path, $imageSaveAsName);
+            $assistance->services_image = $imageSaveAsName;
+        }
+
+        $assistance->status = isset($request->status)?1:0;
+        $assistance->display_order = $request->display_order;
+        $assistance->created_by = Auth::user()->id;
+        $assistance->updated_by = Auth::user()->id;
+        $result = $assistance->save();
+
+        AssistanceService::where('display_order','>=',$request->display_order)
+            ->where('id','!=',$assistance->id)
+            ->update(['display_order' => DB::raw('display_order + 1')]);
+
+        foreach($assistance_data as $key => $value) {
+            $assistance_tanslation = new AssistanceServiceTranslate;
+            $assistance_tanslation->title = $value['title'];
+            $assistance_tanslation->assistance_id = $assistance->id;
+            $assistance_tanslation->description = $value['description'];
+            $assistance_tanslation->category = $value['category'];
+            $assistance_tanslation->locale = $value['locale'];
+            $assistance_tanslation->save();
+        }
+        if($result) {
+            $request->session()->flash('success', 'Services added successfully.');
+            return redirect()->route('manage-assistance-services.index');
+        }
+    }
+
+    public function edit($id)
+    {
+        $assistance_data = AssistanceService::findOrFail($id);
+        // Setting the translated fields to edit
+        foreach ($assistance_data->localeAll as $translate) {
+
+            switch ($translate->locale) {
+                case 'en':
+                    $assistance_data->title_in_english = $translate->title;
+                    $assistance_data->description_in_english = $translate->description;
+                    $assistance_data->category_in_english = $translate->category;
+                    break;
+                case 'fr':
+                    $assistance_data->title_in_french = $translate->title;
+                    $assistance_data->description_in_french = $translate->description;
+                    $assistance_data->category_in_french = $translate->category;
+                    break;
+                case 'ar':
+                    $assistance_data->title_in_arabic = $translate->title;
+                    $assistance_data->description_in_arabic = $translate->description;
+                    $assistance_data->category_in_arabic = $translate->category;
+                    break;
+            }
+        }
+        return view('admin.assistance_services.edit', compact('assistance_data'));
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'title_in_english'         => 'required',
+            'title_in_arabic'          => 'required',
+            'title_in_french'          => 'required',
+            'description_in_english'   => 'required',
+            'description_in_arabic'    => 'required',
+            'description_in_french'    => 'required',
+            'category_in_english'   => 'required',
+            'category_in_arabic'    => 'required',
+            'category_in_french'    => 'required',
+        ]);
+
+        $assistance_data = AssistanceService::findOrFail($id);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageSaveAsName = time() . "_image." . $image->getClientOriginalExtension();
+            $upload_path = storage_path('app/public/uploads/assistance_service');
+            $logo_image_url = $imageSaveAsName;
+            if($request->image){
+                try {
+                    unlink($upload_path.$assistance_data->image);
+                } catch (\Throwable $th) {
+
+                }
+            }
+            $success = $image->move($upload_path, $imageSaveAsName);
+            $assistance_data->services_image = $imageSaveAsName;
+        }
+        $assistance_data->status = isset($request->status)?1:0;
+        $assistance_data->display_order = $request->display_order;
+        $assistance_data->created_by = Auth::user()->id;
+        $assistance_data->updated_by = Auth::user()->id;
+        $result = $assistance_data->Update();
+
+        AssistanceService::where('display_order','>=',$request->display_order)
+            ->where('id','!=',$assistance_data->id)
+            ->update(['display_order' => DB::raw('display_order + 1')]);
+
+        $trans_assistance = [
+            'en' => [
+                "title"       => $request->title_in_english,
+                "description" => $request->description_in_english,
+                "category" => $request->category_in_english,
+            ],
+            'fr' => [
+                "title"       => $request->title_in_french,
+                "description" => $request->description_in_french,
+                "category" => $request->category_in_french,
+            ],
+            'ar' => [
+                "title"       => $request->title_in_arabic,
+                "description" => $request->description_in_arabic,
+                "category" => $request->category_in_arabic,
+            ],
+        ];
+        foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties) {
+            AssistanceServiceTranslate::where(
+                [
+                    [
+                        'assistance_id', '=', $id
+                    ],
+                    [
+                        'locale', '=', $localeCode
+                    ]
+                ])
+                ->update($trans_assistance[$localeCode]);
+        }
+        if($result) {
+            $request->session()->flash('success', 'Services updated successfully.');
+            return redirect()->route('manage-assistance-services.index');
+        }
+    }
+
+    public function destroy(Request $request,$id)
+    {
+        $assistance_data= AssistanceService::with('localeAll')->find($id);
+        // unlink('storage/uploads/assistance_service/'.$assistance_data->services_image);
+        $assistance_data->localeAll()->delete();
+        $assistance_data->delete();
+        $request->session()->flash('success', 'Services deleted successfully.');
+        return redirect()->route('manage-assistance-services.index');
+    }
+}

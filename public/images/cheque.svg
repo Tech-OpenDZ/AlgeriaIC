@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30.2" height="15.775" viewBox="0 0 30.2 15.775">
+  <g id="_001-bank-check" data-name="001-bank-check" transform="translate(0.1 0.1)">
+    <ellipse id="Ellipse_35" data-name="Ellipse 35" cx="1" cy="0.5" rx="1" ry="0.5" transform="translate(28 5.794)" fill="#8ba1b2" stroke="#8ba1b2" stroke-width="0.2"/>
+    <path id="Path_369" data-name="Path 369" d="M29.347,121.173a.575.575,0,0,0-.4-.173H.577a.585.585,0,0,0-.577.577V136a.582.582,0,0,0,.577.577H28.944A.582.582,0,0,0,29.52,136v-5.884a.577.577,0,1,0-1.153,0v5.307H1.153V122.154H28.367v2.769a.577.577,0,1,0,1.153,0v-3.346A.576.576,0,0,0,29.347,121.173Z" transform="translate(0 -121)" fill="#8ba1b2" stroke="#8ba1b2" stroke-width="0.2"/>
+    <path id="Path_370" data-name="Path 370" d="M56.095,226H40.6a.6.6,0,0,0,0,1.192h15.5a.6.6,0,0,0,0-1.192Z" transform="translate(-37.616 -219.959)" fill="#8ba1b2" stroke="#8ba1b2" stroke-width="0.2"/>
+    <path id="Path_371" data-name="Path 371" d="M54.306,266H40.6a.6.6,0,0,0,0,1.192h13.71a.6.6,0,0,0,0-1.192Z" transform="translate(-37.616 -257.658)" fill="#8ba1b2" stroke="#8ba1b2" stroke-width="0.2"/>
+    <path id="Path_372" data-name="Path 372" d="M40.6,167.192h3.577a.6.6,0,0,0,0-1.192H40.6a.6.6,0,0,0,0,1.192Z" transform="translate(-37.616 -163.411)" fill="#8ba1b2" stroke="#8ba1b2" stroke-width="0.2"/>
+    <path id="Path_373" data-name="Path 373" d="M383.786,188.236h1.788a.56.56,0,1,0,0-1.118h-.894v-.559a.6.6,0,0,0-1.192,0v.583A1.715,1.715,0,0,0,382,188.8a1.737,1.737,0,0,0,1.788,1.677h.6a.56.56,0,1,1,0,1.118h-1.788a.56.56,0,1,0,0,1.118h.894v.559a.6.6,0,0,0,1.192,0v-.583a1.715,1.715,0,0,0,1.49-1.653,1.737,1.737,0,0,0-1.788-1.677h-.6a.56.56,0,1,1,0-1.118Z" transform="translate(-360.227 -182.125)" fill="#8ba1b2" stroke="#8ba1b2" stroke-width="0.2"/>
+  </g>
+</svg>

@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'breadcrumb_home' => 'Accueil',
+    'business_directory' => 'Annuaire des entreprises',
+    'contact_file_detail' => 'Détails du fichier de contact',
+    'description' => "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre",
+    'description2' => 'Je confirme ma commande',
+    'description3' => "J'accède à mon compte ou j'en crée un pour pouvoir m'identifier à tout moment. Je paie en toute sécurité l'achat de mon fichier par carte bancaire",
+    'details' => 'Détails',
+    'search_criteria' => 'Recherche Critiria',
+    'Keywords' => 'Mots clés',
+    'date_of_creation' => 'Date de création',
+    'turnover' => 'Rotation',
+    'capital' => 'Capitale',
+    'number_of_employees' => "Nombre d'employés",
+    'sectors' => 'Secteurs',
+    'found' => 'A trouvé',
+    'companies' => 'Entreprises',
+    'emails' => 'E-mails',
+    'phone_numbers' => 'Les numéros de téléphone',
+    'financial_information' => 'Informations financières',
+    'list_of_product' => 'liste de produits',
+    'job_titles' => 'titres de poste',
+    'confirm_order' => 'Confirmer la commande',
+    'Area' => 'Zone',
+];

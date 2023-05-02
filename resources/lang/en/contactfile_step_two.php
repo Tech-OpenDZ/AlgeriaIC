@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'breadcrumb_home' => 'Home',
+    'business_directory' => 'Business Directory',
+    'contact_file_detail' => 'Contact file detail',
+    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis',
+    'description2' => 'I confirm my order',
+    'description3' => 'I access my account or create one to be able to identify myself at any time. I pay securely for my file purchase by bank card',
+    'details' => 'Details',
+    'search_criteria' => 'Searched Critiria',
+    'Keywords' => 'Keywords',
+    'date_of_creation' => 'Date of creation',
+    'turnover' => 'Turnover',
+    'capital' => 'Capital',
+    'number_of_employees' => 'Number of employees',
+    'sectors' => 'Sectors',
+    'found' => 'Found',
+    'companies' => 'Companies',
+    'emails' => 'Emails',
+    'phone_numbers' => 'Phone numbers',
+    'financial_information' => 'Financial informations',
+    'list_of_product' => 'list of products',
+    'job_titles' => 'job titles',
+    'confirm_order' => 'Confirm Order',
+    'Area' => 'Area',
+];

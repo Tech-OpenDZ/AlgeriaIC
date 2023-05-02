@@ -1,0 +1,22 @@
+@extends('admin.layouts.master')
+
+@section('content')
+<!--begin::Card-->
+<div class="card card-custom gutter-b" style="width: 100%;margin: 0 auto;">
+    <div class="card-header">
+        <div class="card-title" style="width: 100%;">
+            <h3 class="card-label pull-left"  style="width: 100%;">Edit Admin Permission</h3>
+            <div class="pull-right">
+                <a class="btn btn-primary" href="{{ route('manage-admin-permission.index') }}">Back</a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+    {!! Form::model($adminPermission, ['method' => 'PATCH','route' => ['manage-admin-permission.update', $adminPermission->id]]) !!}
+        @include('admin.permission.form')
+    {!! Form::close() !!}
+    </div>
+</div>
+<!--end::Card-->
+@endsection
+

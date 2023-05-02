@@ -1,0 +1,781 @@
+html {
+    &[dir="rtl"] {
+        .business-titles {
+            text-align: right;
+        }
+        .print-area {
+            &__elements {
+                text-align: right;
+            }
+        }
+        #doPrint {
+            margin-left: 0;
+            margin-right: 10px;
+        }
+        .table-carousel {
+            .print-area {
+                &__right {
+                    .circle-star {
+                        margin-left: 0 !important;
+                    }
+                }
+            }
+        }
+        .search-header-text {
+            &::before {
+                right: 60px;
+            }
+        }
+        .business-search-form-table {
+            text-align: right;
+            .date-pik {
+                .select-button {
+                    text-align: right;
+                    display: flex;
+                    flex-direction: row-reverse;
+                }
+            }
+        }
+
+        // .col-lg-9 {
+        //     text-align: right;
+        // }
+        .business-opportunities {
+            .discover-algeria {
+                &__left {
+                    text-align: right;
+                    .table-carousel {
+                        .next-prev-controls {
+                            .register {
+                                padding: 10px 10px 10px 50px;
+                                @include mx-767 {
+                                    font-size: 0.75rem;
+                                    padding: 10px 10px 10px 30px;
+                                }
+
+                                @include mx-430 {
+                                    padding: 10px 10px 10px 20px;
+                                    font-size: 0.65rem;
+                                }
+                                @include mx-400 {
+                                    // padding: 5px 42px;
+                                }
+                                .next-area {
+                                    &::before {
+                                        left: 15px;
+                                        right: auto;
+                                        transform: rotate(130deg);
+                                        // @include mx-1200{
+                                        // left: 15%;
+                                        // }
+                                    }
+                                }
+                            }
+                            .login-in {
+                                padding: 10px 30px 10px 10px;
+                                @include mx-767 {
+                                    font-size: 0.75rem;
+                                    padding: 10px 30px 10px 10px;
+                                }
+
+                                @include mx-430 {
+                                    padding: 10px 20px 10px 10px;
+                                    font-size: 0.65rem;
+                                }
+                                .previous-area::before {
+                                    right: 15px;
+                                    left: auto;
+                                    transform: rotate(-45deg);
+                                }
+                            }
+                        }
+                        .print-area-posts {
+                            .owl-carousel,
+                            .bx-wrapper {
+                                direction: ltr;
+                            }
+                            .owl-carousel .owl-item {
+                                direction: rtl;
+                            }
+                        }
+                        .print-area{
+                            &__right{
+                                .register{
+                                    padding: 5px 10px 10px 50px;
+                                    .print-icon{
+                                        &:after{
+                                            left: 5%;
+                                            right: inherit;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .news-inside-post {
+                .next-prev-controls-slide {
+                    .register {
+                        padding: 10px 10px 10px 50px;
+                        @include mx-767 {
+                            font-size: 0.75rem;
+                            padding: 10px 10px 10px 30px;
+                        }
+
+                        @include mx-430 {
+                            padding: 10px 10px 10px 20px;
+                            font-size: 0.65rem;
+                        }
+                        @include mx-400 {
+                            // padding: 5px 42px;
+                        }
+                        .next-slide {
+                            &::before {
+                                left: 15px;
+                                right: auto;
+                                transform: rotate(130deg);
+                                // @include mx-1200{
+                                // left: 15%;
+                                // }
+                            }
+                        }
+                    }
+                    .login-in {
+                        padding: 10px 30px 10px 10px;
+                        @include mx-767 {
+                            font-size: 0.75rem;
+                            padding: 10px 30px 10px 10px;
+                        }
+
+                        @include mx-430 {
+                            padding: 10px 20px 10px 10px;
+                            font-size: 0.65rem;
+                        }
+                        .previous-slide::before {
+                            right: 15px;
+                            left: auto;
+                            transform: rotate(-45deg);
+                        }
+                    }
+                    // register ends here
+                }
+            }
+        }
+        .preview-file-choose {
+            right: -120px;
+            left: auto;
+        }
+        .search-header {
+            &__elements {
+                .upload-wrapper {
+                    .upload-img-wrapper { 
+                        right: -100px;
+                        left: inherit;
+                        @include mx-991 {
+                            width: 70px;
+                            height: 80px;
+                            right: -70px;
+                        }
+                        // @include mx-400 {
+                        //     width: 60px;
+                        //     height: 60px;
+                        //     right: -60px;
+                        // }
+                        // @include mx-767 {
+                        //     width: 70px;
+                        //     height: 70px;
+                        //     right: -70px;
+                        // }
+                        // @include mx-576 {
+                        //     right: -70px;
+                        // }
+
+                        // img {
+                        //     height: 80px;
+                        //     @include mx-991 {
+                        //         height: 70px;
+                        //     }
+                        // }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// html rtl ends here
+
+.business-opportunities {
+    .discover-algeria {
+        &__left {
+            .table-carousel {
+                position: relative;
+                .business-titles {
+                    .business-content {
+                        color: $accordian-text;
+                        font-weight: 600;
+                    }
+                }
+                .next-prev-controls {
+                    position: relative;
+                    display: flex;
+                    justify-content: space-between;
+
+                    .login-in {
+                        @include to-login;
+                        padding: 10px 10px 10px 30px;
+                        @include mx-767 {
+                            font-size: 0.75rem;
+                            padding: 10px 10px 10px 30px;
+                        }
+
+                        @include mx-430 {
+                            padding: 10px 10px 10px 20px;
+                            font-size: 0.65rem;
+                        }
+                        &:hover {
+                            background-color: $secondary-color;
+                            color: $white;
+                        }
+
+                        .previous-area::before {
+                            @include previous-before;
+                        }
+                    }
+                    .register {
+                        @include register;
+                        padding: 10px 50px 10px 10px;
+                        @include mx-767 {
+                            font-size: 0.75rem;
+                            padding: 10px 30px 10px 10px;
+                        }
+
+                        @include mx-430 {
+                            padding: 10px 20px 10px 10px;
+                            font-size: 0.65rem;
+                        }
+                        @include mx-400 {
+                            // padding: 5px 42px;
+                        }
+                        &:hover {
+                            background-color: transparent;
+                            color: $secondary-color;
+                        }
+                        .next-area::before {
+                            @include next-before;
+                        }
+                    }
+                }
+                .business-table {
+                    table {
+                        border-radius: 4px;
+                        box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04);
+                        th {
+                            border-bottom: 0;
+                            border-top: 0;
+                        }
+                        background-color: $white;
+                        .table-headings {
+                            border-bottom: 0;
+                            .date-heading {
+                                width: 20%;
+                                font-size: 0.875rem;
+                                color: $grey;
+                                font-weight: 500;
+                                @include mx-400 {
+                                    width: 30%;
+                                }
+                            }
+                            .reference-heading {
+                                width: 20%;
+                                font-size: 0.875rem;
+                                color: $grey;
+                                font-weight: 500;
+                                @include mx-400 {
+                                    width: 20%;
+                                }
+                            }
+                            .details-heading {
+                                width: 60%;
+                                font-size: 0.875rem;
+                                color: $grey;
+                                font-weight: 500;
+                                @include mx-400 {
+                                    width: 50%;
+                                }
+                            }
+                        }
+                        .table-elements {
+                            font-size: 0.75rem;
+                            color: $table-fonts;
+                            font-weight: 500;
+                            .dates {
+                                @include mx-576 {
+                                    font-size: 0.5rem;
+                                }
+                            }
+                            tr {
+                                border-top: 1px solid $nav-border-top;
+                            }
+                        }
+                        tbody tr:nth-child(even) {
+                            background: #f9fafd;
+                        }
+                    }
+                    .search-header {
+                        &__elements {
+                            .upload-wrapper {
+                                display: flex;
+                                align-items: flex-start;
+                                // overflow: auto;
+                                .upload-img-wrapper {
+                                    width: 100px;
+                                    height: 100px;
+                                    position: absolute;
+                                    left: -100px;
+                                    overflow: hidden;
+                                    top: -13px;
+                                    @include mx-991 {
+                                        width: 80px;
+                                        height: 80px;
+                                        left: -75px;
+                                        top: 0;
+                                    }
+                                    @include mx-400 {
+                                        width: 60px;
+                                        height: 60px;
+                                        left: -60px;
+                                        top: 0;
+                                    }
+                                    // @include mx-576 {
+                                    //     left: 3%;
+                                    //     bottom: 90%;
+                                    //     top: auto;
+                                    // }
+                                    // @include mx-430 {
+                                    //     left: 4%;
+                                    // }
+
+                                    // img {
+                                    //     height: 90px;
+                                    //     @include mx-991 {
+                                    //         height: auto;
+                                    //     }
+                                    // }
+                                }
+                            }
+                        }
+                    }
+                }
+                .business-table-slide-two {
+                    .label-text {
+                        font-size: 0.875rem;
+                        color: $grey;
+                    }
+                    .form-control {
+                        background-color: transparent;
+                        border: 1px solid $grey;
+                    }
+
+                    .choose-file-button {
+                        background-color: rgba(139, 161, 178, 0.3);
+                        color: $breadcrumb-color;
+                        padding: 5px;
+                        font-size: 0.875rem;
+                        border-radius: 4px;
+                        @include mx-400{
+                            font-size: 12px;
+                        }
+                    }
+                    .upload-text {
+                        font-size: 0.875rem;
+                        @include mx-400{
+                            font-size: 12px;
+                        }
+                    }
+                    .upload-text-content {
+                        color: $grey;
+                        font-size: 0.75rem;
+                    }
+                    .upload-circle-outer {
+                        display: flex;
+                        justify-content: center;
+                        @include mx-576 {
+                            justify-content: left;
+                            margin-bottom: 10px;
+                        }
+                        .upload-circle {
+                            height: 68px;
+                            width: 68px;
+                            border-radius: 50%;
+                            border: 2px solid #b1b1b1;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            @include mx-991 {
+                                border-radius: inherit;
+                            }
+                            input {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    .register {
+                        @include register;
+                        position: relative;
+                        padding: 10px 20px 10px 20px;
+
+                        @include mx-400 {
+                            padding: 5px 42px;
+                        }
+                        &:hover {
+                            background-color: transparent;
+                            border: 1px solid $secondary-color;
+                            color: $secondary-color;
+                        }
+                    }
+                    .sector {
+                        color: $table-fonts;
+                        font-size: 0.875rem;
+                        font-weight: 500;
+                    }
+
+                    .business-search-form-table {
+                        .search-header {
+                            background-color: $green;
+                            border-radius: 4px;
+                            border-bottom-left-radius: 0;
+                            border-bottom-right-radius: 0;
+                            padding: 25px 20px 25px 60px;
+                            position: relative;
+                            .search-header-text {
+                                position: relative;
+                                font-size: 1rem;
+                                &::before {
+                                    content: "";
+                                    position: absolute;
+                                    background-image: url(../images/search-header.svg);
+                                    height: 24px;
+                                    width: 24px;
+                                    top: 0%;
+                                    left: -40px;
+                                }
+                            }
+                            &__elements {
+                                background-color: $white;
+                                border-bottom-left-radius: 4px;
+                                border-bottom-right-radius: 4px;
+                                padding: 15px 30px 30px 30px;
+                            }
+                        }
+                        .select-button {
+                            background-color: transparent !important;
+                            border: 1px solid #8ba1b2 !important;
+                            min-width: 100%;
+                            font-size: 0.75rem !important;
+                            padding: 10px 0px 10px 15px !important;
+                            -webkit-border-radius: 4px !important;
+                            -moz-border-radius: 4px !important;
+                            border-radius: 4px !important;
+
+                            position: relative;
+                            font-size: 1rem;
+                            color: #8ba1b2;
+                            &:focus {
+                                outline: 0;
+                            }
+                        }
+                    }
+                }
+                // @include social-circle;
+                // border: 1px solid #E40019;
+                .print-area {
+                    background-color: $white;
+                    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04);
+                    border-radius: 4px;
+                    padding: 15px;
+                    .main-heading {
+                        @include mx-1200 {
+                            font-size: 1rem;
+                        }
+                    }
+                    &__right {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        @include mx-576 {
+                            justify-content: flex-start;
+                            margin-top: 10px;
+                            margin-bottom: 20px;
+                        }
+                        .register {
+                            @include register;
+                            position: relative;
+                            padding: 5px 50px 10px 10px;
+                            margin-left: 10px;
+
+                            .print-icon {
+                                color: $white;
+                                @include mx-767 {
+                                    font-size: 0.75rem;
+                                }
+                                &::after {
+                                    content: "";
+                                    position: absolute;
+                                    background-image: url(../images/print.svg);
+                                    height: 24px;
+                                    width: 24px;
+                                    display: block;
+                                    right: 5%;
+                                    top: 23%;
+                                }
+                            }
+                        }
+                        .circle-send {
+                            @include social-circle;
+                            border: 1px solid #e40019;
+                        }
+                        .circle-star {
+                            @include social-circle;
+                            border: 1px solid #ffb400;
+                        }
+                    }
+                }
+                .print-area-posts {
+                    padding: 15px;
+                    margin-top: 20px;
+                    background-color: $white;
+                    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04);
+                    border-radius: 4px;
+                    .sub-heading {
+                        color: $breadcrumb-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// for add more buttons
+.contact-info-headings {
+    background-color: $secondary-color;
+    padding: 20px 10px 20px 10px;
+    @include mx-430{
+        padding: 10px;
+    }
+    color: white;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    .common-button {
+        background-color: transparent;
+        border: 1px solid white;
+        &:hover {
+            color: #ededed;
+            border: 1px solid #ededed;
+        }
+    }
+    .add-more-button {
+        display: flex;
+        justify-content: flex-end;
+        .common-button {
+            @include mx-400 {
+                font-size: 0.625rem;
+            }
+        }
+    }
+}
+
+.contact-info-details {
+    border: 1px solid #eaeaea;
+    padding: 10px 10px 20px 10px;
+    -webkit-border-radius: 4px;
+    background-color: #ffffff;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04);
+    -moz-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04);
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04);
+    ::placeholder {
+        font-size: 0.813rem;
+        color: #c7c9ca;
+    }
+
+    .remove-button {
+        display: flex;
+        justify-content: flex-end;
+        .common-button {
+            background-color: $green;
+            border: 1px solid $green;
+            margin-top: 15px;
+            @include mx-400 {
+                font-size: 0.75rem;
+            }
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+}
+
+.add-pro-section {
+    border: 1px solid #eaeaea;
+    padding: 10px 10px 20px 10px;
+    -webkit-border-radius: 4px;
+    background-color: #ffffff;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04);
+    -moz-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04);
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04);
+    .remove-button {
+        display: flex;
+        justify-content: flex-end;
+        .common-button {
+            background-color: $green;
+            border: 1px solid $green;
+            margin-top: 15px;
+            @include mx-400 {
+                font-size: 0.75rem;
+            }
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+}
+
+.field {
+    input[type="file"] {
+        display: block;
+        font-size: 0.75rem;
+        &:focus {
+            outline: 0;
+        }
+    }
+    .imageThumb {
+        height: 50px;
+        width: 80px;
+        @include mx-991 {
+            width: 71px;
+        }
+        @include mx-576 {
+            height: 40px;
+            width: 60px;
+        }
+        @include mx-430 {
+            height: 35px;
+            width: 40px;
+        }
+        border: 2px solid;
+        padding: 1px;
+        cursor: pointer;
+    }
+    .pip {
+        display: inline-block;
+        margin: 15px 10px 0 0;
+        @include mx-430 {
+            margin: 10px 5px 0 0;
+        }
+    }
+    .remove {
+        display: block;
+        background: $secondary-color;
+        font-size: 0.75rem;
+        @include mx-430 {
+            font-size: 0.625rem;
+        }
+        // border: 1px solid black;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+.add-comp-top-margin {
+    margin-top: 50px;
+}
+
+.news-inside-post {
+    .next-prev-controls-slide {
+        display: flex;
+        justify-content: space-between;
+        .register {
+            background-color: #0f73bb;
+            border: 1px solid #0f73bb;
+            color: #ffffff;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            -webkit-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            padding: 10px 50px 10px 10px;
+            position: relative;
+        }
+    }
+
+    .next-slide::before {
+        content: "";
+        display: block;
+        border: solid #ffffff;
+        border-width: 0 1px 1px 0;
+        display: inline-block;
+        padding: 3px;
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        position: absolute;
+        right: 10%;
+        top: 41%;
+    }
+    .next-prev-controls-slide {
+        .login-in {
+            border: 1px solid #0f73bb;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            color: #0f73bb;
+            -webkit-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            padding: 10px 10px 10px 30px;
+            position: relative;
+
+            .previous-slide::before {
+                content: "";
+                display: block;
+                border: solid #0f73bb;
+                border-width: 0 1px 1px 0;
+                display: inline-block;
+                padding: 3px;
+                -moz-transform: rotate(135deg);
+                -ms-transform: rotate(135deg);
+                -o-transform: rotate(135deg);
+                transform: rotate(135deg);
+                -webkit-transform: rotate(135deg);
+                position: absolute;
+                left: 10%;
+                top: 41%;
+            }
+        }
+    }
+}
+.preview-file-choose {
+    top: -20px;
+    left: -120px;
+    height: 100px;
+    @include mx-576 {
+        top: -15px;
+        height: 70px;
+    }
+}

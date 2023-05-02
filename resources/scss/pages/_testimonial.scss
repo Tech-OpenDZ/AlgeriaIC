@@ -1,0 +1,173 @@
+html {
+    &[dir="rtl"] {
+        .testimonial-area {
+            text-align: right;
+        }
+        .no-left-padding {
+            padding-right: 0px;
+            padding-left: 15px;
+            @include mx-767 {
+                padding: 0;
+            }
+        }
+        .no-right-padding {
+            padding-right: 15px;
+            padding-left: 0px;
+            @include mx-767 {
+                padding: 0;
+            }
+        }
+        .authour-detail {
+            &__right {
+                padding-left: 0;
+                padding-right: 20px;
+            }
+        }
+        #testimonial2 {
+            .modal-content {
+                .modal-header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    .close {
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// html rtl ends here
+
+
+.testimonial-area{
+    .main-heading{
+        color: $breadcrumb-color;
+    }
+    .modal-read-more{
+        font-size: 0.75rem;
+        text-decoration: underline;
+    }
+    @include mx-576{
+        .modal-innner-text{
+            font-size: 0.75rem;
+        }
+    }
+    &__elements{
+        .no-left-padding{
+            padding-left: 0;
+            @include mx-576{
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+        .no-right-padding{
+            padding-right: 0;
+            @include mx-576{
+                padding-right: 0;
+                padding-left: 0;
+            }
+        }
+        .quote-font{
+            i{
+                color: #52AA34;
+            }
+        }
+        .register{
+            @include register;
+            @include mx-767{
+                font-size: 0.75rem;
+            }
+            @include mx-991{
+                width: 27%;
+            }
+            @include mx-576{
+                font-size: 0.625rem;
+                padding: 10px;
+                width: 30%;
+            }
+            @include mx-400{
+                width: 44%;
+            }
+            @include mx-400{
+                font-size: 0.75rem;
+                // padding: 30px 10px;
+                // width: 68%;
+                
+            }
+            width: 20%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 15px;
+            @include mx-400{
+                // padding: 5px 42px;
+            }
+            &:hover{
+            background-color: transparent;
+            color: $secondary-color;
+            // transform: scale(1.2);
+            }
+           
+        }
+        &--box{
+            border: 1px solid $nav-border-top;
+            border-radius: 8px;
+            padding: 25px 15px;
+            position: relative;
+            .testimonial-content{
+                color: $grey;
+                font-size: 0.75rem;
+                @include mx-400{
+                    font-size: 0.6rem;
+                }
+                line-height: 1.8;
+                margin-bottom: 30px;
+                // height: 160px;
+                // @include mx-991{
+                //     height: 200px;
+                // }
+                // @include mx-576{
+                //     height: 100px;
+                // }
+                // @include mx-400{
+                //     height: 120px;
+                // }
+            }
+            .close:focus{
+                outline: none;
+            }
+            .authour-detail{
+                display: flex;
+                align-items: center;
+               
+                &__left{
+                    img{
+                        width: 60px;
+                        height: 60px;
+                        border-radius: 50%;
+                    }
+                }
+                &__right{
+                    padding-left: 20px;
+                    .authour-name{
+                        font-weight: 900;
+                        font-size: 0.875rem;
+                        color: $breadcrumb-color;
+                       
+                    }
+                    p{
+                        color: $breadcrumb-color;
+                    }
+                }
+            }
+        }
+    }
+    
+}

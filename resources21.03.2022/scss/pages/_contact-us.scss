@@ -1,0 +1,112 @@
+html {
+    &[dir="rtl"] {
+        .join-algeria{
+            text-align: right;
+            .sub-heading{
+                margin-right: 0;
+            }
+        }
+        .orange-border{
+            text-align: right;
+        }
+        .green-border{
+            text-align: right;
+        }
+        .add-more-button{
+            .common-button{
+                display: initial !important;
+            }
+        }
+        .search-header{
+            &__elements{
+                .common-button{
+                    display: flex;
+                }
+            }
+            
+        }
+        
+    }
+}
+// html rtl ends here
+
+.contact-us-area{
+   
+    .signup-container {
+        background-color: $white;
+        padding: 20px 15px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+        border-radius: 4px;
+    }
+    .map-area{
+        background-color: $white;
+        padding: 15px 30px 15px 15px;
+       
+        @include mx-767{
+            padding: 15px;
+        }
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+        .map-area__left{
+            iframe{
+                width: 100%;
+                height: 215px;
+            }
+        }
+    }
+    .orange-border{
+        border-bottom: 3px solid $yellow;
+    }
+    .green-border{
+        border-bottom: 3px solid $green;
+    }
+    .sub-heading{
+        margin-top: 15px;
+        
+        @include mx-1200{
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+        @include mx-576{
+            margin-top: 15px;
+        }
+    }
+    .contact-tel{
+        .tel-heading{
+            color: $breadcrumb-color;
+            font-weight: 800;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            @include mx-767{
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+            @include mx-576{
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            @include mx-1200{
+                font-size: 0.75rem;
+            }
+        }
+        .tel-heading-content{
+            font-weight: 500;
+            margin-top: 10px;
+            @include mx-767{
+                margin-top: 5px;
+                
+            }
+            @include mx-576{
+                margin-top: 10px;
+               
+            }
+            // margin-bottom: 10px;
+            @include mx-1200{
+                font-size: 0.75rem;
+            }
+            // @include mx-576{
+            //     font-size: 0.65rem;
+            // }
+        }
+       
+    }
+}

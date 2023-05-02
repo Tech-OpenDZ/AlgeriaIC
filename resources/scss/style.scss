@@ -1,0 +1,122 @@
+@charset 'utf-8';
+
+//Vendor
+@import "vendors/__vendor-dir";
+
+//Helpers
+@import "helpers/__helpers-dir";
+
+//Base Styles
+@import "base/__base-dir";
+
+//Components 
+@import "components/__components-dir";
+
+//Layout   
+@import "layout/__layout-dir";
+
+//Pages 
+@import "pages/__pages-dir";
+
+// @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//     .primary-nav__elements{
+         
+//     }
+//     li{
+//        @include nav-items;
+//     }
+//     li a{
+//         color: $text-color;
+//     }
+   
+//     .menu-left-border::before{
+//         content: "|";
+//         position: absolute;
+//         font-size: 20px;
+//         font-weight: 300;
+//         bottom: -20%;
+//         left: -2%;
+//         color: #265781;
+//     }
+
+// }
+
+
+
+
+// slider and its content
+// .slider-section{
+//     position: relative;
+    
+//     .slider-content{
+//         position: absolute;
+//         bottom: 20%;
+//         left: 14%;
+//     }
+//     .know-more{
+//         @include know-more-button;
+//     }
+//     .know-more:hover{
+//         @include button-hover;
+//     }
+//     a{
+//         color: $text-color;
+//     }
+//     .slider-data{
+//          @include slider-heading-box;
+//          width: 35%;
+//     }
+//     .slider-data h2{
+//         font-size: 57px;
+//         margin-bottom: 0px;
+//         padding: 0px 15px;
+//     }
+//     .slider-data-agri{
+//         @include slider-heading-box;
+//         background-color: $light-green;
+//     }
+//     .slider-data-agri h2{
+//         font-size: 35px;
+//         text-transform: uppercase;
+//         padding: 0px 15px;
+//     }
+// }
+// slider and its content ends
+
+// about area section starts
+// .manage-develop {
+//     margin: 100px 0px;
+//     .manage-content__elements{
+//         text-align: right;
+//     }
+//     .development{
+//         padding: 0px 0px 0px 15px;
+//     }
+//     .manage-logo{
+//         @include center-items;
+//         padding: 0px;
+//         margin-left: -20px;
+//     }
+// }
+
+// about section ends

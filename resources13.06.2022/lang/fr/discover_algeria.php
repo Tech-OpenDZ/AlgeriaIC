@@ -1,0 +1,26 @@
+<?php
+
+    return [
+        'home'=>'Accueil',
+        'content_error' => 'Aucun contenu trouvé',
+        'discover_algeria'=> "Découvrir l'Algérie",
+        'search_engine' => "Moteur de recherche",
+        'keyword'=>'mot-clé',
+        'search' =>'Rechercher dans les pages de cette rubrique',
+        'title' => "Découvrir l'Algérie",
+        'partners' =>"Nos partenaires",
+        'sharing'      => 'Partager',
+        'join_algeria' => 'Rejoignez Algérie Invest Business Network',
+        'join' => 'Rejoindre',
+        'download_resources' => 'Téléchargez les dernières ressources',
+        'download' => 'Télécharger',
+        'business_services' => 'Les services dédiés aux entreprises',
+        'view_services' => 'Nos services',
+        'algeria_invest' => 'Algeria Invest',
+        'link_copied'    => 'Lien copié dans le presse-papier',
+        'link_copied_error' => "Le lien n'a pas pu être copié.",
+        'keyword_not_found'=> "mot-clé introuvable",
+        'browser_error'    => 'Désolé, votre navigateur n\'est pas pris en charge.',
+        'no_content_found' => 'Aucun contenu trouvé',
+        'enter_keyword'    => 'Saisissez un mot-clé',
+    ];

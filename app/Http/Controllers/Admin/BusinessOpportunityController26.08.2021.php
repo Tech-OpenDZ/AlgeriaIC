@@ -1,0 +1,776 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+
+use App\Models\BusinessOpportunity;
+use App\Models\BusinessOpportunityTranslate;
+use App\Models\BusinessOpportunityDocument;
+use App\Models\BusinessOpportunitySector;
+use App\Models\BusinessOpportunityZone;
+use App\Models\Sector;
+use App\Models\Zone;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use LaravelLocalization;
+use DataTables;
+use Auth;
+use Mail;
+use App\Services\Slug;
+use DB;
+
+class BusinessOpportunityController extends Controller
+{
+    protected $slug;
+    public function __construct()
+    {
+        $this->slug = new Slug();
+        $this->middleware('permission:business-opportunity-list');
+        $this->middleware('permission:business-opportunity-create', ['only' => ['create','store']]);
+        $this->middleware('permission:business-opportunity-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:business-opportunity-delete', ['only' => ['destroy']]);
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        if ($request->ajax()) {
+            $business_opportunities = BusinessOpportunity::with('localeAll');
+
+            return DataTables::of($business_opportunities)
+                ->filter(function ($instance) use ($request) {
+
+                    if (!empty($request->get('search'))) {
+
+                        $instance->whereHas('localeAll', function($w) use($request){
+                            $search = $request->get('search');
+                            $w->where('project_title', 'LIKE', "%$search%")
+                            ->orWhere('company_name', 'LIKE', "%$search%")
+                            ->orWhere('contact_person', 'LIKE', "%$search%");
+                        });
+
+                    }
+
+                    if ($request->get('activated') == '1' || $request->get('activated') == '0') {
+                        return $instance->where('activated', $request->get('activated'));
+                    }
+                })
+                ->addColumn('project_title', function($business_opportunities){
+                    foreach($business_opportunities->localeAll as $business_opportunity) {
+                        if ($business_opportunity->locale == 'en') {
+                            return $project_title = $business_opportunity->project_title;
+                        }
+                        if ($business_opportunity->locale == 'ar') {
+                            return $project_title = $business_opportunity->project_title;
+                        }
+                        if ($business_opportunity->locale == 'fr') {
+                            return $project_title = $business_opportunity->project_title;
+                        }
+
+                    }
+                    //return $project_title;
+                })
+                ->addColumn('company_name', function($business_opportunities){
+                    foreach($business_opportunities->localeAll as $business_opportunity) {
+                        if ($business_opportunity->locale == "en") {
+                            return $company_name = $business_opportunity->company_name;
+                        }
+                        if ($business_opportunity->locale == "ar") {
+                            return $company_name = $business_opportunity->company_name;
+                        }
+                        if ($business_opportunity->locale == "fr") {
+                            return $company_name = $business_opportunity->company_name;
+                        }
+                    }
+                })
+                ->addColumn('contact_person', function($business_opportunities){
+                    foreach($business_opportunities->localeAll as $business_opportunity) {
+                        if ($business_opportunity->locale == "en") {
+                            return $contact_person = $business_opportunity->contact_person;
+                        }
+                        if ($business_opportunity->locale == "ar") {
+                            return $contact_person = $business_opportunity->contact_person;
+                        }
+                        if ($business_opportunity->locale == "fr") {
+                            return $contact_person = $business_opportunity->contact_person;
+                        }
+                    }
+                })
+                ->editColumn('activated', function($business_opportunities){
+                    if($business_opportunities->activated == 1){
+                        $activated = '<span class="label label-lg font-weight-bold label-light-primary label-inline">Yes</span>';
+                        return $activated;
+                    }else{
+                        $activated = '<span class="label label-inline label-light-danger font-weight-bold">No</span>';
+                        return $activated;
+                    }
+                })
+                ->editColumn('created_at', function ($business_opportunities) {
+                    return [
+                       'display' => e($business_opportunities->created_at->format('m/d/Y')),
+                       'timestamp' => $business_opportunities->created_at->timestamp
+                    ];
+                 })
+                ->addColumn('action', function($row){
+
+                    if (\Auth::user()->can('business-opportunity-edit')) { 
+                        $btnEdit = '<a href="' . route('manage-business-opportunity.edit', [$row->id]) . '" title="edit"><i class="fas fa-edit" aria-hidden="true" style="color: #3699FF;"></i></a>&nbsp;';
+                    } else {
+                        $btnEdit = '';
+                    }
+                    if (\Auth::user()->can('business-opportunity-delete')) { 
+                        $btnDelete = '<a class="delete_subscription_btn" rel="tooltip" title="Delete" href="javascript:;" data-href="' . route('manage-business-opportunity.destroy', [$row->id]) . '"  title="Delete"  data-id="'.$row->id.'"><i class="far fa-trash-alt" style="color: #F64E60;"></i></a>';
+                    } else {
+                        $btnDelete = '';
+                    }
+                    return $btnEdit.$btnDelete;
+                })
+                ->rawColumns(['action','activated'])
+                ->make(true);
+        }
+
+        return view('admin.businessopportunity.index');
+
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        try {
+            // Sectors
+            $selected_sectors = [];
+            $keys = array('name', 'id');
+            $sectors = Sector::all();
+            $sector_arr = new \stdClass();
+            foreach ($sectors as $sector) {
+                foreach ($sector->localeAll as $translate) {
+                    if ($translate->locale === 'en') {
+                        $sector_arr->{$translate->sector_id} = $translate->name;
+                    }
+                }
+            }
+
+            $defaultDisplayOrder = BusinessOpportunity::max('id');
+            $defaultDisplayOrder++;
+            //Zones
+            $selected_zones = [];
+            $keys = array('name', 'id');
+            $zones = Zone::all();
+            $zone_arr = new \stdClass();
+            foreach ($zones as $zone) {
+                foreach ($zone->localeAll as $translate) {
+                    if ($translate->locale === 'en') {
+                        $zone_arr->{$translate->zone_id} = $translate->name;
+                    }
+                }
+            }
+
+            return view('admin.businessopportunity.create', compact('sector_arr', 'selected_sectors', 'selected_zones', 'zone_arr', 'defaultDisplayOrder'));
+        } catch (\Throwable $th) {
+            return redirect()->route('manage-business-opportunity.index')->with('error', 'Something went wrong!');
+        }
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+
+        $validatedData = $request->validate(
+            [
+                'project_title_in_english'     => 'required',
+                'project_title_in_arabic'      => 'required',
+                'project_title_in_french'      => 'required',
+                'company_name_in_english'      => 'required',
+                'company_name_in_arabic'       => 'required',
+                'company_name_in_french'       => 'required',
+                'project_description_in_english'     => 'required',
+                'project_description_in_arabic'      => 'required',
+                'project_description_in_french'      => 'required',
+                'company_email'      => 'nullable|email',
+                'display_order'      => 'required',
+                'sectors'            => 'required|array|min:1',
+                'zones'              => 'required|array|min:1',
+                'activated'      => 'required',
+                'logo'           => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1024',
+                'image'          => 'nullable|image|mimes:jpeg,png,jpg,gif|max:1024',
+                'company_presentation_file'   => 'nullable|file|mimes:ppt,pptx,doc,docx,pdf,xls,xlsx|max:1024',
+                'documents.*'   => 'nullable|file|mimes:ppt,pptx,doc,docx,pdf,xls,xlsx|max:1024',
+                'documents.0'   => 'nullable|file|mimes:ppt,pptx,doc,docx,pdf,xls,xlsx|max:1024',
+            ],
+            [
+                'documents.*.mimes' => 'Only ppt,pptx,doc,docx,pdf,xls,xlsx files are allowed',
+                'documents.*.max' => 'Sorry! Maximum 1 MB file are allowed to upload',
+                'documents.0.required' => 'The Documents field is required.',
+                'image.image' => 'Only jpeg,png,jpg,gif files are allowed',
+                'company_presentation_file.max' => 'Sorry! Maximum 1 MB file are allowed to upload',
+            ]
+        );
+
+
+        $business_opportunity = new BusinessOpportunity();
+        if ($request->hasFile('image')) {
+            $Image = $request->file('image');
+            $ImageSaveAsName = time() . "_image." . $Image->getClientOriginalExtension();
+            $business_opportunity->image = $ImageSaveAsName;
+        }
+        if ($request->hasFile('logo')) {
+            $logoImage = $request->file('logo');
+            $logoImageSaveAsName = time() . "_logo." . $logoImage->getClientOriginalExtension();
+            $business_opportunity->logo = $logoImageSaveAsName;
+        }
+        if ($request->hasFile('company_presentation_file')) {
+            $company_presentation_file = $request->file('company_presentation_file');
+            $fileSaveAsName = time() . "_presentation_file." . $company_presentation_file->getClientOriginalExtension();
+            $business_opportunity->company_presentation_file = $fileSaveAsName;
+        }
+        $business_opportunity->created_by = Auth::user()->id;
+        $business_opportunity->updated_by = Auth::user()->id;
+        $business_opportunity->reference_no_of_opportunity = date("Y") . rand(1000, 9999);
+        $business_opportunity->company_email = isset($request->company_email)?$request->company_email:'';
+        $business_opportunity->company_contact = isset($request->company_contact)?$request->company_contact:'';
+        $business_opportunity->display_order = $request->display_order;
+        $business_opportunity->activated = isset($request->activated) ? 1 : 0;
+        $business_opportunity->is_featured = isset($request->is_featured) ? 1 : 0;
+        $business_opportunity->page_key         = $this->slug->createSlug('business_opportunity', $request->project_title_in_english);
+
+        $result = $business_opportunity->save();
+
+        BusinessOpportunity::where('display_order','>=',$request->display_order)
+                            ->where('id','!=',$business_opportunity->id)
+                            ->update(['display_order' => DB::raw('display_order + 1')]);
+
+
+
+        if ($result) {
+            // insert data in trasnlate table
+
+            $bo_data = [
+                [
+                    'project_title'    => $request->project_title_in_english,
+                    'company_name'   => $request->company_name_in_english,
+                    'company_email'   => $request->comapany_name_in_english,
+                    'company_contact'   => $request->company_contact_in_english,
+                    'project_description'    => $request->project_description_in_english,
+                    'contact_person'    => isset($request->contact_person_in_english)?$request->contact_person_in_english:'',
+                    'company_presentation_text'    => isset($request->company_presentation_text_in_english)?$request->company_presentation_text_in_english:'',
+                    'business_opportunity_id'    => $business_opportunity->id,
+                    'locale'      => "en"
+                ],
+                [
+                    'project_title'    => $request->project_title_in_arabic,
+                    'company_name'   => $request->company_name_in_arabic,
+                    'company_email'   => $request->company_email_in_arabic,
+                    'company_contact'   => $request->company_contact_in_arabic,
+                    'project_description'    => $request->project_description_in_arabic,
+                    'contact_person'    => isset($request->contact_person_in_arabic)?$request->contact_person_in_arabic:'',
+                    'company_presentation_text'    => isset($request->company_presentation_text_in_arabic)?$request->company_presentation_text_in_arabic:'',
+                    'business_opportunity_id'    => $business_opportunity->id,
+                    'locale'      => "ar"
+                ],
+                [
+                    'project_title'    => $request->project_title_in_french,
+                    'company_name'   => $request->company_name_in_french,
+                    'company_email'   => $request->company_email_in_french,
+                    'company_contact'   => $request->company_contact_in_french,
+                    'project_description'    => $request->project_description_in_french,
+                    'contact_person'    => isset($request->contact_person_in_french)?$request->contact_person_in_french:'',
+                    'company_presentation_text'    => isset($request->company_presentation_text_in_french)?$request->contact_person_in_french:'',
+                    'business_opportunity_id'    => $business_opportunity->id,
+                    'locale'      => "fr"
+                ],
+            ];
+
+            foreach ($bo_data as $key => $value) {
+                $business_opportunity_tanslation = new BusinessOpportunityTranslate();
+                $business_opportunity_tanslation->project_title = $value['project_title'];
+                $business_opportunity_tanslation->company_name = $value['company_name'];
+                $business_opportunity_tanslation->company_name = $value['company_email'];
+                $business_opportunity_tanslation->company_name = $value['company_contact'];
+                $business_opportunity_tanslation->project_description = $value['project_description'];
+                $business_opportunity_tanslation->contact_person = $value['contact_person'];
+                $business_opportunity_tanslation->company_presentation_text = $value['company_presentation_text'];
+                $business_opportunity_tanslation->business_opportunity_id = $business_opportunity->id;
+                $business_opportunity_tanslation->locale = $value['locale'];
+                $business_opportunity_tanslation->save();
+            }
+
+            // insert data in documents table
+            if ($request->hasFile('documents')) {
+                foreach ($request->documents as $document) {
+                    $bo_documents = new BusinessOpportunityDocument();
+                    if ($request->hasFile('documents')) {
+                        $temp = $document;
+                        $boDocumentSaveAsName = rand() . "_document." . $document->getClientOriginalExtension();
+                        $upload_path = storage_path('app/public/uploads/business_opportunity/' . $business_opportunity->id . '/documents/');
+                        $success = $temp->move($upload_path, $boDocumentSaveAsName);
+                        $bo_documents->document     = $boDocumentSaveAsName;
+                    }
+                    $bo_documents->business_opportunity_id  = $business_opportunity->id;
+                    $bo_documents->save();
+                }
+            }
+
+            //Finally move LOGO,Image,Presentation file in respective folders.
+            // can check db field for the same.
+            if (isset($business_opportunity->logo)) {
+                /* $logoImage = $request->file('logo');
+                $logoImageSaveAsName = time() . "_logo." . $logoImage->getClientOriginalExtension(); */
+                $upload_path = storage_path('app/public/uploads/business_opportunity/' . $business_opportunity->id . '/logo/');
+                $success = $logoImage->move($upload_path, $logoImageSaveAsName);
+            }
+            if (isset($business_opportunity->image)) {
+               /*  $Image = $request->file('image');
+                $ImageSaveAsName = time() . "_image." . $Image->getClientOriginalExtension(); */
+                $upload_path = storage_path('app/public/uploads/business_opportunity/' . $business_opportunity->id . '/image/');
+                $success = $Image->move($upload_path, $ImageSaveAsName);
+            }
+            if (isset($business_opportunity->company_presentation_file)) {
+                /* $company_presentation_file = $request->file('company_presentation_file');
+                $fileSaveAsName = time() . "_presentation_file." . $company_presentation_file->getClientOriginalExtension(); */
+                $upload_path = storage_path('app/public/uploads/business_opportunity/' . $business_opportunity->id . '/presentation/');
+                $success = $company_presentation_file->move($upload_path, $fileSaveAsName);
+            }
+
+            //Update Sectors
+            $business_opportunity->sectors()->sync($request->sectors);
+
+
+            //Update Zones
+            $business_opportunity->zones()->sync($request->zones);
+
+            // send email if activated
+            if (isset($request->activated)) {
+
+                if ($business_opportunity->is_mailed == 0) {
+                    $data = [
+                        'email'   => $business_opportunity->createdBy->email
+                    ];
+                    Mail::send(
+                        'admin.businessopportunity.email',
+                        array('email' => $business_opportunity->createdBy->email, 'user_message' => "Business Opportunity added successfully."),
+                        function ($message) use ($data) {
+                            $message->from(Auth::user()->email);
+                            $message->to($data['email'])->subject('Business Opportunity is Activated.');
+                        }
+                    );
+
+                    $business_opportunity->is_mailed = 1;
+                    $result = $business_opportunity->update();
+                }
+            }
+        }
+
+        if ($result) {
+            if (isset($request->activated)) {
+                return redirect('admin/manage-business-opportunity')->with('success', 'Business Opportunity Created & Activated Successfully.');
+            }
+            return redirect('admin/manage-business-opportunity')->with('success', 'Business Opportunity Created Successfully.');
+        } else {
+            return redirect('admin/manage-business-opportunity')->with('error', 'Something went wrong!');
+        }
+
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\BusinessOpportunity  $businessOpportunity
+     * @return \Illuminate\Http\Response
+     */
+    public function show(BusinessOpportunity $businessOpportunity)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\BusinessOpportunity  $businessOpportunity
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+
+        try {
+            $business_opportunity = BusinessOpportunity::with('localeAll')->findOrFail($id);
+            // Setting the translated fields to edit
+            foreach ($business_opportunity->localeAll as $translate) {
+                switch ($translate->locale) {
+                    case 'en':
+                        $business_opportunity->project_title_in_english  = $translate->project_title ;
+                        $business_opportunity->company_name_in_english = $translate->company_name;
+                        $business_opportunity->company_email_in_english = $translate->company_email;
+                        $business_opportunity->company_contact_in_english = $translate->company_contact;
+                        $business_opportunity->company_presentation_text_in_english = $translate->company_presentation_text;
+                        $business_opportunity->project_description_in_english = $translate->project_description;
+                        $business_opportunity->contact_person_in_english = $translate->contact_person;
+                        break;
+                    case 'ar':
+                        $business_opportunity->project_title_in_arabic  = $translate->project_title ;
+                        $business_opportunity->company_name_in_arabic = $translate->company_name;
+                        $business_opportunity->company_email_in_arabic = $translate->company_email;
+                        $business_opportunity->company_contact_in_arabic = $translate->company_contact;
+                        $business_opportunity->company_presentation_text_in_arabic  = $translate->company_presentation_text;
+                        $business_opportunity->project_description_in_arabic = $translate->project_description;
+                        $business_opportunity->contact_person_in_arabic = $translate->contact_person;
+                        break;
+                    case 'fr':
+                        $business_opportunity->project_title_in_french  = $translate->project_title ;
+                        $business_opportunity->company_name_in_french  = $translate->company_name;
+                        $business_opportunity->company_email_in_french  = $translate->company_email;
+                        $business_opportunity->company_contact_in_french  = $translate->company_contact;
+                        $business_opportunity->company_presentation_text_in_french = $translate->company_presentation_text;
+                        $business_opportunity->project_description_in_french = $translate->project_description;
+                        $business_opportunity->contact_person_in_french = $translate->contact_person;
+                        break;
+                }
+            }
+
+            $defaultDisplayOrder = $id;
+            // Sectors
+            $selected_sectors = [];
+            foreach ($business_opportunity->businessOpportunitySector as $sector) {
+                $selected_sectors[]= (string)$sector->sector_id;
+            }
+            $keys = array('name','id');
+            $sectors = Sector::all();
+            $sector_arr = new \stdClass();
+            foreach ($sectors as $sector) {
+                foreach ($sector->localeAll as $translate) {
+                    if ($translate->locale === 'en') {
+                        $sector_arr->{$translate->sector_id} = $translate->name;
+                    }
+                }
+            }
+
+            //Zones
+            $selected_zones = [];
+            foreach ($business_opportunity->businessOpportunityZone as $zone) {
+                $selected_zones[] = (string)$zone->zone_id;
+            }
+            $keys = array('name', 'id');
+            $zones = Zone::all();
+            $zone_arr = new \stdClass();
+            foreach ($zones as $zone) {
+                foreach ($zone->localeAll as $translate) {
+                    if ($translate->locale === 'en') {
+                        $zone_arr->{$translate->zone_id} = $translate->name;
+                    }
+                }
+            }
+
+            return view('admin.businessopportunity.edit', compact('business_opportunity','sector_arr', 'selected_sectors', 'selected_zones', 'zone_arr', 'defaultDisplayOrder'));
+
+
+        } catch(\Throwable $th) {
+            return redirect()->route('manage-business-opportunity.edit')->with('error', 'Something went wrong!');
+        }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\BusinessOpportunity  $businessOpportunity
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate(
+            [
+                'project_title_in_english'     => 'required',
+                'project_title_in_arabic'      => 'required',
+                'project_title_in_french'      => 'required',
+                'company_name_in_english'    => 'required',
+                'company_name_in_arabic'     => 'required',
+                'company_name_in_french'     => 'required',
+                'company_email_in_english'    => 'required',
+                'company_email_in_arabic'     => 'required',
+                'company_email_in_french'     => 'required',
+                'company_contact_in_english'    => 'required',
+                'company_contact_in_arabic'     => 'required',
+                'company_contact_in_french'     => 'required',
+                'project_description_in_english'     => 'required',
+                'project_description_in_arabic'      => 'required',
+                'project_description_in_french'      => 'required',
+                'contact_person_in_english'      => 'required',
+                'contact_person_in_arabic'      => 'required',
+                'contact_person_in_french'      => 'required',
+                'company_presentation_text_in_english'      => 'required',
+                'company_presentation_text_in_arabic'      => 'required',
+                'company_presentation_text_in_french'      => 'required',
+                'company_email'      => 'email|required',
+                'company_contact'      => 'required',
+                'display_order'      => 'required',
+                'sectors'                   => 'required|array|min:1',
+                'zones'                   => 'required|array|min:1',
+                'logo'      => 'image|mimes:jpeg,png,jpg,gif|max:1024',
+                'image'      => 'image|mimes:jpeg,png,jpg,gif|max:1024',
+                'company_presentation_file'   => 'file|mimes:ppt,pptx,doc,docx,pdf,xls,xlsx|max:1024',
+                'documents.*'   => 'file|mimes:ppt,pptx,doc,docx,pdf,xls,xlsx|max:1024|array',
+                'documents.0'   => 'file|mimes:ppt,pptx,doc,docx,pdf,xls,xlsx|max:1024|array',
+            ],
+            [
+                'documents.*.mimes' => 'Only ppt,pptx,doc,docx,pdf,xls,xlsx files are allowed',
+                'documents.*.max' => 'Sorry! Maximum 1 MB file are allowed to upload',
+                'image.image' => 'Only jpeg,png,jpg,gif files are allowed',
+                'company_presentation_file.max' => 'Sorry! Maximum 1 MB file are allowed to upload',
+            ]
+        );
+
+
+
+        $business_opportunity = BusinessOpportunity::with('createdBy')->findOrFail($id);
+        if ($request->hasFile('logo')) {
+            $logoImage = $request->file('logo');
+            $logoImageSaveAsName = time() . "_logo." . $logoImage->getClientOriginalExtension();
+            $upload_path = storage_path('app/public/uploads/business_opportunity/'.$id.'/logo/');
+            $logo_image_url = $logoImageSaveAsName;
+            if ($business_opportunity->logo) { 
+                try { 
+                    unlink($upload_path . $business_opportunity->logo);
+                } catch (\Throwable $th) {
+
+                }
+            }
+            $success = $logoImage->move($upload_path, $logoImageSaveAsName);
+            $business_opportunity->logo = $logoImageSaveAsName;
+        }
+        if ($request->hasFile('image')) {
+            $Image = $request->file('image');
+            $ImageSaveAsName = time() . "_image." . $Image->getClientOriginalExtension();
+            $upload_path = storage_path('app/public/uploads/business_opportunity/' . $id . '/image/');
+            $image_url = $ImageSaveAsName;
+            if ($business_opportunity->image) {
+                try {
+                    unlink($upload_path . $business_opportunity->image); 
+                } catch (\Throwable $th) {
+
+                }
+            }
+            $success = $Image->move($upload_path, $ImageSaveAsName);
+            $business_opportunity->image = $ImageSaveAsName;
+        }
+        if ($request->hasFile('company_presentation_file')) {
+            $company_presentation_file = $request->file('company_presentation_file');
+            $fileSaveAsName = time() . "_presentation_file." . $company_presentation_file->getClientOriginalExtension();
+            $upload_path = storage_path('app/public/uploads/business_opportunity/' . $id . '/presentation/');
+            $image_url = $fileSaveAsName;
+            if ($business_opportunity->company_presentation_file) {
+                try { 
+                    unlink($upload_path . $business_opportunity->company_presentation_file);
+                } catch (\Throwable $th) {
+
+                }
+            }
+            $success = $company_presentation_file->move($upload_path, $fileSaveAsName);
+            $business_opportunity->company_presentation_file = $fileSaveAsName;
+        }
+        $business_opportunity->created_by = Auth::user()->id;
+        $business_opportunity->updated_by = Auth::user()->id;
+        $business_opportunity->company_email = $request->company_email;
+        $business_opportunity->company_contact = $request->company_contact;
+        $business_opportunity->display_order = $request->display_order;
+        $business_opportunity->activated = isset($request->activated) ? 1 : 0;
+        $business_opportunity->is_featured = isset($request->is_featured) ? 1 : 0;
+
+        if ($request->englishTitle != $request->project_title_in_english) {
+            $business_opportunity->page_key = $this->slug->createSlug('business_opportunity', $request->project_title_in_english);
+        }
+
+        $result = $business_opportunity->update();
+
+        BusinessOpportunity::where('display_order','>=',$request->display_order)
+                            ->where('id','!=',$business_opportunity->id)
+                            ->update(['display_order' => DB::raw('display_order + 1')]);
+
+
+        $business_opportunity_data_update = [
+            'en' => [
+                'project_title'    => $request->project_title_in_english,
+                'company_name'   => $request->company_name_in_english,
+                'company_contact'   => $request->company_contact_in_english,
+                'company_email'   => $request->company_email_in_english,
+                'project_description'    => $request->project_description_in_english,
+                'contact_person'    => $request->contact_person_in_english,
+                'company_presentation_text'    => $request->company_presentation_text_in_english
+            ],
+            'ar' => [
+                'project_title'    => $request->project_title_in_arabic,
+                'company_name'   => $request->company_name_in_arabic,
+                'company_email'   => $request->company_email_in_arabic,
+                'company_contact'   => $request->company_contact_in_arabic,
+                'project_description'    => $request->project_description_in_arabic,
+                'contact_person'    => $request->contact_person_in_arabic,
+                'company_presentation_text'    => $request->company_presentation_text_in_arabic,
+
+            ],
+            'fr' => [
+                'project_title'    => $request->project_title_in_french,
+                'company_name'   => $request->company_name_in_french,
+                'company_email'   => $request->company_email_in_french,
+                'company_contact'   => $request->company_contact_in_french,
+                'project_description'    => $request->project_description_in_french,
+                'contact_person'    => $request->contact_person_in_french,
+                'company_presentation_text'    => $request->company_presentation_text_in_french,
+
+            ]
+        ];
+
+        foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties) {
+            $form_submitted_data = BusinessOpportunityTranslate::where([['business_opportunity_id', '=', $id],['locale', '=', $localeCode]])->first();
+            if ($form_submitted_data) {
+                BusinessOpportunityTranslate::where(
+                    [
+                        [
+                            'business_opportunity_id', '=', $id
+                        ],
+                        [
+                            'locale', '=', $localeCode
+                        ]
+                    ]
+                )
+                ->update($business_opportunity_data_update[$localeCode]);
+            }else{
+                $business_opportunity_data_update[$localeCode]['business_opportunity_id'] = $id;
+                $business_opportunity_data_update[$localeCode]['locale'] = $localeCode;
+                BusinessOpportunityTranslate::insert($business_opportunity_data_update[$localeCode]);
+            }
+        }
+
+        if ($request->hasFile('documents')) {
+            foreach ($request->documents as $document) {
+                $bo_documents = new BusinessOpportunityDocument();
+                if ($request->hasFile('documents')) {
+                    $temp = $document;
+                    $boDocumentSaveAsName = rand() . "_document." . $document->getClientOriginalExtension();
+                    $upload_path = storage_path('app/public/uploads/business_opportunity/' . $id . '/documents/');
+                    $success = $temp->move($upload_path, $boDocumentSaveAsName);
+                    $bo_documents->document     = $boDocumentSaveAsName;
+                }
+                $bo_documents->business_opportunity_id  = $id;
+                $bo_documents->save();
+            }
+        }
+
+        //Update Sectors
+        $business_opportunity->sectors()->sync($request->sectors);
+
+
+        //Update Zones
+        $business_opportunity->zones()->sync($request->zones);
+
+        // send email if activated
+        if (isset($request->activated)) {
+
+            if ($business_opportunity->is_mailed == 0) {
+                $data = [
+                    'email'   => $business_opportunity->createdBy->email
+                ];
+                Mail::send(
+                    'admin.businessopportunity.email',
+                    array('email' => $business_opportunity->createdBy->email, 'user_message' => "Business Opportunity added successfully."),
+                    function ($message) use ($data) {
+                        $message->from(Auth::user()->email);
+                        $message->to($data['email'])->subject('Business Opportunity is Activated.');
+                    }
+                );
+
+                $business_opportunity->is_mailed = 1;
+                $result = $business_opportunity->update();
+
+            }
+        }
+
+        if ($result) {
+            if (isset($request->activated)) {
+                return redirect('admin/manage-business-opportunity')->with('success', 'Business Opportunity Updated & Activated Successfully.');
+            }
+            return redirect('admin/manage-business-opportunity')->with('success', 'Business Opportunity Updated Successfully.');
+        } else {
+            return redirect('admin/manage-business-opportunity')->with('error', 'Something went wrong!');
+        }
+
+
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\BusinessOpportunity  $businessOpportunity
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Request $request,$id)
+    {
+        try {
+            $bo= BusinessOpportunity::find($id);
+
+            $bo->localeAll()->delete();
+            $bo->delete();
+            $request->session()->flash('success', 'Business opportunity deleted successfully.');
+            return redirect()->route('manage-business-opportunity.index');
+
+        } catch(\Throwable $th) {
+            return redirect()->route('manage-business-opportunity.index')->with('error', 'Something went wrong!');
+        }
+    }
+
+    /**
+     * Remove the specified logo from storage.
+     *
+     * @param  \App\Models\BusinessOpportunity  $businessOpportunity
+     * @return \Illuminate\Http\Response
+     */
+    public function documentDestroy(Request $request)
+    {
+        try {
+
+            if ($request->type == "logo") {
+                $business_opportunity = BusinessOpportunity::findOrFail($request->business_opportunity_id);
+                try { 
+                    unlink('storage/uploads/business_opportunity/' . $boDocument->business_opportunity_id . '/documents/' . $boDocument->document);
+                } catch (\Throwable $th) {
+
+                }
+                $business_opportunity->reference_no_of_opportunity = $request->reference_no_of_opportunity;
+                $result = $business_opportunity->update();
+                $boDocument->delete();
+            }elseif ($request->type == "image") {
+                # code...
+            }elseif ($request->type == "presentation") {
+                # code...
+            }elseif ($request->type == "document") {
+                $boDocument = BusinessOpportunityDocument::find($request->delete);
+                try {
+                    unlink('storage/uploads/business_opportunity/' . $boDocument->business_opportunity_id . '/documents/' . $boDocument->document);
+                } catch (\Throwable $th) {
+
+                }
+                $boDocument->delete();
+            }else{
+                $request->session()->flash('error', 'Something went wrong.');
+                return redirect('admin/manage-business-opportunity/' . $request->business_opportunity_id . '/edit');
+            }
+
+            $request->session()->flash('success', 'Document deleted successfully.');
+            return redirect('admin/manage-business-opportunity/' . $request->business_opportunity_id . '/edit');
+
+
+        } catch(\Throwable $th) {
+            return redirect()->route('manage-business-opportunity.edit')->with('error', 'Something went wrong!');
+        }
+
+    }
+}

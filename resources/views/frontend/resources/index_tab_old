@@ -1,0 +1,180 @@
+@extends('frontend.layouts.master')
+
+@section('head')
+    <meta charset="UTF-8">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    @if($resource != null)
+        @if($resource->parent_id == null)
+            <title>@lang('resource.business_environment') | @lang('home.algeria_invest')</title>
+        @elseif($resource->parent_id != null && $resource->parent_id != 1) 
+            <title>{{ $resource->localeAll[0]->title }} - {{$resource->parent->localeAll[0]->title}}  | @lang('home.algeria_invest') </title>
+        @elseif($resource->parent_id != null) 
+            <title> {{ $resource->localeAll[0]->title }} | @lang('home.algeria_invest')</title>
+        @endif
+    @endif
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js"></script>
+@endsection
+
+@section('content')
+
+<section class="discover-algeria">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-lg-9 col-sm-12">
+                <div class="discover-algeria__left">
+                    <ol class="breadcrumb-area">
+                        <li class="breadcrumb-elements"><a href="#">@lang('resource.home')</a></li>
+                        <li class="active"> @lang('resource.business_environment') - {{$resource->parent->localeAll[0]->title}} - {{ $resource->localeAll[0]->title }}</li>
+                    </ol>
+                    
+                    @include('frontend.common.top_banner')
+                   
+                    <!-- creation of company starts -->
+                    <section class="search-engine">
+                        <h1 class="main-heading mb-4">{{$resource->localeAll[0]->title}}</h1>
+                    
+                       
+                        <div class="search-engine__elements">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="@lang('resource.search')" id="keyword" name="keyword">
+                                <div class="input-group-append">
+                                    <button type="button" onclick="findString()" style="border:none"><span class="input-group-text"><img src="{{asset('css/images/search-engine.svg')}}" alt="search-engine" class="img-fluid"></span></button>
+                                    <!-- <a href="#"><span class="input-group-text"><img src="{{asset('css/images/search-engine.svg')}}" alt="search-engine" class="img-fluid"></a> </span> -->
+                                </div>
+                            </div>
+                        </div> 
+                    </section>  
+                     <!-- creation of company ends -->
+        
+
+                    <section class="company-creation">
+                        <div class="about-algeria">
+                            <div class="about-algeria__elements">
+                                <p class="company-creation-content">{{$resource->localeAll[0]->short_description}}</p>
+                                <!-- tabs structure starts here -->
+                                
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 col-4 tabs-left padding-right">
+                                    <div class="nav left-nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                        @foreach($siblings as $menu)
+                                        @if($menu->page_key == $resource->page_key)
+                                            <a class="nav-link mt-2 active" id="creation-of-company-tab" data-toggle="pill" href="#creation-of-company" role="tab" aria-controls="creation-of-company" aria-selected="true">{{ucwords($menu->localeAll[0]->title)}}</a>
+                                        @else
+                                        <a class="nav-link mt-2" id="" href="{{route('business-environment',$menu->page_key)}}" role="tab" aria-controls="{{ str_replace(' ','_',$menu->localeAll[0]->title) }}" aria-selected="{{ $loop->first ? 'true' : 'false' }}">
+                                            {{ ucwords($menu->localeAll[0]->title) }}
+                                        </a>
+                                        @endif
+                                        @endforeach
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-sm-8 col-8">
+                                        @if($resource->subPages->isEmpty())
+                                            <br>
+                                            <h6>@lang('resource.error')</h6>
+                                        @else
+                                        <div class="tab-content tabs-right mt-2">
+                                            <div class="tab-content" id="v-pills-tabContent">
+                                                <div class="tab-pane fade show active" id="creation-of-company" role="tabpanel" aria-labelledby="creation-of-company-tab">
+                                                    <div class="faq__accordian">
+                                                        <div class="accordion" id="accordionExample">
+                                                            @foreach($resource->subPages as $content)
+                                                            <div class="card">
+                                                                <div class="card-header" id="headingOne">
+                                                                    <a href="#" data-toggle="collapse" data-target="#{{str_replace([' ',','],['_','-'],$content->localeAll[0]->title)}}"><i class="fa fa-plus"><h6 class="mt-3 mb-3 sub-heading">{{$content->localeAll[0]->title}}</h6></i> </a>		
+                                                                </div>
+                                                                <div id="{{str_replace([' ',','],['_','-'],$content->localeAll[0]->title)}}" class="collapse {{$loop->first? 'show':''}}" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                                    <div class="card-body">
+                                                                        <p>{!! $content->localeAll[0]->long_description !!}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>   
+                                                            @endforeach
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>                    
+                </div>
+            </div>
+            <!-- left area ends here -->
+
+            @include('frontend.common.right_sidebar')
+
+          
+        </div>
+        <!-- row ends here -->
+    </div>
+</section>
+
+<!-- image logo carousel -->
+@include('frontend.partner.index')
+
+<!-- image logo carousel ends here -->
+@endsection
+@section('scripts')
+<!-- Normal JS -->
+<script>
+var TRange=null;
+
+function findString () {
+    var str = document.getElementById("keyword").value;
+
+    if (parseInt(navigator.appVersion)<4) return;
+    var strFound;
+    if (window.find) {
+
+    // CODE FOR BROWSERS THAT SUPPORT window.find
+
+        strFound=self.find(str);
+        if (!strFound) {
+            strFound=self.find(str,0,1);
+            while (self.find(str,0,1)) continue;
+        }
+    }
+    else if (navigator.appName.indexOf("Microsoft")!=-1) {
+
+    // EXPLORER-SPECIFIC CODE
+
+        if (TRange!=null) {
+            TRange.collapse(false);
+            strFound=TRange.findText(str);
+            if (strFound) TRange.select();
+        }
+        if (TRange==null || strFound==0) {
+            TRange=self.document.body.createTextRange();
+            strFound=TRange.findText(str);
+            if (strFound) TRange.select();
+        }
+    }
+    else if (navigator.appName=="Opera") {
+        alert ("Opera browsers not supported, sorry...")
+        return;
+    }
+    if (!strFound) alert ("String '"+str+"' not found!")
+    return;
+} 
+</script>
+<!-- <script src="../node_modules/jquery/dist/jquery.slim.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/front-end/browser-class.js"></script>
+<!-- <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script> -->
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="{{ asset('css/vendors/OwlCarousel2-2.3.4/dist/owl.carousel.js') }}"></script>
+<script src="{{ asset('js/front-end/main.js') }}"></script>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js">
+  </script> 
+@endsection

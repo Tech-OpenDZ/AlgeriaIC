@@ -1,0 +1,341 @@
+html {
+    &[dir="rtl"] {
+        .sheet {
+            .common-button {
+                margin-left: 0;
+                padding: 10px 10px 10px 40px;
+                .download-heading {
+                    &::after {
+                        left: 7px;
+                        right: inherit;
+                    }
+                }
+            }
+        }
+        
+        .dashboard-section {
+            .data-sources-area{
+                text-align: right;
+            }
+            .section-with-border{
+               
+                &:after{
+                    left: 0;
+                    right: auto;
+                   
+                }
+                &:last-child{
+                    &:after{
+                        width: 0;
+                    }
+                }
+            }
+            .data-sources{
+                
+                li{
+                   &:after{
+                        
+                        right: auto;
+                        left: 0;
+                      
+                    }
+                 
+                    
+                }
+               
+            }
+            
+            .dashboard-charts {
+                text-align: right;
+                .dashboard-charts-area {
+                    .charts-heading {
+                        @include mx-576 {
+                            text-align: right;
+                        }
+                    }
+                    .circular-chart-area{
+                        .charts-legends-area{
+                            .charts-legends{
+                                li{
+                                    padding-left: 0;
+                                    padding-right: 20px;
+                                }
+                                .positive, .nutral, .negative{
+                                    &::before{
+                                        right: 0;
+                                        left: inherit;
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .bi-reports-inner{
+            .reports-box{
+                &__right{
+                    text-align: left;
+                    @include mx-576{
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// html rtl ends here
+.dashboard-section{
+    background-color: $white;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+    border-radius: 4px;
+    padding: 15px;
+    border-bottom: 4px solid $yellow;
+    .dashboard-up-down{
+        margin-top: 40px;
+        .section-with-border{
+            position: relative;
+            &:after{
+                content: "";
+                position: absolute;
+                right: 0;
+                top: 0;
+                height: 70px;
+                width: 1px;
+                background-color: $grey;
+                @include mx-576{
+                    width: 0;
+                }
+
+            }
+            &:last-child{
+                &:after{
+                    width: 0;
+                }
+            }
+        }
+        .rating-remark-outer{
+            display: flex;
+            .rating-remark{
+                .rating-heading{
+                    font-size: 2rem;
+                    @include mx-1200{
+                        font-size: 1.25rem;
+                    }
+                    @include mx-991{
+                        font-size: 1rem;
+                    }
+                    @include mx-767{
+                        font-size: 1.25rem;
+                    }
+                    font-weight: 700;
+                    color: $grey;
+                    line-height: 0.8;
+                }
+                .rating-caption{
+                    font-size: 0.625rem;
+                }
+            }
+                .rating-remark-arrows{
+                    .arrow-text{
+                        color: $red;
+                        @include mx-991{
+                            font-size: 0.75rem;
+                        }
+                    }
+                    .arrow-color-red{
+                        color: $red;
+                        font-weight: 900;
+                    }
+                    .arrow-color-green{
+                        color: $green;
+                        font-weight: 900;
+                    }
+                }
+            
+        }
+    }
+
+
+    .dashboard-charts{
+        .dashboard-charts-area{
+            .charts-heading{
+                color: $grey;
+                font-weight: 700;
+                font-size: 0.875rem;
+                text-align: center;
+                @include mx-576{
+                    text-align: left;
+                }
+            }
+            .circular-chart-area{
+                
+                // @include mx-430{
+                //     flex-direction: column;
+                // }
+                .charts-legends-area{
+                    .charts-legends{
+                        @include mx-430{
+                            margin-top: 20px;
+                        }
+                     li{
+                       
+                         position: relative;
+                         font-size: 0.875rem;
+                         padding-left: 20px;
+                        
+                     }
+                     .positive::before{
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        top: 4px;
+                        height: 10px;
+                        width: 10px;
+                        display: block;
+                        background-color: $green;
+                     }
+                     .nutral::before{
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        top: 4px;
+                        height: 10px;
+                        width: 10px;
+                        display: block;
+                        background-color: $grey;
+                     }
+                     .negative::before{
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        top: 4px;
+                        height: 10px;
+                        width: 10px;
+                        display: block;
+                        background-color: $red;
+                     }
+                        
+                    }
+                }
+            }
+        }
+    }
+    .data-sources-area{
+        text-align: left;
+        margin-top: 40px;
+        
+        .data-sources-heading{
+            font-size: 1rem;
+            
+            color: $grey;
+            font-weight: 700;
+        }
+        .data-sources{
+            display: inline-block;
+            margin-top: 15px;
+            @include mx-991{
+                display: block;
+                text-align: center;
+               
+            }
+            li{
+                display: inline-block;
+                position: relative;
+                padding: 15px 10px 15px 10px;
+                @include mx-991{
+                    padding: 15px 8px 15px 8px;
+                    width: 20%;
+                }
+                @include mx-576{
+                    width: 49%;
+                }
+                &:after{
+                    content: "";
+                    position: absolute;
+                    top: 15px;
+                    right: 0;
+                    width: 1px;
+                    height: 50px;
+                    background-color: $grey;
+                    @include mx-991{
+                        width: 0;
+                    }
+                    
+                }
+                &:last-child{
+                    &:after{
+                        width: 0;
+                    }
+                }
+                .data-heading{
+                    font-size: 1rem;
+                    color: $grey;
+                    font-weight: 700;
+                    @include mx-1200{
+                        font-size: 0.875rem;
+                    }
+                    
+                }
+                .data-caption{
+                    font-weight: 200;
+                }
+                
+            }
+           
+        }
+    }
+}
+
+.sheet{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+    .common-button{
+        position: relative;
+    padding: 10px 40px 10px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    &:hover{
+        color: $white;
+        background-color: $secondary-color;
+    }
+     .download-heading:after {
+        content: "";
+        position: absolute;
+        background-image: url(../images/download-icon.svg);
+        height: 21px;
+        width: 19px;
+        right: 7px;
+        top: 10px;
+    }
+    }
+}
+
+.bi-reports-inner{
+    background-color: $white;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+    border-radius: 4px;
+   
+    border-bottom: 4px solid $yellow;
+    .reports-box{
+        border-bottom: 1px solid $nav-border-top;
+        padding: 0 15px 15px 15px;
+        &:last-child{
+            border-bottom: 0;
+        }
+       
+        &__left{
+
+        }
+        &__right{
+            text-align: right;
+        }
+    }
+}
+
+.min-height{
+    min-height: 185px;
+}

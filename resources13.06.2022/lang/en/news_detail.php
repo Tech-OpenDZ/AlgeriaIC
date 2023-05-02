@@ -1,0 +1,30 @@
+<?php
+    return [
+        'home' => 'Home',
+        'newsDetailPage' => 'News Detail Page ',
+        'economicNews' => 'Economic News',
+        'searchEngine' => 'Search Engine',
+        'keyword' => 'Keyword',
+        'sector' => 'Sector',
+        'zone' => 'Zone',
+        'search' => 'Search',
+        'date' => 'Date',
+        'source' => 'Source',
+        'joinAlgeriaNetwork' => 'Join Algeria Invest Business Network',
+        'join' => 'JOIN',
+        'downloadResources' => 'Download the latest Resources',
+        'businessServices' => 'Business Services',
+        'viewServices' => 'View services',
+        'premiumNews' => 'Premium News',
+        'pressNews' => 'Press News',
+        'similarArticles' => 'Similar Articles',
+        'article' => 'Article',
+        'sideSearchPlaceholder' => 'search',
+        'selectSector' => 'Select Sector',
+        'selectZone' => 'Select Zone',
+        'selectSource' => 'Select Source',
+        'selectDate' => 'Select Date',
+        'keywordPlaceholder' => 'Search...',
+    ];
+
+?>

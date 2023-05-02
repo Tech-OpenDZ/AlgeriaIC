@@ -1,0 +1,27 @@
+<?php
+
+    return [
+        'ourServices' => 'Nos rubriques',
+        'subscribeNewsletter' => 'Abonnez-vous à notre newsletter',
+        'subscribe' => 'S\'ABONNER',
+        'i2b' => 'Algeria INVEST est un produit de',
+        'sitemap' => 'Plan du site',
+        'privacyPolicy' => 'Politique de confidentialité',
+        'termsService' => 'Conditions d\'utilisation',
+        'legalNotice' => 'Mentions légales',
+        'discoverAlgeria' => "Découvrir l'Algérie",
+        'enter_email_address'=> "Votre @ mail",
+        'news'                    => 'Articles de presse',
+        'events'                  => 'Événements',
+        'business_directory'        => 'Annuaire d\'entreprises',
+        'business_opportunities'  => "Opportunités d'affaires",
+        'business_intelligence'   => "Business reports",
+        'services'   => "Nos services",
+        'assitance_services'      => "Services d'assistance",
+        'business_environment'    => "Environnement d'affaires",
+        'follow_us'               => 'Retrouvez-nous sur',
+        'copyright' => 'Algeria INVEST © 2021 Tous droits réservés',
+         'algeria_invest' => 'Algeria INVEST',
+        'customer_register' => 'Tarifs et inscription',
+        'who_we_are' => 'Qui sommes nous ?',
+    ];

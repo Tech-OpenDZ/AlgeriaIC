@@ -1,0 +1,103 @@
+html {
+    &[dir="rtl"] {
+        .company-creation-content{
+            text-align: right;
+        }
+    }
+}
+
+
+
+
+.discover-algeria__left{
+    .breadcrumb-area{
+        li{
+            @include mx-576{
+                font-size: 0.75rem;
+            }
+        }
+        
+    }
+}
+
+
+
+.company-creation{
+    
+    .padding-right{
+        @include mx-430{
+            padding-right: 0;
+        }
+    }
+    .about-algeria{
+        &__elements{
+            .company-creation-content{
+                color: $tab-content-area;
+                font-weight: 600;
+                padding-bottom: 20px;
+                @include mx-430{
+                    font-size: 0.7rem;
+                }
+            }
+            .tabs-left{
+                .nav-pills{
+                    .nav-link{
+                        width: 270px;
+                         margin-bottom: 10px;
+                         @include mx-576{
+                             height: 60px;
+                         }
+                        @include mx-430{
+                            font-size: 0.6rem;
+                            height: 40px;
+                            padding-right: 0;
+                            width: 100px;
+                        }
+                        &::after{
+                            @include mx-767{
+                                display: none;
+                            }
+                        
+                        }
+                    
+                    }
+                }
+            }
+            .tabs-right{
+                background-color: transparent;
+                .faq__accordian{
+                    .card{
+
+                        .fa-minus:before{
+                            top: 10%;
+                        }
+                        .card-body{
+                            @include mx-576{
+                                padding-top: 0;
+                            }
+                        }
+                        .sub-heading{
+                            font-size: 1.125rem;
+                            @include mx-576{
+                                font-size: 1rem;
+                            }
+                            @include mx-400{
+                                font-size: 0.75rem;
+                            }
+                        }
+                        .card-content{
+                            color: $accordian-text;
+                            @include mx-767{
+                                font-size: 0.875rem;
+                            }
+                            @include mx-400{
+                                font-size: 0.75rem;
+                            }
+                        }
+                    }
+                   
+                }
+            }
+        }
+    }
+}

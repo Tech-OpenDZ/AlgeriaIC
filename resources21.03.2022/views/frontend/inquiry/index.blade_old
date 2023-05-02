@@ -1,0 +1,245 @@
+@extends('frontend.layouts.master')
+
+@section('head')
+<meta charset="UTF-8">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title> @lang('inquiry.breadcrumb_contactus') | @lang('news.placeName')</title>
+@endsection
+
+<!--  <section class="signup-container"> -->
+<section class="algeria-home">
+    @section('content')
+    <div class="discover-algeria">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-9 col-lg-9 col-sm-12">
+                    <div class="discover-algeria__left">
+                        <ol class="breadcrumb-area">
+                            <li class="breadcrumb-elements"><a href="#">@lang('inquiry.breadcrumb_home')</a></li>
+                            <li class="active">@lang('inquiry.breadcrumb_contactus')</li>
+                        </ol>
+
+                        @include('frontend.common.top_banner')
+
+                        <section class="contact-us-area mt-4">
+
+
+                            <div class="signup-container mb-4">
+
+                                <div class="signup-form-area ">
+
+
+                                    <div class="signup-form-area__elements text-left">
+                                        <form action="{{ route('contactus-store')}}" method="post" role="form" name="">
+                                            @csrf
+                                            <h1 class="main-heading mb-3">@lang('inquiry.contact_us')</h1>
+                                            <p class="mb-1">@lang('inquiry.contact_us_desc')</p>
+
+                                            @if( Session::has( 'success' ))
+                                            <div class="success-alert-msg">
+                                                {{ Session::get( 'success' ) }}
+                                            </div><br>
+
+                                            @elseif( Session::has( 'error' ))
+                                            <div class="danger-alert-msg col-md-12">
+                                                {{ Session::get( 'error' ) }}
+                                            </div><br>
+                                            @endif
+
+                                            <div class="row">
+                                                <div class="col-md-6 col-lg-6 col-sm-6 mt-3">
+                                                    <label for="username" class="label-text">@lang('inquiry.user_name') <span class="required">*</span></label>
+                                                    <input type="text" class="form-control @error('username') is-invalid  @enderror" placeholder="" id="username" name="username" value="{{ old('username') }}">
+                                                    @error('username')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        {{ $message }}
+                                                    </span>
+                                                    @enderror
+
+                                                </div>
+                                                <div class="col-md-6 col-lg-6 col-sm-6 mt-3">
+                                                    <label for="company" class="label-text">@lang('inquiry.company') <span class="required">*</span></label>
+                                                    <input type="text" class="form-control @error('company') is-invalid  @enderror" placeholder="" id="company" name="company" value="{{ old('company') }}">
+                                                    @error('company')
+                                                    <span class=" invalid-feedback" role="alert">
+                                                        {{ $message }}
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 col-lg-6 col-sm-6 mt-3">
+                                                    <label for="jobtitle" class="label-text">@lang('inquiry.job_title') <span class="required">*</span></label>
+                                                    <input type="text" class="form-control @error('job_title') is-invalid  @enderror" placeholder="" id="jobtitle" name="job_title" value="{{ old('job_title') }}">
+                                                    @error('job_title')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        {{ $message }}
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
+
+                                                <div class="col-md-6 col-lg-6 col-sm-6 mt-3">
+                                                    <label for="phone" class="label-text">@lang('inquiry.phone_number') <span class="required">*</span></label>
+                                                    <input type="tel" class="form-control @error('phone_number') is-invalid  @enderror" placeholder="" id="phone" name="phone_number" value="{{ old('phone_number') }}">
+                                                    @error('phone_number')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        {{ $message }}
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="row ">
+                                                <div class="col-md-6 col-lg-6 col-sm-6 mt-3">
+                                                    <label for="email" class="label-text">@lang('inquiry.email') <span class="required">*</span></label>
+                                                    <input type="email" class="form-control @error('email') is-invalid  @enderror" placeholder="" id="email" name="email" value="{{ old('email') }}">
+                                                    @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        {{ $message }}
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
+
+                                                <div class="col-md-6 col-lg-6 col-sm-6 mt-3">
+                                                    <label for="subject" class="label-text">@lang('inquiry.subject') <span class="required">*</span></label>
+                                                    <input type="text" class="form-control @error('subject') is-invalid  @enderror" placeholder="" id="subject" name="subject" value="{{ old('subject') }}">
+                                                    @error('subject')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        {{ $message }}
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12 col-lg-12 col-sm-12 mt-3">
+                                                    <label for="message" class="label-text">@lang('inquiry.message') <span class="required">*</span></label>
+                                                    <textarea class="form-control @error('message') is-invalid  @enderror" id="message" rows="3" name="message">{{ old('message') }}</textarea>
+                                                    @error('message')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        {{ $message }}
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
+                                            </div>
+
+                                            <button type="submit" value="subscribe" class="common-button mt-4">@lang('inquiry.send_message')</button>
+
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="map-area orange-border">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-4 col-sm-5">
+                                        <div class="map-area__left">
+                                            <iframe src="https://maps.google.com/maps?q={{ $setting[4]->value }}&z=15&output=embed" width="360" height="270" frameborder="0" style="border:0" class="img-fluid"></iframe>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-8 col-sm-7">
+                                        <div class="map-area__right">
+                                            <h6 class="sub-heading">{{ $setting[0]->localeAll[0]->value }}</h6>
+                                            <div class="row">
+                                                <div class="col-md-12 col-lg-6 col-sm-12">
+                                                    <div class="contact-tel">
+                                                        <p class="tel-heading">@lang('inquiry.telephone')</p>
+                                                        <p class="tel-heading-content">{{ $setting[2]->value }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 col-lg-6 col-sm-12">
+                                                    <div class="contact-tel">
+                                                        <p class="tel-heading">@lang('inquiry.email')</p>
+                                                        <p class="tel-heading-content">{{ $setting[3]->value }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="contact-tel">
+                                                <p class="tel-heading">@lang('inquiry.address')</p>
+                                                <p class="tel-heading-content">{{ $setting[1]->localeAll[0]->value }}
+                                                </p>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="map-area green-border">
+                                <div class="row">
+                                    <div class="col-md-6 col-lg-4 col-sm-5">
+                                        <div class="map-area__left">
+                                            <iframe src="https://maps.google.com/maps?q={{ $setting[9]->value }}&z=15&output=embed" width="360" height="270" frameborder="0" style="border:0" class="img-fluid"></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-8 col-sm-7">
+                                        <div class="map-area__right">
+                                            <h6 class="sub-heading">{{ $setting[5]->localeAll[0]->value }}</h6>
+                                            <div class="row">
+                                                <div class="col-md-12 col-lg-6 col-sm-12">
+                                                    <div class="contact-tel">
+                                                        <p class="tel-heading">@lang('inquiry.telephone')</p>
+                                                        <p class="tel-heading-content">{{ $setting[7]->value }}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 col-lg-6 col-sm-12">
+                                                    <div class="contact-tel">
+                                                        <p class="tel-heading">@lang('inquiry.email')</p>
+                                                        <p class="tel-heading-content">{{ $setting[8]->value }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="contact-tel">
+                                                <p class="tel-heading">@lang('inquiry.address')</p>
+                                                <p class="tel-heading-content">{{ $setting[6]->localeAll[0]->value }}
+                                                </p>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+
+
+
+                    </div>
+                </div>
+                <!-- left area ends here -->
+                @include('frontend.common.right_sidebar')
+
+            </div>
+            <!-- row ends here -->
+        </div>
+        <!-- top left and right area ends here -->
+    </div>
+</section>
+@endsection
+
+@section('scripts')
+<!-- <script src="../node_modules/jquery/dist/jquery.slim.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{ asset('js/front-end/browser-class.js') }}"></script>
+<!-- <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script> -->
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="{{ asset('css/vendors/OwlCarousel2-2.3.4/dist/owl.carousel.js') }}"></script>
+<!-- Please keep your own scripts above main.js -->
+<script src="{{ asset('js/front-end/main.js') }}"></script>
+
+@endsection

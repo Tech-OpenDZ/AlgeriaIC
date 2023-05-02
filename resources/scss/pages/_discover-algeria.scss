@@ -1,0 +1,991 @@
+html {
+    &[dir="rtl"] {
+        .search-engine{
+            text-align: right;
+            .sub-heading{
+                margin-right: 0 !important;
+            }
+        }
+        .circle-fb{
+            margin-right: 10px;
+            margin-left: 0 !important;
+        }
+        .circle-mail{
+            margin-right: 10px;
+            margin-left: 0 !important;
+        }
+        .circle-msg{
+            margin-right: 10px;
+            margin-left: 0 !important;
+        }
+        .circle-send{
+            margin-right: 10px;
+            margin-left: 0 !important;
+        }
+        .slider-content{
+            text-align: right;
+        }
+        .rtl-design{
+            order: 1;
+        }
+        // .carousel-control-prev{
+        //     top: 42px;
+        // }
+        // .carousel-control-next{
+        //     top: 42px;
+        // }
+        .breadcrumb-area .breadcrumb-elements{  
+            &::before{
+                right: 40px;
+                @include mx-576{
+                    right: 35px;
+                }
+            }
+        }
+        .discover-algeria{
+            &__left {
+                .faq__accordian   .card .card-header .fa-plus{
+                    &::before{
+                        left: 4%;
+                        right: auto;
+                    }
+                }
+                .faq__accordian   .card .card-header .fa-minus{
+                    &::before{
+                        left: 4%;
+                        right: auto;
+                    }
+                }
+                .breadcrumb-area li{
+                    padding-left: 15px;
+                    padding-right: 0;
+                }
+            }
+        }
+        .discover-algeria{
+            &__left{
+                .search-engine__elements{
+                    input{
+                        border: .25rem;
+                        border-top-left-radius: 0;
+                        border-bottom-left-radius: 0;
+                        border-top-right-radius: 0.25rem;
+                        border-bottom-right-radius: 0.25rem;
+                    }
+                    .input-group-append{
+                            &::after{
+                                left: 81%;
+                                right: -16px;
+                                transform:rotate(180deg);
+                        }
+                        
+                    }
+                }
+                .faq{
+                    p{
+                        text-align: right;
+                    }
+                }
+                .business-banner{
+                    text-align: right;
+                }
+            }
+            &__right{
+                .search-sub-form{
+                    .input-group{
+                        justify-content: flex-end;
+                    }
+                    .form-control{
+                        border-top-left-radius: 0;
+                        border-bottom-left-radius: 0;
+                        border-top-right-radius: .25rem;
+                        border-bottom-right-radius: .25rem;
+                      
+                    }
+
+                    .input-group-text{
+                        border-top-left-radius: 4px !important;
+                        border-bottom-left-radius: 4px !important;
+                        border-top-right-radius: 0px !important;
+                        border-bottom-right-radius: 0px !important;
+                    }
+                }
+            }
+        }
+        .about-algeria{
+            &__elements{
+                .tabs-left{
+                    #v-pills-tab{
+                        .nav-link{
+                            @include mx-767{
+                                margin-left: 5px;
+                                margin-right: inherit;
+                                &:last-child{
+                                    margin-left: 0;
+                                }
+                            }
+                            &::after{
+                                right: 100%;
+                                left: auto;
+                                transform: rotate(180deg);
+                                @include mx-767{
+                                    right: 50%;
+                                    top: 135%;
+                                    transform: rotate(84deg);;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+           
+        } 
+        .discover-algeria__left .slider-area .slider-content{
+            right: 5%;
+            left: auto;
+        }        
+      
+    }
+}
+
+// html rtl ends here
+
+
+
+
+.discover-algeria{
+    .discover-algeria__right{
+        .adimg{
+            margin-top:10px;
+        }
+    }
+    padding-top: 15px;
+    @include mx-991{
+        padding-top: 10px;
+    }
+    padding-bottom: 30px;
+    background-color: $body-background;
+    &__left{ 
+        .breadcrumb-area{
+            display: flex;
+            padding-left: 0;
+            margin-bottom: 15px;
+            li{
+                font-size: 0.875rem;  
+                font-weight: 600;  
+                position: relative;
+                padding-right: 15px;
+                color: $breadcrumb-color;
+                a{
+                    color: $breadcrumb-color;
+                    @include mx-576{
+                        font-size: 0.75rem;
+                    }
+                    
+                }
+            }
+            .breadcrumb-elements::before{
+                content: "-";
+                position: absolute;
+                display: block;
+                top: 55%;
+                right: 2px;
+                transform: translate(-50%, -50%);
+            }
+        }
+        .slider-area{
+            position: relative;
+            margin-top: 18px;
+            
+            p{
+                font-weight: 500;
+            }
+
+            .carousel-indicators{
+               @include slider-indicators;
+               @include mx-991{
+                left: 40%;
+               }
+               @include mx-576{
+                   bottom: -12px;
+               }
+               @include mx-400{
+                   left: 33%;
+                   bottom: -17px;
+               }
+                li{
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                }
+            }
+           
+            .slider-content{
+                .main-heading{
+                    margin-bottom: 15px;
+                    @include mx-1200{
+                        margin-bottom: 10px;
+                    }
+                    @include mx-991{
+                        margin-bottom: 8px;
+                    }
+                    @include mx-400{
+                        margin-bottom: 5px;
+                       }
+                }
+                p{
+                    margin-bottom: 10px;
+                    @include mx-400{
+                      margin-bottom: 5px;
+                     }
+                }
+                @include mx-991{
+                    @include for-991px;
+                }
+                @include mx-576{
+                    @include for-576px;
+                }
+                @include mx-400{
+                   @include for-400px;
+                }
+                position: absolute;
+                top: 12%;
+                left: 5%;
+                width: 370px;
+                @include mx-430{
+                    width: auto;
+                }
+                @include  mx-991{
+                    top: 6%;
+                }
+            }
+            .for-small-slider{
+                .slider-next-prev{
+                    position: absolute;
+                    top: 156px;
+                    @include mx-1200{
+                        top: 150px;
+                    }
+                    @include mx-991{
+                        top: 122px;
+                    }
+                    @include mx-576{
+                        display: none;
+                    }
+                }
+            }
+            .slider-next-prev{
+                @include mx-400{
+                    display: none;
+                }
+                
+                .carousel-control-prev{
+                   @include carousel-next-prev-circles;
+                   left: 35px;
+                   
+                   @include mx-991{
+                    left: 30px
+                   }
+                   @include mx-576{
+                       left: 25px;
+                   }
+                   .carousel-control-prev-icon{
+                   @include slider-prev-icon;
+                    
+                    }
+                }
+                .carousel-control-next{
+                    @include carousel-next-prev-circles;
+                    left: 65px;
+                    // top: 104%;
+                    @include mx-991{
+                       left: 60px;
+                    }
+                    @include mx-576{
+                        left: 52px
+                    }
+                    .carousel-control-next-icon{
+                       @include slider-next-icon;
+                      
+                    }
+                }
+            }
+           
+           
+        }
+        .search-engine{
+            margin-top: 0px;
+            p{
+                color: $grey;
+            }
+            &__elements{
+
+                .input-group-append{
+                    position: relative;
+                    &:after {
+                        right: 100%;
+                        top: 100%;
+                        border: solid transparent;
+                        content: " ";
+                        height: 0;
+                        width: 0;
+                        position: absolute;
+                        pointer-events: none;
+                        border-color: rgba(136, 183, 213, 0);
+                        border-right-color: $secondary-color;
+                        border-width: 8px;
+                        margin-top: -27px;
+                    }
+                   
+                }
+                .input-group-text{
+                    background-color: $secondary-color;
+                    border: 0;
+                    padding-top: 12px;
+                }
+                .input-group > .form-control, .input-group > .form-control-plaintext, .input-group > .custom-select, .input-group > .custom-file{
+                    border: 1px solid $searchengine-border;
+                    background-color: transparent;
+                    color: #8BA1B2;
+                    opacity: 0.7;
+                    font-style: italic;
+                }
+                
+                
+            }
+        }
+
+        // about algeria
+        .about-algeria{
+            margin-top: 15px;
+            
+           
+            &__elements{
+                @include mx-991{
+                    @include for-991px;
+                }
+                .tabs-left{
+                    .left-nav{
+                        @include mx-767{
+                            width: 100%;
+                        }
+                        
+                    }
+                    .nav-pills .nav-link{
+                        border-radius: 0.25rem;
+                        padding: 20px 25px 25px 25px !important;
+                        @include mx-576{
+                            padding: 10px !important;
+                            min-height: 30px;
+                        }
+                        @include mx-430{
+                            padding: 5px;
+                           
+                           
+                        }
+                        min-height: 70px;
+                        width: 174px;
+                        font-weight: 700;
+                        @include mx-767{
+                            width: 15%;
+                            @include mx-430{
+                                width: 15%;
+                                font-size: 0.5rem;
+                                padding: 3px;
+                            }
+                            display: flex;
+                            margin-right: 5px;
+                            line-height: 1;
+                            // font-size: 0.875rem;
+                            &:last-child{
+                                margin-right: 0;
+                            }
+                        }
+                        
+                        line-height: 1.2;
+                        @include mx-767{
+                            line-height: 1;
+                        }
+                        border-radius: 4px;
+                        cursor: pointer;
+                        position: relative;
+                        background-color: $white;
+                        color: $grey;
+                    }
+                    .nav-pills .nav-link::after{
+                        left: 100%;
+                        top: 62%;
+                        @include mx-767{
+                            top: 133%;
+                            left: 50%;
+                            margin-left: -30px;
+                            transform: rotate(90deg);
+                        }
+                        @include mx-576{
+                            display: none;
+                           
+                        }
+                       
+                        border: solid transparent;
+                        content: " ";
+                        height: 0;
+                        width: 0;
+                        position: absolute;
+                        pointer-events: none;
+                        border-color: rgba(255, 255, 255, 0);
+                        border-left-color: #ffffff;
+                        border-width: 0px;
+                        margin-top: -30px;
+                       }
+                    .nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+                        color: #fff;
+                        background-color: $green;
+                        
+                        &::after{
+                            border-width: 10px;
+                            border-left-color: $green;
+                            transition: 0.5s all ease-in-out;
+                          }
+                    }
+                    .nav-pills .nav-link:hover{
+                        color: #fff;
+                        background-color: $green;
+                        &::after{
+                            border-width: 10px;
+                            border-left-color: $green;
+                            transition: 0.5s all ease-in-out;
+                          }
+                    }
+                    
+                  
+                    border-bottom: 0;
+
+                    @include mx-767{
+                        margin-bottom: 20px;
+                        width: 100%;
+                    }
+                    li{
+                        margin-top: 15px;
+                        &:first-child{
+                            margin-top: 0px;
+                            @include mx-767{
+                               margin-top: 15px;
+                            }
+
+                        }
+                        @include mx-767{
+                            width: 18%;
+                            padding: 20px;
+                        }
+                        @include mx-576{
+                            padding: 10px;
+                        }
+                        @include mx-400{
+                            padding: 5px;
+                        }
+                    }
+                    
+                  
+                }
+                .tabs-right{
+                    background-color: $white;
+                    position: relative;
+                    border-radius: 4px;
+                    height: 100%;
+                    @include mx-991{
+                        p{
+                            font-size: 0.75rem;
+                        }
+                        
+                    }
+                  
+                    .nav-tabs{
+                        width: 100%;
+                        @include mx-991{
+                            border-bottom: 0 !important;
+                        }
+                       
+                        li{
+                            // width: 16%;
+                            min-width:33.2%!important;
+                            padding: 0;
+                            height: 105px;
+                            @include mx-430{
+                                height: 58px;
+                            }
+                        }
+                        .law{
+                            width: 17%;
+                        }
+                    }
+                    .nav-tabs .nav-link{
+                    color: #8BA1B2;
+                    padding: 15px 10px;
+                    font-weight: 600;
+                    text-align:center;
+                    @include mx-991{
+                        padding: 15px 4px;
+                    }
+                    font-size: 0.75rem;
+                    @include mx-1200{
+                        font-size: 0.625rem;
+                    }
+                    @include mx-767{
+                        font-size: 0.875rem;
+                     }
+                     @include mx-576{
+                         font-size: 0.75rem;
+                      }
+                      @include mx-430{
+                          font-size: 0.5rem;
+                          line-height: 1;
+                      }
+                    display: block;
+                    // border-bottom: 3px solid transparent;
+                    border-top: 0;
+                    border-right: 0;
+                    border-left: 0;
+                    border-bottom: 0;
+                    }
+                //   .nav-tabs .nav-item.show .nav-item.active{
+                //         border-bottom: 3px solid $green !important;
+
+                //     }
+                    .nav-item:hover{
+                        border-bottom: 3px solid $green !important;
+                    }
+                    .nav-item.active{
+                        border-bottom: 3px solid $green !important;
+                        a{
+                            color: $breadcrumb-color;
+                        }
+                    }
+                    
+                    .tab-content{
+                        @include tabcontent_para;
+                        h1,h2,h3,h4 {
+                            @include tabcontent_para;
+                            font-weight:bold!important;
+                        }
+                        position: relative;
+                        height: 100%;   
+                        p {
+
+                        }                    
+                        .tab-inner{
+                            padding: 15px;
+                            height: 100%;
+                            position: relative;
+                            span{
+                                b {
+                                    font-weight:bold!important;
+                                }
+                                @include tabcontent_para;
+                            }
+                            ul {
+                                li{
+                                    @include tabcontent_para;
+                                }
+                            }
+                            ol {
+                                li{
+                                    @include tabcontent_para;
+                                }
+                            }
+                            p{
+                                b {
+                                    span{
+                                        font-weight:bold!important;
+                                    }
+                                }
+                                @include tabcontent_para;
+                                span{
+                                    @include tabcontent_para;  
+                                }
+                            }
+                            .documents_list{
+                                margin: 15px 0;
+                                ul{
+                                    display: inline-block;
+                                    width: 100%;
+                                    margin: 0;
+                                    li{
+                                        width: calc(100%/3);
+                                        float: left;
+                                        a {
+                                            display: block;
+                                            padding: 10px;
+                                            padding-left: 40px;
+                                            color: #35a85e;
+                                            border: 1px solid #35a85e;
+                                            margin: 10px;
+                                            position: relative;
+                                            &:hover{
+                                                background: #35a85e;
+                                                color: #fff;
+                                            }
+                                            .fa {
+                                                position: absolute;
+                                                display: block;
+                                                left: 10px;
+                                                font-size: 20px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .tab-pane-socialmedia{
+                            position: relative;
+                            display: flex;
+                            justify-content: flex-end;
+                            margin-top: 20px;
+                          
+                            @include mx-767{
+                                bottom: 0px;
+                                position: relative;
+                                right: 0;
+                            }
+                          ul{
+                              display: flex;
+                              align-items: center;
+                              
+                              .circle-fb{
+                                  @include social-circle;
+                                  border: 1px solid #FFA51E;
+                              }
+                              .circle-mail{
+                                  @include social-circle;
+                                  border: 1px solid #35A85E;
+                              }
+                              .circle-msg{
+                                  @include social-circle;
+                                  border: 1px solid #0F73BB;
+                              }
+                              .circle-send{
+                                  @include social-circle;
+                                  border: 1px solid #E40019;
+                              }
+                          }
+                      }
+                        p{
+                            span{
+                                @include tabcontent_para;  
+                            }
+                            @include tabcontent_para;
+                            color: $tab-content-area;
+                            font-weight: 500;
+                        }
+                    }
+
+                  }
+                   
+                   
+            }
+        }
+
+        // faq section
+        .faq{
+            .sub-heading{
+                font-size: 1.125rem;
+                @include mx-576{
+                    font-size: 1rem;
+                }
+                @include mx-430{
+                    font-size: 0.75rem;
+                    
+                }
+            }
+            &__accordian{
+                
+                p{
+                    color: $accordian-text;
+                    font-weight: 600;
+                    @include mx-576{
+                        font-size: 0.75rem;
+                    }
+                }
+                .card{
+
+                    border-left: 0;
+                    border-right: 0;
+                    background-color: transparent;
+                    border-top: 0;
+                    border-bottom: 1px solid #B9CCD4;
+                    background-color: transparent;
+                    table {
+                        width:100%!important;
+                        td{
+                            span { 
+                                @include tabcontent_para;
+                            }
+                            padding:10px!important;
+                        }
+                        th{
+                            span { 
+                                @include tabcontent_para;
+                            }
+                            padding:10px!important;
+                        }
+                        tr{
+                            &:first-child{
+                                td{
+                                    &:first-child{
+                                    width:220px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .card-header{
+                        padding: 0 !important;
+                        background-color: transparent;
+                        border-bottom: 0;
+                        position:relative;
+                        .sub-heading{
+                            color: $black;
+                           
+                        }
+                        
+                        .fa-minus:before{
+                            position: absolute;
+                            right: 4%;
+                            top: 38%;
+                            @include mx-430{
+                                top: 15%;
+                            }
+                            background-image: url(../images/minus.png);
+                            content: "";
+                            height: 16px;
+                            width: 16px;
+                            display: block;
+                            background-repeat: no-repeat;
+                        }
+                        .fa-plus:before{
+                            position: absolute;
+                            right: 4%;
+                            top: 25%;
+                            background-image: url(../images/plus.png);
+                            content: "";
+                            height: 16px;
+                            width: 16px;
+                            display: block;
+                            background-repeat: no-repeat;
+                        }
+                        .btn{
+                            padding: 0;
+                            &:focus{
+                                outline: 0 !important;
+                            }
+                        }
+                        button:focus{
+                            outline: 0 !important;
+                        }
+                    }
+                    .card-body{
+                        padding: 10px 0 30px 0;
+                    }
+                }
+                }
+               
+        }
+
+    }
+
+    &__right{
+        @include mx-767{
+            display: flex;
+            .success{
+                margin-top: 25px;
+            }
+        }
+        @include mx-576{
+            flex-direction: column;
+        }
+
+        .search-sub-form{
+            @include mx-767{
+                width: 100%;
+            }
+           .form-control {
+                padding: 15px 15px;
+                font-size: 0.875rem;
+                font-weight: 400;
+                font-style: italic;
+                line-height: 1.5;
+                color: rgba(199, 202, 205, 0.7);
+                background-color:transparent;
+                border: 1px solid $searchengine-border;
+                }
+               .input-group-text {
+                    background-color: #0F73BB;
+                    padding: 7px 25px;
+                    border: 0;
+                    color: #FFFFFF;
+                    -webkit-transition: all .2s ease-in-out;
+                    -o-transition: all .2s ease-in-out;
+                    -moz-transition: all .2s ease-in-out;
+                    transition: all .2s ease-in-out;
+                    a{
+                        color: $white;
+                    }
+                }
+        }
+        .join-algeria{
+            &.join-algeriaN{
+                margin-top:30px;
+            }
+           @include algeria-box;
+           @include mx-430{
+               padding: 10px;
+           }
+           @include mx-991{
+            @include for-991px;
+            }
+            @include mx-400{
+                .sub-heading{
+                    font-size: 0.875rem;
+                }
+            }
+            @include mx-767{
+                width: 100%;
+            }
+            .sub-heading{
+                color: $breadcrumb-color;
+            } 
+            .view-services{
+                padding: 10px 20px;
+            } 
+        }
+        .register{
+            @include register;
+            padding: 10px 15px;
+            @include mx-400{
+                padding: 8px 20px;
+            }
+            &:hover{
+            background-color: $white;
+            color: $secondary-color;
+            transform: scale(1.2);
+            }
+        }
+
+    }
+
+
+}
+
+
+// brand carousel
+    .brand-carousel{
+        @include mx-991{
+            @include for-991px;
+        }
+        @include mx-767{
+            padding-top: 30px;
+        }
+        background-color: $body-background;
+        padding-top: 90px;
+        padding-bottom: 25px;
+        img{
+            max-width: 100% !important;
+        }
+        
+        .partners{
+            position: relative;
+            @include mx-767{
+                .main-heading{
+                    text-align: left;
+                    margin-bottom: 20px;
+                    font-size: 1.625rem;
+                    @include mx-576{
+                        font-size: 1.375rem;
+                    }
+                }
+            }
+            
+        }
+        .brand-outer-area{
+            @include brand-outer-area;
+            .owl-carousel .owl-item img{
+               max-width: 100% !important;
+            }
+        }
+        .carousel-control-prev{
+            left: 0%;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            bottom: top;
+            top: 65px;
+            background-color: $green;
+            @include mx-1200{
+                top: 88px;
+            }
+            @include mx-767{
+                top: 82px;
+               
+            }
+            .carousel-control-prev-icon{
+                @include slider-prev-icon;
+                border-color: $white;
+                border-width: 0 3px 3px 0;
+            }
+        }
+        .carousel-control-next{
+            left: 18%;
+            @include mx-767{
+                right: 0;
+                left: auto;
+            }
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            bottom: top;
+            top: 65px;
+            background-color: $green;
+            @include mx-1200{
+                top: 88px;
+                margin-left: 10px;
+            }
+            @include mx-767{
+                top: 82px;
+               
+            }
+            .carousel-control-next-icon{
+                @include slider-next-icon;
+                border-color: $white;
+                border-width: 0 3px 3px 0;
+                
+            }
+        }
+    }
+
+    .tab-pane{
+        &.tab-inner{
+        .discover-algeria-tabs{
+            ul{
+                list-style: initial!important;
+                list-style-position: inside!important;
+                margin-left: 10px!important;
+                li{
+                    list-style: initial!important;
+                    font-family: inherit;
+                    font-size: 15px;
+                    padding-bottom: 10px;
+                    margin-left: 15px;
+                }
+            }
+            ol{
+                list-style-position: inside!important;
+                margin-left: 10px!important;
+                li{
+                list-style: inherit!important;
+                font-family: inherit;
+                font-size: 15px;
+                }
+            }   
+        }
+        }
+    }
+   

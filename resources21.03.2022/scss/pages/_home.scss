@@ -1,0 +1,2813 @@
+
+html {
+    &[dir="rtl"] {
+        // for slider section
+        .table {
+            text-align: right;
+        }
+        .discover-algeria__left .slider-area .slider-next-prev .carousel-control-prev{
+            right: 35px;
+            left: auto;
+            transform: rotate(180deg);
+        }
+        .discover-algeria__left .slider-area .slider-next-prev .carousel-control-next{
+            right: 65px;
+            left: auto;
+            transform: rotate(180deg);
+        }
+        .business-direcory-home .access-business-directory__right{
+            padding-left: 0;
+            padding-right: 30px;
+            @include mx-767{
+                padding-right: 0;
+            }
+        }
+        .online-services .Assistance-services .title-headings .heading-with-arrow .more-data .more-news-icon{
+            margin-left: 0px;
+            margin-right: 15px;
+            transform: rotate(180deg);
+        }
+        .online-services .Assistance-services .title-headings .heading-with-arrow{
+            text-align: left;
+        }
+        .online-services .Assistance-services .title-headings .heading-with-arrow .more-data::after{
+            left: 0;
+            right: auto;
+            transform: rotate(180deg);
+        }
+        .discover-algeria__left .slider-area .carousel-indicators{
+            right: 0;
+            left: auto;
+            padding-left: 0;
+            padding-right: 30px;
+            @include mx-991{
+                // top: 20px;
+                right: 40%;
+            }
+            @include mx-576{
+                right: 33%;
+            }
+        }
+        .slider-area {
+            .slider-next-prev {
+                .carousel-control-next {
+                    // right: 79%;
+                }
+            }
+            .carousel-indicators {
+                justify-content: flex-end;
+            }
+        }
+
+        // discover algeria right section i.e sidebar
+        .discover-algeria__right {
+            .tab-pane-socialmedia {
+                .sharing {
+                    padding-left: 10px;
+                }
+            }
+            .algeria-invest-network-home {
+                text-align: right;
+            }
+        }
+        .algeria-home {
+            .main-heading {
+                text-align: right;
+            }
+            .heading-with-arrow {
+                text-align: left;
+                // padding-left: 30px;
+                padding-right: 0;
+                .more-data::after {
+                    background-image: url(../images/rotated-arrow.svg);
+                    background-repeat: no-repeat;
+                    left: 0;
+                    right: auto;
+                   
+                }
+            }
+            // end of title
+            .business-banner {
+                text-align: right;
+            }
+
+            .economic-news {
+                .title-headings {
+                    .main-heading::after {
+                        right: 48%;
+                    }
+                }
+                .news-post__right {
+                    text-align: right;
+                }
+                .news-post__left {
+                    .premium-news {
+                        border-bottom-right-radius: 0;
+                        border-bottom-left-radius: 12px;
+                        border-top-left-radius: 0;
+                        border-top-right-radius: 0;
+                        right: 0;
+                        // top: 0;
+                        left: auto;
+                    }
+                }
+                // title ends here
+                .economic-newsletter-green {
+                    background-image: url(../images/for-rtl-newsback.png);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    height: 92px;
+                    
+                    width: auto;
+                    .economic-newsletter-green-left {
+                        padding-right: 30%;
+                        @include mx-991 {
+                            padding-right: 0;
+                        }
+                        padding-left: 0;
+                        .sub-heading {
+                            text-align: right;
+                            @include mx-991 {
+                                text-align: center;
+                            }
+                        }
+                    }
+                    .input-group {
+                        .form-control:not(:last-child) {
+                            border-top-right-radius: 4px;
+                            border-top-left-radius: 0px;
+
+                            border-bottom-right-radius: 4px;
+                            border-bottom-left-radius: 0px;
+                        }
+                        .input-group-append {
+                            .input-group-text {
+                                border-top-left-radius: 4px;
+                                border-top-right-radius: 0;
+                                border-bottom-left-radius: 4px;
+                                border-bottom-right-radius: 0;
+                            }
+                        }
+                    }
+                }
+                .discover-algeria__right{
+                    float: none;
+                }
+            }
+            // economic news end here
+            // event home starts
+            .events-home {
+                .title-headings {
+                    .main-heading::after {
+                        right: 131px;
+                    }
+                    .title-border{
+                        width: 100%;
+                    }
+                }
+                .events-home__elements-box {
+                    .event-box-right {
+                        // text-align: right;
+                    }
+                }
+                .event-home-letter {
+                    .col-lg-4{
+                        z-index: 1;
+                    }
+                    .col-lg-5{
+                        z-index: 1;
+                    }
+                    
+                    .event-back-one {
+                        position: absolute;
+                        left: -13px;
+                        right: auto;
+                        top: -15px;
+                        transform: rotate(180deg);
+                       
+                    }
+                    .event-back-two {
+                        position: absolute;
+                        left: -12px;
+                        right: auto;
+                        top: -15px;
+                        transform: rotate(180deg);
+                        
+                    }
+                    .event-back-three {
+                        left: 2px;
+                        right: auto;
+                        @include mx-576{
+                            top: 3px;
+                        }
+                    }
+                    .sub-heading {
+                        text-align: right;
+                        @include mx-576 {
+                            font-size: 0.75rem;
+                        }
+                        @include mx-430 {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+
+            // event-home ends here
+            .discover-algeria{
+                @include breakpoint(mobile-max){
+                    padding-bottom: 0;
+                }
+            }
+        }
+
+        // discover algeria invest
+        .discover-algeria-invest {
+            .discovera-algeria-caption-box {
+                text-align: right;
+                .more-news {
+                    .more-news-icon {
+                        margin-right: 15px;
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+            .discover-algeria-invest-box-yellow::before {
+                right: 11%;
+            }
+        }
+        // discover algeria invest ends here
+
+        // algeria tenders starts here
+        .business-opps-tenders {
+            &--left {
+                .title-headings {
+                   
+                    .heading-with-arrow {
+                        text-align: left;
+                        // padding-left: 30px;
+                        padding-right: 0;
+                        .more-data::after {
+                            left: 0px;
+                            right: auto;
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+
+                .print-area__elements {
+                    text-align: right;
+                }
+            }
+            &--right {
+                .title-headings {
+                    .heading-with-arrow {
+                        text-align: left;
+                        // padding-left: 40px;
+                        padding-right: 0;
+                        .more-data::after {
+                            left: 0;
+                            right: auto;
+                            transform: rotate(180deg);
+                        }
+                    }
+                    .main-heading-two {
+                        text-align: right;
+                        &::after {
+                            right: 208px;
+                            width: 55%;
+                            @include mx-1200 {
+                                // width: 48%;
+                                // right: 197px;
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .event-home-letter {
+            .col-lg-4{
+                z-index: 1;
+            }
+            .col-lg-5{
+                z-index: 1;
+            }
+            .input-group {
+                .input-group-append {
+                    .input-group-text {
+                        border-top-left-radius: 4px !important;
+                        border-top-right-radius: 0 !important;
+                        border-bottom-left-radius: 4px !important;
+                        border-bottom-right-radius: 0 !important;
+                    }
+                }
+                .form-control:not(:last-child) {
+                    border-top-right-radius: 4px;
+                    border-top-left-radius: 0px;
+                    border-bottom-right-radius: 4px;
+                    border-bottom-left-radius: 0px;
+                }
+                
+            }
+        }
+        // business opps ends here
+
+        // bi home starts here
+        .BI-home {
+            &:after {
+                left: 0;
+                right: auto;
+            }
+
+            .more-news {
+                .more-news-icon {
+                    margin-left: 0;
+                    margin-right: 15px;
+                    transform: rotate(180deg);
+                }
+            }
+            .BI-posts {
+                text-align: right;
+            }
+            &--left {
+                padding-left: 15px;
+                padding-right: 0;
+                @include mx-767{
+                    padding-left: 0;
+                }
+                .main-heading {
+                    text-align: right;
+                    &::after {
+                        left: -102px;
+                        right: auto;
+                        @include mx-1200 {
+                            left: -72px;
+                        }
+                    }
+                }
+                .print-month {
+                    text-align: right;
+                }
+                .BI-box {
+                    text-align: right;
+                }
+                .heading-with-arrow {
+                    text-align: left;
+                    // padding-left: 40px;
+                    padding-right: 0;
+                    .more-data::after {
+                        left: 0px;
+                        right: auto;
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+            &--right {
+                text-align: right;
+            }
+        }
+
+        // bi-home ends
+        // business directory starts here
+        .business-direcory-home {
+            .main-heading {
+                text-align: right;
+            }
+            .access-business-directory{
+                &::after{
+                    right: 0;
+                    left: auto;
+                }
+            }
+        }
+
+        // serch engine criteria
+        .Search-engine-Criteria {
+            &-left {
+                text-align: right;
+                .company a {
+                    padding-left: 0;
+                    padding-right: 20px;
+                    &:before {
+                        right: 0;
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+            &-right {
+                .sub-heading {
+                    text-align: right;
+                }
+                .title-wizard {
+                    text-align: right;
+                    .title-wizard-elements {
+                        &-area {
+                            border-right: 1px solid #a5bdc6;
+                            border-left: 0;
+                            border-right-style: dotted;
+                            margin-right: 10px;
+
+                            .targeting-criteria {
+                                padding-left: 0;
+                                padding-right: 30px;
+                                &:before {
+                                    right: -10px;
+                                    left: auto;
+                                }
+                            }
+                            .confirm-criteria {
+                                padding-left: 0;
+                                padding-right: 30px;
+                                &:before {
+                                    right: -10px;
+                                    left: auto;
+                                }
+                            }
+                            .download-criteria {
+                                padding-left: 0;
+                                padding-right: 30px;
+                                &:before {
+                                    right: -10px;
+                                    left: auto;
+                                }
+                            }
+                            .select-criteria {
+                                padding-left: 0;
+                                padding-right: 30px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // serch engine criteria ends here
+
+        // online services starts here
+        .online-services {
+            text-align: right;
+        }
+
+        // online services end here
+
+        // brand carousel starts here
+        .brand-carousel {
+            direction: ltr;
+        }
+
+        // testimonia section
+        .testimonial-home {
+            text-align: right;
+            .quote-icon {
+                direction: ltr;
+            }
+            .modal-header {
+                .close {
+                    margin-left: 0;
+                }
+            }
+
+            .authour-detail {
+                &__right {
+                    padding-left: 0;
+                    padding-right: 20px;
+                }
+            }
+        }
+
+        // faq section starts here
+        .home-faq {
+            .title-headings {
+                .main-heading {
+                    text-align: right;
+                    &::after {
+                        right: 111px;
+                        @include mx-1200 {
+                            width: 106%;
+                            right: 127px;
+                        }
+                    }
+                }
+                .heading-with-arrow {
+                    text-align: left;
+                    padding-right: 0px;
+                    // padding-left: 30px;
+                    .more-data::after {
+                        left: 0;
+                        right: auto;
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+
+            .faq__accordian {
+                text-align: right;
+                .card-header {
+                    .fa-plus:before {
+                        left: 4%;
+                        right: auto;
+                    }
+                    .fa-minus:before {
+                        left: 4%;
+                        right: auto;
+                    }
+                }
+            }
+        }
+        .resource-news-letter {
+            .event-home-letter {
+                .event-back-one {
+                    left: -12px;
+                    right: auto;
+                    transform: rotate(180deg);
+                    top: -15px;
+                }
+                .event-back-two {
+                    left: -12px;
+                    right: auto;
+                    transform: rotate(180deg);
+                    top: -15px;
+                }
+                .event-back-three {
+                    left: 2px;
+                    right: auto;
+                }
+                .sub-heading{
+                    text-align: right;
+                }
+            }
+        }
+        .business-direcory-home {
+            .title-headings {
+                .main-heading{
+                    &::after{
+                        left: -224px;
+                        right: auto;
+                        @include mx-1200 {
+                            width: 70%;
+                            left: -140px;
+                        }
+                        @include mx-991 {
+                            display: none;
+                        }
+                    }
+                }
+                .heading-with-arrow{
+                    text-align: left;
+                    // padding-left: 30px;
+                    .more-data::after {
+                        background-image: url(../images/rotated-arrow.svg);
+                        background-repeat: no-repeat;
+                        right: auto;
+                        left: 0;
+                    }
+                }
+            }
+        }
+        .contact-list{
+            .contact-list-area{
+            
+                    text-align: right;
+                
+                .group{
+                    text-align: right;
+                    @include mx-576{
+                        text-align: center;
+                    }
+                }
+                .heading-with-arrow{
+                    text-align: left;
+                    margin-left: 20px;
+                    .more-data{
+                        &::after{
+                            left: -30px;
+                            right: auto;
+                            transform: rotate(180deg);
+                        }
+                    }
+                }
+            }
+        }
+        
+        .online-services{
+            .Assistance-services{
+                .title-headings{
+                    .main-heading{
+                        &::after{
+                            left: -132px;
+                            right: auto;
+                            @include mx-1200 {
+                                width: 67%;
+                                left: -87px;
+                            }
+                            @include mx-991 {
+                                display: none;
+                            }
+                        }
+                    }
+                    .heading-with-arrow{
+                        .more-news{
+                            .more-news-icon{
+                                transform: rotate(180deg);
+                                margin-right: 15px;
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+        .access-business-directory{
+            &__left{
+                .more-news-icon{
+                    transform: rotate(180deg);
+                    margin-right: 15px;
+                }
+                .more-news{
+                    left: 0;
+                    right: auto;
+                }
+                .pb-4{
+                    text-align: right;
+                }
+            }
+            &__right{
+                .add-your-company{
+                    .plus-icon{
+                        margin-left: 15px;
+                        margin-right: 0;
+                    }
+                }
+                .featured-company-box{
+                    .heading-with-arrow{
+                        text-align: left;
+                        padding-left: 30px;
+                        .more-data::after {
+                            background-image: url(../images/rotated-arrow.svg);
+                            background-repeat: no-repeat;
+                            left: 0;
+                            right: auto;
+                        }
+                    }
+                    .f-company-mid{
+                        text-align: right;
+                    }
+                } 
+            }
+        }
+        .f-company-right-outer {
+            .f-company-right {
+                .small-para{
+                    text-align: left;
+                    @include mx-991{
+                        text-align: right;
+                    }
+                }
+            }
+        }
+        .testimonial-home .testimonial-area__elements .title-headings .heading-with-arrow{
+            text-align: left;
+            // padding-left: 30px;
+        }
+        .testimonial-home .testimonial-area__elements .title-headings .heading-with-arrow .more-data::after{
+            left: 0;
+            right: auto;
+            transform: rotate(180deg);
+        }
+        .testimonial-home .testimonial-area__elements .title-headings .main-heading::after{
+            left: -224px;
+            right: auto;
+            @include mx-1200{
+                right: 206px;
+                width: 98%;
+            }
+        }
+               
+    }
+    
+}
+
+// end of html tag
+// actual ltr starts here
+
+.algeria-home{
+    .main-heading{
+        font-weight: 700;
+    }
+    .title-headings{
+        position: relative;
+        .main-heading{
+            @include mx-576{
+                font-size: 1.375rem;
+            }
+            // @include mx-400{
+            //     font-size: 1.25rem;
+            // }
+           
+            
+        }
+       
+      .heading-with-arrow{
+          text-align: right;
+        //   padding-right: 30px;
+          position: relative;
+         
+        
+          .more-data{
+              color: $secondary-color;
+              &::after{
+                content: "";
+                position: absolute;
+                background-image: url(../images/arrow.svg);
+                top: 0;
+                right: 0;
+                height: 18px;
+                width: 18px;
+            }
+          }
+      }
+    }
+    .discover-algeria{
+        &__left{
+            .slider-area{
+                .slider-content{
+                    top: 7%;
+                    width: 90%;
+                    @include mx-430{
+                        width: auto;
+                    }
+                }
+                .slider-next-prev{
+                    position: absolute;
+                    top: auto !important;
+                    bottom: 85px;
+                    left: -15px;
+                    @include mx-991{
+                        top: 144px;
+                    }
+                }
+            }
+            .economic-news{
+                margin-top: 40px;
+              &__elements{
+                .news-post{
+                    background-color: white;
+                    border-radius: 4px;
+                    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+                    cursor: pointer;
+                    .col-md-4{
+                     max-width: 28.33333%;
+                     @include mx-1200{
+                         max-width: 33.33333%;
+                     }
+                     @include mx-991{
+                        max-width: 33.33333%;
+                    }
+                    }
+                    &__left{
+                        position: relative;
+                       
+                        @include mx-767{
+                            // padding-left: 30px;
+                        }
+                        @include mx-576{
+                            padding-left: 0px
+                        }
+                        .eco-news-img{
+                            width: 100%;
+                           
+                            @include mx-576{
+                                width: 100%;
+                            }
+                            
+                        }
+                        .premium-news{
+                            background-color: #E50019;
+                            padding: 7px;
+                            color: #FFFFFF;
+                            font-size: 0.625rem;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                           font-weight: 800;
+                            border-bottom-right-radius: 12px;
+                            border-top-left-radius: 4px;
+                            @include mx-1200{
+                                font-size: 0.5rem;
+                            }
+                        }
+                    }
+                    &__right{
+                        @include mx-991{
+                            // padding-top: 20px;
+                        }
+                        @include mx-767{
+                            padding-top: 5px;
+                          }
+                        @include mx-576{
+                            padding-top: 15px;
+                            padding-bottom: 15px;
+                           
+                        }
+                       
+                      
+                        
+                        .news-post-caption{
+                            font-size: 0.75rem;
+                            color: $grey;
+                            font-weight: 500;
+                            @include mx-1200{
+                                font-size: 0.625rem;
+                            }
+                            @include mx-991{
+                                font-size: 1rem;
+                            }
+                            @include mx-767{
+                                font-size: 0.875rem;
+                            }
+                            @include mx-430{
+                                font-size: 0.75rem;
+                            }
+                        }
+                        .news-text{
+                            color: $breadcrumb-color;
+                            // margin-bottom: 8px;
+                            margin-top: 8px;
+                            @include mx-1200{
+                                font-size: 0.75rem;
+                            }
+                            @include mx-991{
+                                margin-bottom: 7px;
+                                margin-top: 7px;
+                                font-size: 1.25rem;
+                            }
+                            @include mx-767{
+                                margin-bottom: 10px;
+                                margin-top: 15px;
+                                font-size: 1rem;
+                            }
+                            @include mx-430{
+                                margin-bottom: 5px;
+                                margin-top: 5px;
+                                font-size: 0.875rem;
+                            }
+                        }
+                        .tags-top{
+                            display: flex;
+                            margin-bottom: 0;
+                            @include mx-991{
+                                margin-bottom: 10px;
+                            }
+                            @include mx-767{
+                                margin-bottom: 0;
+                            }
+                            @include mx-576{
+                                margin-bottom: 10px;
+                            }
+                            .yellow-box{
+                                background-color: transparent;
+                                color: $green;
+                                padding: 2px 10px;
+                               
+                                font-size: 0.563rem;
+                               border-radius: 11px;
+                               margin-bottom: 5px;
+                               margin-right: 5px;
+                               border: 1px solid $green;
+                               @include mx-1200{
+                                font-size: 0.438rem;
+                                padding: 2px 8px;
+                                margin-right: 3px;
+                               }
+                               @include mx-991{
+                                font-size: 0.625rem;
+                                padding: 2px 10px;
+                                margin-right: 7px;
+                               }
+                            //    @include mx-430{
+                            //     font-size: 0.5rem;
+                            //     padding: 5px;
+                            //     margin-right: 3px;
+                            //    }
+                            }
+                        }
+                        
+                    }
+                }
+              }
+              .economic-newsletter-green{
+                  background-image: url(../images/letter-back.png);
+                  height: 92px;
+                 
+                  width: auto;
+                  display: flex;
+                  background-repeat: no-repeat;
+                  align-items: center;
+                  border-radius: 4px;
+                  &-left{
+                      padding-left: 30%;
+                      @include mx-991{
+                        padding-left: 0;
+                        text-align: center;
+                        margin-top: 15px;
+                      }
+                      .sub-heading{
+                          @include mx-991{
+                              font-size: 1rem;
+                              margin-bottom: 0px;
+                          }
+                          @include mx-400{
+                              font-size: 0.875rem;
+                              padding-top: 5px;
+                          }
+                      }
+                  }
+                  &-right{
+                      @include mx-991{
+                          margin-bottom: 30px;
+                      }
+                      @include mx-400{
+                          margin-bottom: 35px;
+                      }
+                      .form-control{
+                        border: 0;
+                        font-size: 0.75rem;
+                        color: $grey;
+                        padding: 20px;
+                        font-style: italic;
+                        &:focus{
+                            outline: none;
+                        }
+                      }
+                      .input-group{
+                          @include mx-991{
+                              display: flex;
+                              justify-content: center;
+                          }
+                      }
+                      .input-group-text{
+                        padding: 8px 20px;
+                        background-color: $yellow;
+                        border: 0;
+                        &:hover{
+                            background-color: #F3B41D;
+                        }
+                      }
+                      a{
+                          color: $black;
+                      }
+
+
+                  }
+
+              }
+            }
+            // event home starts
+            .events-home{
+                margin-top: 50px;
+                .title-headings{
+                    .main-heading::after{
+                        width: 77%;
+                        @include mx-1200{
+                            width: 70%;
+                            right: -60px;
+                        }
+                    }
+                }
+
+                &__elements{
+                    &-box{
+                        .padding{
+                            padding: 5px 15px;
+                        }
+                        .ratio-inner{
+                            img{
+                                object-position: 50% 50%;
+                                object-fit: contain;
+                            }
+                        }
+                        padding: 0;
+                        background-color: $white;
+                        border-radius: 5px;
+                        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+                        cursor: pointer;
+                        @include mx-576{
+                            padding: 10px;
+                            text-align: center;
+                        }
+                        .event-box-left{
+                            .ratio-1x1 {
+                                padding-top: 133%;
+                            }
+                            border: none;
+                            border-radius: 4px;
+                            @include mx-991{
+                                border: 0;
+                            }
+                        }
+                        .event-box-right{
+                            @include mx-576{
+                                padding-top: 10px;
+                                text-align: center;
+                            }
+                            .semi-bold-para{
+                                font-size: 0.875rem;
+                                color: $breadcrumb-color;
+                                font-weight: 700;
+                                padding-top: 4px;
+                                padding-bottom: 0px;
+                                @include mx-1200{
+                                    font-size: 0.875rem;
+                                }
+                                @include mx-991{
+                                    font-size: 0.875rem;
+                                }
+                            }
+                            .event-date{
+                                font-size: 0.75rem;
+                                color: $breadcrumb-color;
+                                font-weight: 500;
+                                @include mx-991{
+                                    font-size: 0.75rem;
+                                }
+                            }
+                        }
+                    }
+                }
+                .event-home-letter{
+                    margin-top: 30px;
+                    background-color: white;
+                    padding: 25px 15px 20px;
+                    height: 98px;
+                    @include mx-991{
+                        padding: 10px 15px 10px 15px;
+                        height: 105px;
+                    }
+                    @include mx-430{
+                        height: 130px;
+                    }
+                    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+                    border-radius: 4px;
+                    position: relative;
+                    .sub-heading{
+                        @include mx-991{
+                            font-size: 1rem;
+                            margin-bottom: 10px;
+                        }
+                    }
+                    .event-back-one{
+                        position: absolute;
+                        right: -12px;
+                        // top: -9px;
+                        bottom: -14px;
+                    }
+                    .event-back-two{
+                        position: absolute;
+                        right: -12px;
+                        // top: -9px;
+                        bottom: -14px;
+                    }
+                    .event-back-three{
+                        position: absolute;
+                        right: 2px;
+                        // top: 0px;
+                        bottom: 5px;
+                    }
+                    .form-control{
+                        border: 1px solid $grey;
+                        font-size: 0.75rem;
+                        color: $grey;
+                        padding: 20px;
+                        font-style: italic;
+                        z-index: 4;
+                        &:focus{
+                            outline: none;
+                        }
+                      }
+                      .input-group-text{
+                        padding: 8px 20px;
+                        background-color: $red;
+                        border: 0;
+                        z-index: 1;
+                        &:hover{
+                            background-color: #D82034;
+                        }
+                      }
+                      a{
+                          color: $white;
+                      }
+                }
+            }
+            .press-review{
+                background-color: $white;
+                border-right: 4px;
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+                padding: 15px;
+                @include mx-576{
+                    text-align: center;
+                }
+                &-left{
+
+                }
+                &-mid{
+                    .press-review-caption{
+                        font-weight: 700;
+                        color: $grey;
+                        @include mx-576{
+                            padding-top: 15px;
+                            padding-bottom: 15px;
+                        }
+                    }
+                }
+                &-right{
+                    display: flex;
+                    justify-content: flex-end;
+                    @include mx-576{
+                        justify-content: center;
+                    }
+                    .common-button{
+                        font-size: 0.75rem;
+                    }
+                }
+            }
+        }
+        &__right{
+             // investment network home side bar
+             .network-algeria{
+                @include mx-576{
+                    background-color: $white;
+                    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+                }
+             }
+             .algeria-invest-network-home{
+                background-color: $white;
+                padding: 15px 15px 25px 15px;
+                @include mx-576{
+                    padding: 15px 0 25px 0;
+                }
+                margin-top: 10px;
+                border-right: 4px;
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+                @include mx-576{
+                    box-shadow: none;
+                }
+                .main-heading-two{
+                    @include mx-991{
+                        font-size: 1rem;
+                    }
+                }
+
+                .invest-caption{
+                    color: $grey;
+                    @include mx-991{
+                        font-size: 0.875rem;
+                    }
+                }
+            }
+            .sidebar-table{
+                width: 100%;
+                padding: 20px 0;
+                .main-heading{
+                    @include mx-991{
+                        font-size: 1.25rem;
+                    }
+                   
+                    }
+                    .table{
+                        margin-bottom: 10px;
+                        margin-top: 10px;
+                        width: 100%;
+                        .table-heading-text{
+                            @include mx-991{
+                                font-size: 0.75rem;
+                            }
+                            @include mx-576{
+                                font-size: 0.875rem;
+                            }
+                        }
+                        td{
+                            @include mx-991{
+                                font-size: 0.625rem;
+                            }
+                            @include mx-576{
+                                font-size: 0.75rem;
+                            }
+                        }
+                    }
+                .tab-pane-socialmedia{
+                        ul{
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-end;
+                            padding-bottom: 10px;
+                            padding-top: 10px;
+                            .circle-fb{
+                                @include social-circle;
+                                border: 1px solid #FFA51E;
+                            }
+                            .circle-mail{
+                                @include social-circle;
+                                border: 1px solid #35A85E;
+                            }
+                            .circle-msg{
+                                @include social-circle;
+                                border: 1px solid #0F73BB;
+                            }
+                            .circle-send{
+                                @include social-circle;
+                                border: 1px solid #E40019;
+                            }
+                        }
+                    }
+
+                &.top-table {
+                    margin-top: 20px;
+                    padding-left:15px;
+                    padding-right:15px;
+                    @include breakpoint(mobile-max){
+                        margin-top:0;
+                    }
+                }
+            }
+            .generate-review-box{
+                min-height: auto;
+                padding: 10px 15px;
+                .intersection-one{
+                    top:auto;
+                    bottom: 0;
+                }
+                .news-generate {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    @include mx-576{
+                        flex-direction: column;
+                    }
+                    .sub-heading {
+                        font-size: 1.25rem;
+                    }
+                }
+                .news-fig{
+                    img{
+                        max-width: 55px;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.discover-algeria-invest{
+    background-color: $body-background;
+    padding: 30px 0;
+    @include breakpoint(mobile-max){
+        padding-top:0;
+    }
+    .main-heading{
+        font-weight: 700;
+    }
+    .invest-image{
+        @include mx-576{
+            width: 100%;
+        }
+    }
+    .box-green{
+        
+        background-repeat: no-repeat;
+        &::before{
+            border-bottom-color: $green !important;
+        }
+        .more-news-icon{
+            background-color: $white !important;
+            color: $green !important;
+        }
+    }
+    .box-blue{
+      
+        .more-news-icon{
+            background-color: $white !important;
+            color: $secondary-color !important;
+        }
+    }
+    
+    
+    .box-blue-outer{
+        .discover-algeria-invest-box-yellow::before{
+            border-bottom-color: $secondary-color;
+            @include mx-991{
+                display: none;
+            }
+        }
+        .discovera-algeria-caption-box{
+            background-color: #2781C2;
+            &::after{
+                background: $secondary-color;
+            }
+        }
+        
+    }
+    .box-green-outer{
+        .discover-algeria-invest-box-yellow::before{
+            border-bottom-color: $green;
+            @include mx-991{
+                display: none;
+            }
+        }
+        .discovera-algeria-caption-box{
+            background-color: #4AB16E;
+            &::after{
+                background: $green;
+            }
+        }
+        
+    } 
+  
+    &-box-yellow{
+        position: relative;
+        @include mx-576{
+            margin-top: 15px;
+        }
+        &::before{
+            left: 20px;
+        border: solid transparent;
+        content: " ";
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: rgba(194, 225, 245, 0);
+        border-bottom-color: #FFB400;
+        border-width: 12px;
+        margin-left: 0;
+        top: 0;
+        bottom: 54%;
+        @include mx-991{
+            display: none;
+        }
+        }
+        
+        
+        .discovera-algeria-caption-box{
+            padding: 25px 15px 15px 15px;
+            min-height: 140px;
+            @include mx-991{
+                padding: 15px;
+            }
+            @include mx-767{
+                padding: 10px;
+                min-height: 105px;
+            }
+            @include mx-576{
+                min-height: auto;
+            }
+            background-color: #FFBC1A;
+            display: block;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 4px;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            &::after{
+                position: absolute;
+                content: "";
+                height: 216px;
+                width: 200px !important;
+                background: $yellow;
+                bottom: 0;
+                left: -94px;
+                top: -61px;
+                overflow: hidden;
+                z-index: -1;
+                transform: rotate(208deg);
+            }
+           
+            
+            .main-heading{
+                font-weight: 700;
+                color: $black;
+                @include mx-991{
+                    font-size: 1.25rem;
+                }
+                @include mx-767{
+                    font-size: 0.875rem;
+                }
+                @include mx-576{
+                    font-size: 1.375rem;
+                }
+                // @include mx-430{
+                //     font-size: 1.125rem;
+                // }
+            }
+            .discover-algeria-invest-text{
+                font-size: 0.75rem;
+                color: $black;
+                font-weight: 500;
+                @include mx-767{
+                    font-size: 0.75rem;
+                }
+                @include mx-576{
+                    font-size: 0.75rem;
+                }
+
+            }
+            .more-news{
+                display: flex;
+                justify-content: flex-end;
+                margin-top: 30px;
+                @include mx-767{
+                    margin-top: 20px;
+                }
+                color: $black;
+                font-weight: 600;
+                .more-news-icon{
+                    height: 16px;
+                    width: 16px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: $black;
+                    color: $yellow;
+                    margin-left: 15px;
+                    padding: 3px;
+                }
+            }
+           
+        }
+    }
+}
+
+
+// resource newsletter
+.resource-news-letter{
+    background-color: $body-background;
+    padding-top: 30px;
+    .event-home-letter{
+        
+        background-color: white;
+        padding: 23px 15px;
+        height: 105px;
+        @include mx-991{
+            padding: 10px 15px 10px 15px;
+            height: 120px;
+        }
+        @include mx-576{
+            height: 130px;
+        }
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+        border-radius: 4px;
+        position: relative;
+        .sub-heading{
+            @include mx-991{
+                font-size: 1rem;
+                margin-bottom: 10px;
+                // width: 85%;
+            }
+            @include mx-767{
+                font-size: 0.875rem;
+            }
+            // @include mx-576{
+            //     font-size: 0.688rem;
+            // }
+            // @include mx-430{
+            //     font-size: 0.625rem;
+            // }
+        }
+        .event-back-one{
+            position: absolute;
+            right: -12px;
+            // top: -9px;
+            bottom: -14px;
+        }
+        .event-back-two{
+            position: absolute;
+            right: -12px;
+            // top: -9px;
+            bottom: -14px;
+        }
+        .event-back-three{
+            position: absolute;
+            right: 2px;
+            // top: 0px;
+            bottom: 16px;
+           
+        }
+        .form-control{
+            border: 1px solid $grey;
+            font-size: 0.75rem;
+            color: $grey;
+            padding: 20px;
+            font-style: italic;
+            z-index: 4;
+            &:focus{
+                outline: none;
+            }
+          }
+          .input-group-text{
+            padding: 8px 20px;
+            background-color: $red;
+            border: 0;
+            z-index: 1;
+            &:hover{
+                background-color: #D82034;
+            }
+          }
+          a{
+              color: $white;
+          }
+    }
+}
+
+// business opportunities and tenders home
+
+.business-opps-tenders{
+    background-color: $body-background;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    @include mx-576{
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .main-heading{
+        font-weight: 700;
+        @include mx-991{
+            font-size: 1.25rem;
+        }
+        @include mx-767{
+            font-size: 1.625rem;
+        }
+        @include mx-576{
+            font-size: 1.375rem;
+        }
+        // @include mx-430{
+        //     font-size: 1.125rem;
+        // }
+    }
+    
+    &--left{
+        @include title-heading;
+       
+        .more-data{
+            @include mx-991{
+                font-size: 0.875rem;
+            }
+            @include mx-576{
+                font-size: 0.875rem;
+                
+            }
+            @include mx-400{
+                font-size: 0.75rem;
+            }
+        }
+        .main-heading::after{
+                 width: 30% !important;
+                 @include mx-1200{
+                     display: none !important;
+                 }
+        }
+        .print-data{
+            @include mx-991{
+                font-size: 0.875rem;
+            }
+            @include mx-767{
+                font-size: 1rem;
+            }
+            @include mx-576{
+                font-size: 1rem;
+            }
+        }
+        .print-month{
+            @include mx-991{
+                font-size: 0.75rem;
+            }
+            @include mx-767{
+                font-size: 0.75rem;
+            }
+            @include mx-576{
+                font-size: 0.875rem;
+            }
+        }
+        .print-business{
+            @include mx-991{
+                font-size: 0.625rem;
+            }
+            @include mx-767{
+                font-size: 0.75rem;
+            }
+        }
+    }
+    &--right{
+        background-color: $white;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        @include mx-576{
+           margin-top: 15px;
+        }
+        border-radius: 4px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+        .title-headings{
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        @include title-heading;
+        
+        .heading-with-arrow{
+            .more-data{
+                color: $green !important;
+                @include mx-991{
+                    font-size: 0.875rem;
+                }
+                @include mx-400{
+                    font-size: 0.75rem;
+                }
+                &::after{
+                    background-image: url(../images/green-arrow.svg) !important;
+                }
+            }
+        }
+        .main-heading-two{
+            @include mx-991{
+                font-size: 1.125rem;
+            }
+            @include mx-767{
+                font-size: 1.625rem;
+            }
+            @include mx-576{
+                font-size:  1.375rem;
+            }
+            // @include mx-430{
+            //     font-size: 1.125rem;
+            // }
+               
+           
+        }
+        
+
+    //   algeria tenders
+    .algeria-tenders-table{
+        .main-heading{
+            font-weight: 700;
+        }
+        .sidebar-table {
+            overflow-x: auto;
+            .single-stage{
+                font-size: 0.875rem;
+                @include mx-991{
+                    font-size: 0.75rem;
+                }
+            }
+            tbody tr:nth-child(even){
+                background: #F9FAFD;
+              }
+
+            .table-heading-text{
+                padding: 18px 10px 18px 15px;
+                font-size: 0.875rem;
+                @include mx-991{
+                    font-size: 0.625rem;
+                }
+                @include mx-576{
+                    font-size: 0.75rem;
+                }
+            }
+            td{
+                padding: 18px 10px 18px 15px;
+                @include mx-991{
+                    font-size: 0.625rem;
+                    padding: 10px;
+                }
+                
+            }
+            .last-child-no-boder td{
+                border-bottom: 0;
+            }
+          }
+          .advice-button{
+              .common-button{
+                  @include mx-430{
+                      font-size: 0.625rem;
+                  }
+              }
+          }
+    }
+
+    }
+    .title-border{
+        .main-heading-two{
+            background-color: $body-background;
+            padding-right: 10px;
+        }
+        .heading-with-arrow{
+            a{
+                background-color: $body-background;
+                padding-left: 5px;
+            }
+        }
+    }
+    .sidebar-table{
+        padding: 0 !important;
+        .table{
+            margin-top:0;
+        }
+    }
+
+}
+
+// business intelligence starts here
+.BI-home{
+    background-color: $white;
+    position: relative;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+    .main-heading{
+        font-weight: 700;
+        @include mx-991{
+            font-size: 1.25rem;
+        }
+        @include mx-767{
+            font-size: 1.625rem;
+        }
+        @include mx-576{
+            font-size: 1.375rem;
+        }
+        
+    }
+    &:after{
+        position: absolute;
+        content: "";
+        right: 0;
+        top: 0;
+        width: calc(33.33% + 15px);
+        background-color: $yellow;
+        height: 100%;
+        z-index: 0;
+        @include mx-767{
+            display: none   ;
+        }
+        }
+    &--left{
+        padding-top: 30px;
+        padding-bottom: 30px;
+        padding-right: 15px;
+        @include mx-767{
+            padding-right: 0;
+        }
+        .title-headings{
+            position: relative;
+            .main-heading{
+                
+                @include mx-576{
+                    font-size: 1.375rem;
+                }
+                // @include mx-430{
+                //     font-size: 1.125rem;
+                // }
+                
+            }
+           
+          .heading-with-arrow{
+              text-align: right;
+            //   padding-right: 30px;
+              position: relative;
+             
+            
+              .more-data{
+                  color: $secondary-color;
+                  @include mx-576{
+                      font-size: 0.75rem;
+                  }
+                  &::after{
+                    content: "";
+                    position: absolute;
+                    background-image: url(../images/arrow.svg);
+                    top: 20%;
+                    right: 0;
+                    height: 18px;
+                    width: 18px;
+                }
+              }
+          }
+        }
+
+        // title heading ends here
+        .BI-box{
+            padding: 15px;
+            background-color: $body-background;
+            border-radius: 4px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+            @include mx-400{
+                padding: 10px;
+                // min-height: 190px;
+            }
+            .main-heading{
+                font-weight: 700;
+            }
+            .sub-heading{
+                @include mx-767{
+                    font-size: 1.25rem;
+                }
+                @include mx-576{
+                    font-size: 1.25rem;
+                }
+                // @include mx-430{
+                //     font-size: 0.875rem;
+                // }
+                // @include mx-400{
+                //     font-size: 0.813rem;
+                // }
+            }
+        }
+
+    }
+
+    &--right{
+        background-color: $yellow;
+        padding: 15px;
+        height: 100%;
+        @include mx-767{
+            padding-top: 15px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        @include mx-576{
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        z-index: 5;
+        position: relative;
+       .main-heading{
+           font-weight: 600;
+           font-size: 1.45rem;
+           @include mx-991{
+               font-size: 1.125rem;
+           }
+           @include mx-767{
+               font-size: 1.125rem;
+           }
+           @include mx-576{
+               font-size: 1.375rem;
+           }
+        //    @include mx-430{
+        //     font-size: 1.125rem;
+        // }
+       }
+       .more-news{
+        display: flex;
+        justify-content: flex-end;
+        @include mx-767{
+            justify-content: flex-start;
+        }
+        margin-top: 10px;
+        color: $black;
+        font-weight: 600;
+        .more-news-icon{
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $black;
+            color: $yellow;
+            margin-left: 15px;
+            padding: 3px;
+        }
+    }
+    .BI-posts{
+        .main-heading{
+            font-weight: 700;
+        }
+        &-left{
+
+        }
+        &-right{
+            .bi-post-head{
+                @include mx-991{
+                    font-size: 0.75rem;
+                }
+                @include mx-767{
+                    font-size: 1rem;
+                }
+                @include mx-576{
+                    font-size: 1rem;
+                }
+                // @include mx-400{
+                //     font-size: 0.75rem;
+                // }
+            }
+            .light-black{
+                font-size: 0.75rem;
+                color: $black;
+                font-weight: 600;
+                padding-top: 20px;
+                @include mx-991{
+                    font-size: 0.75rem;
+                    padding-top: 3px;
+                }
+                @include mx-767{
+                    font-size: 0.875rem;
+                    padding-top: 10px;
+                }
+                @include mx-576{
+                    font-size: 0.875rem;
+                }
+               
+            }
+        }
+    }
+    }
+
+}
+
+// business directory
+.business-direcory-home{
+    background-color: $body-background;
+    padding-top: 35px;
+    .title-headings{
+        position: relative;
+        .main-heading{
+           font-weight: 700;
+            @include mx-576{
+                font-size: 1.375rem;
+            }
+            // @include mx-430{
+            //     font-size: 1.125rem;
+            // }
+        }
+       
+      .heading-with-arrow{
+          text-align: right;
+        //   padding-right: 30px;
+          position: relative;
+         
+        
+          .more-data{
+              color: $secondary-color;
+              &::after{
+                content: "";
+                position: absolute;
+                background-image: url(../images/arrow.svg);
+                top: 0;
+                right: 0;
+                height: 18px;
+                width: 18px;
+            }
+          }
+      }
+    }
+   
+    .access-business-directory{
+       position: relative;
+       background-color: $white !important;
+        &::after{
+            position: absolute;
+            content: "";
+            left: 0;
+            top: 0;
+           
+            width: calc(50% + 15px);
+            @include mx-767{
+                width: auto;
+            }
+            background-color: $green;
+            height: 100%;
+            z-index: 0;
+        }
+        .featured-container{
+            @include mx-767{
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+        &__left{
+            background-color: $green;
+            padding: 15px 15px 15px 15px;
+            @include mx-767{
+                padding: 15px 15px 15px 15px;
+            }
+            
+            position: relative;
+            z-index: 5;
+            .bd-icons{
+                fill: $white;
+            }
+            
+            .more-news{
+                display: flex;
+                // position: absolute;
+                position: relative;
+                justify-content: flex-end;
+                margin-top: 45px;
+                @include mx-576{
+                    margin-top: 20px;
+                }
+               
+                // @include mx-1200{
+                //     bottom: 5px;
+                // }
+                // @include mx-767{
+                //     // bottom: 15px;
+                //     right: 20px;
+
+                // }
+                .more-news-icon{
+                    height: 16px;
+                    width: 16px;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    border-radius: 50%;
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: -moz-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-align: center;
+                    -webkit-align-items: center;
+                    -moz-box-align: center;
+                    -ms-flex-align: center;
+                    align-items: center;
+                    -webkit-box-pack: center;
+                    -webkit-justify-content: center;
+                    -moz-box-pack: center;
+                    -ms-flex-pack: center;
+                    justify-content: center;
+                    background-color: $white;
+                    color: $green;
+                    margin-left: 15px;
+                    padding: 3px;
+                }
+            }
+           
+        }
+        &__right{
+            padding-left: 30px;
+            @include mx-767{
+                padding-left: 0;
+            }
+            padding-top: 15px;
+            padding-bottom: 15px;
+            .add-your-company{
+                .plus-icon{
+                    margin-right: 15px;
+                    .bd-icon-green{
+                        fill: $green;
+                    }
+                }
+                .add-comp-button{
+                    
+                    .common-button{
+                        background-color: $green;
+                        border: 1px solid $green;
+                        &:hover{
+                            background-color: transparent;
+                            border: 1px solid $green;
+                            color: $green;
+                        }
+                    }
+                }
+            }
+            .featured-company-box{
+                background-color: $body-background;
+                padding: 10px;
+                .sub-heading-two{
+                    color: $secondary-color;
+                    font-weight: 600;
+                }
+                .heading-with-arrow{
+                    text-align: right;
+                    padding-right: 30px;
+                    position: relative;
+                   
+                  
+                    .more-data{
+                        color: $secondary-color;
+                        font-size: 0.75rem;
+                        &::after{
+                          content: "";
+                          position: absolute;
+                          background-image: url(../images/arrow.svg);
+                          top: 20%;
+                          right: 0;
+                          height: 18px;
+                          width: 18px;
+                      }
+                    }
+                }
+                // .f-company-left-outer{
+                //     padding: 0;
+                //     .f-company-left{
+                //         padding-right: 15px;
+                //     }
+                // }
+                .f-company-mid{
+                    .small-para{
+                        font-size: 0.75rem;
+                        @include mx-1200{
+                            font-size: 0.625rem;
+                        }
+                        @include mx-991{
+                            font-size: 0.75rem;
+                        }
+                        @include mx-576{
+                            padding-bottom: 5px;
+                            font-size: 0.875rem;
+                        }
+                    }
+                    
+                   
+                }
+                .f-company-right-outer{
+                   
+                    .f-company-right{
+                        text-align: right;
+                        @include mx-991{
+                            text-align: left;
+                        }
+                        .small-para{
+                            font-size: 0.75rem;
+                            @include mx-1200{
+                                font-size: 0.625rem;
+                            }
+                            @include mx-991{
+                                font-size: 0.75rem;
+                            }
+                            @include mx-576{
+                                font-size: 0.875rem;
+                            }
+                            
+                        }
+                       
+                    }
+                }
+                
+            }
+        }
+    }
+
+    .bd-box{
+        padding: 25px;
+        @include mx-576{
+            padding: 15px;
+            text-align: center;
+        }
+        @include mx-400{
+            padding: 10px;
+            min-height: 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        background-color: $white;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+        border-radius: 4px;
+        &-left{
+            .bold-text{
+                font-size: 2rem;
+                color: $green;
+                font-weight: 700;
+                @include mx-991{
+                    font-size: 1.625rem;
+                }
+                @include mx-400{
+                    font-size: 1.125rem;
+                }
+                
+            }
+        }
+        &-right{
+            .sub-heading{
+                @include mx-991{
+                    font-size: 0.875rem;
+                }
+               
+            }
+            .bd-icons{
+                fill: $green;
+            }
+        }
+    }
+    // contact-list starts here
+    .contact-list{
+        .contact-list-area{
+            background-color: $white;
+             box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+            border-radius: 4px;
+            padding: 15px;
+            .main-heading{
+                @include mx-576{
+                    font-size: 1.375rem;
+                }
+            }
+            .heading-with-arrow{
+                text-align: right;
+                padding-right: 30px;
+                position: relative;
+               
+              
+                .more-data{
+                    color: $secondary-color;
+                    font-weight: 700;
+                    &::after{
+                      content: "";
+                      position: absolute;
+                      background-image: url(../images/arrow.svg);
+                      top: 20%;
+                      right: 0;
+                      height: 18px;
+                      width: 18px;
+                  }
+                }
+            }
+            &-box{
+                background-color: $body-background;
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+                border-radius: 4px;
+                padding: 15px;
+                .solution-para{
+                    @include mx-576{
+                        padding-top: 15px;
+                    }
+                }
+                .bd-icon-green{
+                    fill: $green;
+                }
+
+            }
+            
+
+        }
+    }
+
+
+}
+
+// search engine criteria
+
+.Search-engine-Criteria{
+    background-color: $body-background;
+    padding-top: 30px;
+    .main-heading{
+        font-weight: 700;
+    }
+    &-left{
+        .sub-heading{
+            color: $breadcrumb-color;
+            @include mx-991{
+                font-size: 1rem;
+            }
+        }
+        .search-engine-text{
+            color: $breadcrumb-color;
+        }
+        .search-engine-home{
+
+            .company a{
+                color: $grey;
+                position: relative;
+                padding-left: 20px;
+                font-size: 1rem;
+                @include mx-991{
+                    font-size: 0.8rem;
+                }
+               
+                font-weight: 600;
+                &:before{
+                    position: absolute;
+                    content: "";
+                    background-image: url(../images/search-engine-arrow.svg);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    height: 10px;
+                    width: 8px;
+                    top: 6px;
+                    left: 0;
+                    @include mx-400{
+                        top: 1px;
+                    }
+                }
+            }
+
+           
+        }
+         // featured company
+         .featured-company{
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-top: 1px solid $nav-border-top;
+            border-top-style: dotted;
+
+            .feature-companies-box{
+                background-color: $white;
+                padding: 10px 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+            }
+            .common-button{
+                @include mx-400{
+                    font-size: 0.75rem;
+                    padding: 10px;
+                }
+            }
+        }
+    }
+// left area ends here
+    &-right{
+        .commercial-solution{
+            padding: 25px 15px;
+            border-radius: 4px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+            &-left{
+                .sub-heading{
+                    @include mx-991{
+                        font-size: 1rem;
+                    }
+                    @include mx-767{
+                        font-size: 1.625rem;
+                    }
+                }
+            }
+
+        }
+        .solution-green{
+            background-color: $green;
+        }
+        .solution-blue{
+            background-color: $secondary-color;
+            @include mx-576{
+                margin-top: 15px;
+            }
+        }
+        .title-wizard{
+            background-color: $white;
+            padding: 25px 15px;
+            .sub-heading{
+                color: $breadcrumb-color;
+            }
+            .small-text{
+                color: $grey;
+            }
+            .select-criteria{
+                padding-left: 30px;
+                .small-text{
+                    color: $grey;
+                    padding-top: 5px;
+                }
+            }
+            &-elements{
+                &-area{
+                    border-left: 1px solid $nav-border-top;
+                    border-left-style: dotted;
+                    margin-left: 10px;
+                    .targeting-criteria{
+                        padding-left: 30px;
+                        padding-bottom: 30px;
+                        position: relative;
+                        display: flex;
+                        
+                        &:before{
+                            content: "1";
+                            position: absolute;
+                            font-size: 0.875rem;
+                            left: -10px;
+                            top: 0;
+                            border: 1px solid #8BA1B2;
+                            -webkit-border-radius: 50%;
+                            -moz-border-radius: 50%;
+                            border-radius: 50%;
+                            height: 20px;
+                            width: 20px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 10px;
+                            background-color: $white;
+                            color: $grey;
+                        }
+                       
+                    }
+                    .confirm-criteria{
+                        padding-left: 30px;
+                        padding-bottom: 30px;
+                        position: relative;
+                        display: flex;
+                        &:before{
+                            content: "2";
+                            position: absolute;
+                            font-size: 0.875rem;
+                            left: -10px;
+                            top: 0;
+                            border: 1px solid #8BA1B2;
+                            -webkit-border-radius: 50%;
+                            -moz-border-radius: 50%;
+                            border-radius: 50%;
+                            height: 20px;
+                            width: 20px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 10px;
+                            background-color: $white;
+                            color: $grey; 
+                        }
+                    }
+                    .download-criteria{
+                        padding-left: 30px;
+                        padding-bottom: 30px;
+                        position: relative;
+                        display: flex;
+                        &:before{
+                            content: "3";
+                            position: absolute;
+                            font-size: 0.875rem;
+                            left: -10px;
+                            top: 0;
+                            border: 1px solid #8BA1B2;
+                            -webkit-border-radius: 50%;
+                            -moz-border-radius: 50%;
+                            border-radius: 50%;
+                            height: 20px;
+                            width: 20px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            padding: 10px;
+                            background-color: $white;
+                            color: $grey; 
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+// search engine criteria ends
+// online services starts
+.online-services{
+    background-color: $secondary-color;
+    padding-top: 35px;
+    padding-bottom: 50px;
+    .main-heading{
+        font-weight: 700;
+        @include mx-576{
+            font-size: 1.375rem;
+        }
+       
+    }
+
+  
+    .service-box{
+        background-color: $white;
+        padding: 30px 20px;
+        @include mx-576{
+            padding: 15px;
+        }
+        border-radius: 4px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01); 
+        min-height: 120px;
+        @include mx-576{
+            min-height: 135px;
+            text-align: center;
+        }
+        
+        .sub-heading{
+            @include mx-991{
+                font-size: 1rem;
+            }
+            @include mx-767{
+                padding-top: 15px;
+                
+            }
+            @include mx-576{
+                font-size: 1.125rem;
+            }
+           
+        }
+    }
+    .Assistance-services{
+        .title-headings{
+            position: relative;
+            .main-heading{
+                
+                @include mx-576{
+                    font-size: 1.375rem;
+                }
+                // @include mx-430{
+                //     font-size: 1.125rem;
+                // }
+                
+            }
+          
+          .heading-with-arrow{
+              position: relative;
+              text-align: right;
+            .more-data::after{
+                content: "";
+                        position: absolute;
+                        background-image: url(../images/white-arrow-svg.svg);
+                        top: 0;
+                        right: 0;
+                        height: 18px;
+                        width: 18px;
+
+            }
+          }
+        }
+        .assistance-icon{
+            position: relative;
+            .truck{
+                right: 20px;
+                top: 40px;
+                position: absolute;
+                @include mx-991{
+                    right: 50px;
+                }
+            }
+            .fill-white{
+                fill: $white;
+               
+            }
+            .assistance-border{
+                padding-bottom: 10px;
+                border-bottom: 1px solid $white;
+            }
+            .sub-heading-two{
+                font-weight: 600;
+                text-align: center;
+                @include mx-767{
+                    font-size: 1rem;
+                }
+                @include mx-430{
+                    font-size: 0.875rem;
+                    margin-top: 10px;
+                }
+            }
+        }
+        .assistance-box{
+            background-color: $white;
+            padding: 30px 25px;
+            border-radius: 4px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+            min-height: 100px;
+            @include mx-991{
+                min-height: 125px;
+            }
+            @include mx-576{
+                min-height: 100px;
+            }
+            .assistance-box-text{
+                font-size: 1rem;
+                @include mx-991{
+                    font-size: 0.875rem;
+                }
+                @include mx-767{
+                    font-size: 0.75rem;
+                }
+                color: $breadcrumb-color;
+                font-weight: 600;
+
+            }
+        }
+    }
+}
+
+.brand-carousel{
+    padding-bottom: 40px !important;
+    padding-top: 40px !important;
+
+    .next-partner-icon{
+        height: 8px;
+        width: 8px;
+        -webkit-transform: rotate(320deg);
+        -moz-transform: rotate(320deg);
+        -ms-transform: rotate(320deg);
+        -o-transform: rotate(320deg);
+        transform: rotate(320deg);
+        border: solid #17344A;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 2px;
+        background-image: none;
+        border-color: #FFFFFF;
+        border-width: 0 3px 3px 0;
+    }
+    .prev-partner-icon{
+        height: 8px;
+        width: 8px;
+        -webkit-transform: rotate(135deg);
+        -moz-transform: rotate(135deg);
+        -ms-transform: rotate(135deg);
+        -o-transform: rotate(135deg);
+        transform: rotate(135deg);
+        border: solid #17344A;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 2px;
+        background-image: none;
+        border-color: #FFFFFF;
+        border-width: 0 3px 3px 0;
+    }
+    .blue-slide{
+        background-color: $secondary-color !important;
+        @include mx-767{
+            display: none;
+        }
+    }
+    .green-slide{
+        @include mx-767{
+            display: none;
+        }
+    } 
+}
+
+.partners-logo-area{
+    .brand-carousel{
+        padding-top: 0px !important;
+    }
+}
+// testimonial-home
+
+.testimonial-home{
+    .main-heading{
+        font-weight: 700;
+        @include mx-576{
+            font-size: 1.375rem;
+        }
+      
+    }
+    background-color: $body-background;
+    .testimonial-area{
+        padding-top: 30px;
+        padding-bottom: 30px;
+        @include mx-400{
+            padding-top: 10px;
+        }
+        &__elements{
+            .title-headings{
+                position: relative;
+                .main-heading{
+                   font-weight: 700;
+                    @include mx-576{
+                        font-size: 1.375rem;
+                    }
+                    // @include mx-430{
+                    //     font-size: 1.125rem;
+                    // }
+                }
+               
+              .heading-with-arrow{
+                  text-align: right;
+                //   padding-right: 30px;
+                  position: relative;
+                 
+                
+                  .more-data{
+                      color: $secondary-color;
+                      &::after{
+                        content: "";
+                        position: absolute;
+                        background-image: url(../images/arrow.svg);
+                        top: 0;
+                        right: 0;
+                        height: 18px;
+                        width: 18px;
+                    }
+                  }
+              }
+            }
+            &--box{
+                padding: 5px 15px 15px 15px;
+                
+                .quote-font{
+                    i{
+                        color: #52AA34;
+                    }
+                }
+                &:hover{
+                    background-color: #52AA34;
+                    border-color: #52AA34;
+                    .modal-body {
+                        p{
+                            color: $breadcrumb-color !important;
+                        }
+                        
+                    }
+                    .quote-icon{
+                        fill: $white!important;
+                    }
+                    .quote-font{
+                        i{
+                            color: $white;
+                        }
+                    }
+                    p{
+                        color: $white;
+                    }
+                    .modal-innner-text{
+                        color: $grey !important;
+                    }
+                }
+                .testimonial-content{
+                    // margin-top: -35px;
+                    @include mx-767{
+                        font-size: 0.875rem;
+                        // height: 135px;
+                    }
+                    // @include mx-430{
+                    //     font-size: 0.75rem;
+                    //     // margin-top: -50px;
+                    // }
+                }
+            }
+        }
+    }
+}
+
+// home-faq
+
+.home-faq{
+    background-color: $body-background;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    .main-heading{
+        font-weight: 700;
+    }
+    .title-headings{
+        position: relative;
+        .main-heading{
+           
+            @include mx-576{
+                font-size: 1.375rem;
+            }
+            // @include mx-430{
+            //     font-size: 1.125rem;
+            // }
+        }
+        .main-heading::after{
+            content: "";
+            position: absolute;
+            width: 114%;
+            height: 1px;
+            background-color: #8BA1B2;
+            display: block;
+            right: -224px;
+            bottom: 8px;
+            @include mx-1200{
+                width: 100%;
+                right: -140px;
+            }
+            @include mx-991{
+                display: none;
+            }
+      }
+      .heading-with-arrow{
+          text-align: right;
+          padding-right: 30px;
+          position: relative;
+         
+        
+          .more-data{
+              color: $secondary-color;
+              &::after{
+                content: "";
+                position: absolute;
+                background-image: url(../images/arrow.svg);
+                top: 0;
+                right: 0;
+                height: 18px;
+                width: 18px;
+            }
+          }
+      }
+    }
+    .faq{
+        .card{
+            .sub-heading{
+                @include mx-991{
+                    font-size: 0.875rem;
+                }
+                @include mx-400{
+                    font-size: 0.75rem;
+                }
+            }
+            .card-body{
+                p{
+                    @include mx-991{
+                        font-size: 0.75rem;
+                    }
+                    @include mx-400{
+                        font-size: 0.625rem;
+                    }
+                }
+               
+            }
+           
+            
+        }
+    }
+    
+}

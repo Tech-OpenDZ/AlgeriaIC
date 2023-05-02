@@ -1,0 +1,503 @@
+html {
+    &[dir="rtl"] {
+        .business-directory-main {
+            &__elements {
+                .directory-box {
+                    .companies-heading {
+                        text-align: right;
+                    }
+                    @include mx-576{
+                        .companies-heading{
+                            text-align: center;
+                        }
+                        .sub-heading{
+                            text-align: center !important;
+                        }
+                    }
+                }
+                p {
+                    text-align: right;
+                }
+            }
+            .bd-search-outer{
+                text-align: right;
+            }
+        }
+        .client-data{
+            text-align: right;
+        }
+        .business-directory-search {
+            &__elements{
+                .bd-list{
+                    @include mx-576{
+                        text-align: right;
+                    }
+                    .search-engine-home{
+                        .company{
+                            a{
+                                @include mx-576{
+                                    padding-left: 0;
+                                padding-right: 15px;
+                                &::before{
+                                    right: 0;
+                                }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            p {
+                text-align: right;
+            }
+        }
+        .business-directory-contact{
+            p{
+                text-align: right;
+            }
+            &__elements{
+                @include mx-576{
+                    text-align: right;
+                }
+            }            
+        }
+        .business-directory-sponserdlink{
+            p{
+                text-align: right;
+            }
+            &__elements{
+                @include mx-576{
+                    text-align: right;
+                }
+            }
+        }
+        .bd-wizard{
+            .bd-search-outer{
+                @include mx-576{
+                    text-align: right;
+                }
+                .confirm-order{
+                    text-align: right;
+                    .search-target-button{
+                        text-align: left;
+                    }
+                }
+                .target-right{
+                    text-align: right;
+                }
+            }
+        }
+        .business-directory-contact-slide{
+            .events-home{
+                &__elements{
+                    text-align: right;
+                    &-box{
+                        @include mx-576{
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// html rtl ends here
+
+
+.business-directory-main{
+    p{
+        color: $breadcrumb-color;
+    }
+    &__elements{
+        .directory-box{
+            background-color: $green;
+           
+            box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04);
+            border-radius: 4px;
+            padding: 25px 15px;
+            margin: 20px 0;
+            @include mx-576{
+                margin: 10px 0 10px 0;
+                text-align: center;
+                padding: 15px;
+                img{
+                    margin: auto;
+                    padding-top: 10px;
+                }
+            }
+            display: flex;
+            align-items: center;
+            min-height: 136px;
+            @include mx-991{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 100px;
+            }
+            @include mx-767{
+                min-height: 113px;
+            }
+            .companies-heading{
+                font-size: 2rem;
+                font-weight: 700;
+                @include mx-991{
+                    font-size: 1.25rem;
+                }
+                @include mx-767{
+                    font-size: 1.625rem;
+                }
+                @include mx-576{
+                    font-size: 2rem;
+                }
+            }
+            .sub-heading{
+                @include mx-1200{
+                    font-size: 1rem;
+                }
+                @include mx-991{
+                    font-size: 0.75rem;
+                }
+                @include mx-767{
+                    font-size: 0.875rem;
+                }
+                @include mx-576{
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+
+.business-directory-search{
+    background-color: $white;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    padding: 20px;
+    border-bottom: 4px solid $green;
+    p{
+        color: $breadcrumb-color;
+    }
+    &__elements{
+        .sub-heading{
+            @include mx-991{
+                font-size: 1rem;
+            }
+        }
+        .find-contact{
+            display: flex;
+            justify-content: flex-end;
+            .common-button{
+                background-color: $green;
+               
+                &:hover{
+                    background-color: transparent;
+                    border: 1px solid $green;
+                    color: $green;
+                }
+    
+            }
+        }
+
+
+      
+        .bd-list{
+            .company-list{
+                padding-top: 20px;
+                @include mx-576{
+                    margin-bottom: 0;
+                }
+            }
+            .company-list-two{
+                padding-top: 20px;
+                @include mx-576{
+                    padding-top: 0;
+                }
+            }
+            .search-engine-home{
+                a{
+                    color: #8BA1B2;
+                    position: relative;
+                    padding-left: 20px;
+                    font-size: 1rem;
+                    @include mx-991{
+                        font-size: 0.75rem;
+                    }
+                    @include mx-576{
+                        font-size: 0.875rem;
+                    }
+                    font-weight: 600;
+                    &:before{
+                        position: absolute;
+                        content: "";
+                        background-image: url(../images/search-engine-arrow.svg);
+                        background-repeat: no-repeat;
+                        -webkit-background-size: cover;
+                        -moz-background-size: cover;
+                        -o-background-size: cover;
+                        background-size: cover;
+                        height: 10px;
+                        width: 8px;
+                        top: 6px;
+                        @include mx-991{
+                            top: 3px;
+                        }
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+// red button for ADD COMPANY 
+.bd-add-company-red{
+    .common-button{
+        background-color: $red;
+        border: 1px solid $red;
+        &:hover{
+            background-color: transparent;
+            border: 1px solid $red;
+            color: $red;
+        }
+    }
+}
+
+// END OF ADD COMPANY
+.business-directory-contact{
+    background-color: $white;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    padding: 20px;
+    border-bottom: 4px solid $secondary-color;
+    p{
+        color: $breadcrumb-color;
+    }
+    &__elements{
+        .find-contact{
+            display: flex;
+            justify-content: flex-end;
+            
+        }
+
+
+      
+    }
+}
+
+.business-directory-sponserdlink{
+    background-color: $white;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    padding: 20px;
+    border-bottom: 4px solid $red;
+    @include mx-767{
+        margin-bottom: 20px;
+    }
+    p{
+        color: $breadcrumb-color;
+    }
+    &__elements{
+        .find-contact{
+            display: flex;
+            justify-content: flex-end;
+            .common-button{
+                background-color: $red;
+                color: $white;
+                border: 1px solid $red;
+                &:hover{
+                    background-color: transparent;
+                    color: $red;
+                    border: 1px solid $red;
+                }
+            }
+            
+        }
+
+
+      
+    }
+}
+
+.target-capt{
+    font-size: 0.75rem;
+    color: $grey;
+}
+.search-target-button{
+    text-align: right;
+}
+.bd-source {
+    .select-button{
+       
+        min-width: 100%;
+    }
+}
+// for business directory page two
+.bd-search-outer{
+    background-color: $white;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    padding: 15px;
+    border-bottom: 4px solid $secondary-color;
+
+    .news-select-area{
+        .select-button{
+            font-size: 0.875rem !important;
+            @include mx-1200{
+                min-width: 125px;
+            }
+            @include mx-991{
+                min-width: 100%;
+            }
+            @include mx-400{
+                font-size: 0.75rem !important;
+            }
+        }
+    } 
+
+    .search-engine{
+        margin-top: 0;
+    }
+    .form-control{
+        background-color: transparent;
+    border: 1px solid #8BA1B2 !important;
+    }
+}
+
+.business-directory-contact-slide{
+    .event-box-right{
+        .para-bold{
+            font-weight: 700;
+        }
+        .phone-text{
+            font-size: 1rem;
+            color: $breadcrumb-color;
+            @include mx-1200{
+                font-size: 0.875rem;
+            }
+            @include mx-991{
+                font-size: 0.75rem;
+                padding-top: 5px;
+            }
+            @include mx-767{
+                font-size: 0.875rem;
+            }
+        }
+    }
+    .events-home__elements{
+        margin-top: -25px;
+        &-box{
+            @include mx-576{
+                text-align: left;
+            }
+        }
+    }
+}
+
+.bd-wizard{
+    background-color: $white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    .bd-select-left{
+        text-align: left;
+    }
+    .bd-select-right{
+        text-align: right;
+    }
+    .bd-search-outer{
+        // border-bottom: 0;
+        box-shadow: none;
+    }
+    .stepwizard-step p {
+        margin-top: 10px;
+    }
+    
+    .stepwizard-row {
+        display: table-row;
+    }
+    
+    .stepwizard {
+        display: table;
+        width: 100%;
+        position: relative;
+        margin-top: 40px;
+    }
+    
+    .stepwizard-step button[disabled] {
+        opacity: 1 !important;
+        filter: alpha(opacity=100) !important;
+    }
+    
+    .stepwizard-row:before {
+        top: 14px;
+        bottom: 0;
+        position: absolute;
+        content: " ";
+        width: 100%;
+        height: 1px;
+        background-color: #ccc;
+        z-order: 0;
+    
+    }
+    
+    .stepwizard-step {
+        display: table-cell;
+        text-align: center;
+        position: relative;
+    }
+    
+    .btn-circle {
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      padding: 6px 0;
+      font-size: 12px;
+      line-height: 1.428571429;
+      border-radius: 15px;
+      background-color: $white;
+      border: 1px solid $grey;
+      opacity: 100;
+    }
+    .btn-primary{
+        background-color: $green !important;
+        color: $white !important;
+        border: 1px solid $green !important;
+    }
+    .download-file-format{
+        .file-format-icons{
+            text-align: center;
+            i{
+                font-size: 40px;
+            }
+            input[type="radio"]{
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+    .download-list{
+        padding-top: 30px;
+        padding-bottom: 30px;
+
+    }
+    .bd-source{
+        .select-button{
+            // width: 100%;
+            min-width: 100%;
+        }
+    }
+}
+.contacts-info{
+    .phone-text{
+        font-size: 0.875rem;
+        @include mx-576{
+            font-size: 0.875rem;
+        }
+    }
+    .para-bold{
+        font-weight: 800;
+    }
+}
+
+}

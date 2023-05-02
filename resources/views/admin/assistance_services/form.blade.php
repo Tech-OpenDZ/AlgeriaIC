@@ -1,0 +1,147 @@
+<form class="form">
+    <div class="card-body">
+        <div class="form-group row">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    {!! Form::label('logo', 'Image',['class' => 'required-class']) !!}
+                    @if(isset($assistance_data->id))
+                        <div class="form-group">
+                            <?php
+                            $services_image = $assistance_data->services_image;
+                            $service_icon =  trim($services_image, '"');
+                            echo $service_icon;
+                            ?>
+                        </div>
+                    @endif
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    {!! Form::label('title_in_english', 'Title(In english)') !!}
+                    {!! Form::label('', '*',['style' => 'color:red']) !!}
+                    {!! Form::text('title_in_english',isset($assistance_data->title_in_english) ? $assistance_data->title_in_english : '' , array('class' => 'form-control')) !!}
+                    @error('title_in_english')
+                    <div class="bg-danger-o-50 py-2 px-4">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    {!! Form::label('title_in_arabic', 'Title(In arabic)') !!}
+                    {!! Form::label('', '*',['style' => 'color:red']) !!}
+                    {!! Form::text('title_in_arabic',isset($assistance_data->title_in_arabic) ? $assistance_data->title_in_arabic : '' , array('class' => 'form-control')) !!}
+                    @error('title_in_arabic')
+                    <div class="bg-danger-o-50 py-2 px-4">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    {!! Form::label('title_in_french', 'Title(In french)') !!}
+                    {!! Form::label('', '*',['style' => 'color:red']) !!}
+                    {!! Form::text('title_in_french',isset($assistance_data->title_in_french) ? $assistance_data->title_in_french : '' , array('class' => 'form-control')) !!}
+                    @error('title_in_french')
+                    <div class="bg-danger-o-50 py-2 px-4">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    {!! Form::label('description_in_english', 'Description (In English)') !!}
+                    {!! Form::label('', '*',['style' => 'color:red']) !!}
+                    {!! Form::textarea('description_in_english',isset($assistance_data->description_in_english) ? $assistance_data->description_in_english: '' , ['class' => 'form-control', 'id' => '','rows' => 3]) !!}
+                    @error('description_in_english')
+                    <div class="bg-danger-o-50 py-2 px-4">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    {!! Form::label('description_in_arabic', 'Description (In Arabic)') !!}
+                    {!! Form::label('', '*',['style' => 'color:red']) !!}
+                    {!! Form::textarea('description_in_arabic',isset($assistance_data->description_in_arabic) ? $assistance_data->description_in_arabic: '' , ['class' => 'form-control', 'id' => '','rows' => 3]) !!}
+                    @error('description_in_arabic')
+                    <div class="bg-danger-o-50 py-2 px-4">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    {!! Form::label('description_in_french', 'Description (In French)') !!}
+                    {!! Form::label('', '*',['style' => 'color:red']) !!}
+                    {!! Form::textarea('description_in_french',isset($assistance_data->description_in_french) ? $assistance_data->description_in_french: '' , ['class' => 'form-control', 'id' => '','rows' => 3]) !!}
+                    @error('description_in_french')
+                    <div class="bg-danger-o-50 py-2 px-4">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    {!! Form::label('category_in_english', 'Category (In English)') !!}
+                    {!! Form::label('', '*',['style' => 'color:red']) !!}
+                    {!! Form::textarea('category_in_english',isset($assistance_data->category_in_english) ? $assistance_data->category_in_english: '' , ['class' => 'form-control', 'id' => '','rows' => 3]) !!}
+                    @error('category_in_english')
+                    <div class="bg-danger-o-50 py-2 px-4">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    {!! Form::label('category_in_arabic', 'Category (In Arabic)') !!}
+                    {!! Form::label('', '*',['style' => 'color:red']) !!}
+                    {!! Form::textarea('category_in_arabic',isset($assistance_data->category_in_arabic) ? $assistance_data->category_in_arabic: '' , ['class' => 'form-control', 'id' => '','rows' => 3]) !!}
+                    @error('category_in_arabic')
+                    <div class="bg-danger-o-50 py-2 px-4">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-group">
+                    {!! Form::label('category_in_french', 'Category (In French)') !!}
+                    {!! Form::label('', '*',['style' => 'color:red']) !!}
+                    {!! Form::textarea('category_in_french',isset($assistance_data->category_in_french) ? $assistance_data->category_in_french: '' , ['class' => 'form-control', 'id' => '','rows' => 3]) !!}
+                    @error('category_in_french')
+                    <div class="bg-danger-o-50 py-2 px-4">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="form-group row">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    {!! Form::label('display_order', 'Display Order',['class' => 'required-class']) !!}
+                    {!! Form::label('', '*',['style' => 'color:red']) !!}
+                    {!! Form::text('display_order',isset($assistance_data->display_order) ? $assistance_data->display_order: $display_order , array('class' => 'form-control')) !!}
+                    @error('display_order.*')
+                    <div class="bg-danger-o-50 py-2 px-4">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-lg-4">
+                <div class="form-group">
+                    {!! Form::label('status', 'Status') !!}<br/><br/>
+                    {!! Form::checkbox('status',1, isset($assistance_data->status) ? $assistance_data->status : '') !!}
+                    {!! Form::label('status', 'Active/Inactive') !!}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+        <a class="btn btn-secondary" href="{{ route('manage-assistance-services.index') }}">Cancel</a>
+    </div>
+</form>

@@ -1,0 +1,537 @@
+html {
+    &[dir="rtl"] {
+    .main-heading{
+    text-align: right !important;
+    }
+    .events-main-area .events-home{
+    &__elements{
+    .title-headings .heading-with-arrow{
+    text-align: left;
+    padding-left: 30px;
+    .more-data{
+    &::after{
+    left: 0;
+    right: auto;
+    transform: rotate(180deg);
+    // @include mx-991{
+    // left: 23%;
+    // }
+    // @include mx-767{
+    // left: 31%;
+    // }
+    }
+    }
+    }
+    }
+    .tab-pane-socialmedia {
+    .common-button{
+    margin-left: 0;
+    margin-right: 10px;
+    padding: 5px 10px 5px 30px;
+    @include mx-767 {
+    margin: 0;
+    }
+    .events-download-button{
+    text-align: right;
+    .download-events{
+    &::after{
+    left: -25px;
+    right: auto;
+    }
+    }
+    }
+    }
+    }
+    }
+    .awards-article{
+    text-align: right;
+    .organizer-contact{
+    .list-of-exhibitors{
+    &::after{
+    left: -100px;
+    right: auto;
+    }
+    }
+    }
+    }
+    .awards-date{
+    text-align: right;
+    }
+    .news-select-area{
+    .social-right-icon{
+    padding: 0px 30px;
+    }
+    .select-title{
+    text-align: right;
+    padding-right: 5px;
+    }
+    }
+    .brand-carousel{
+    .partners{
+    .carousel-control-prev{
+    left: 55%;
+    @include mx-991 {
+    display: none;
+    order: 0;
+    }
+    }
+    .carousel-control-next{
+    left: 74%;
+    @include mx-991 {
+    display: none;
+    order: 0;
+    }
+    }
+    }
+    order: 1;
+    @include mx-991 {
+    order: 0;
+    }
+    }
+    .brand-carousel .event-partners .carousel-control-prev{
+        left: 75%;
+    }
+    .brand-carousel .event-partners .carousel-control-next{
+        left: 78%;
+    }
+    .algeria-awards{
+    .awards-area{
+    &__left{
+    text-align: right;
+    }
+    }
+    }
+    
+    
+    .awards-article .organizer-contact .no-padding-left{
+        padding-left: 15px;
+        padding-right: 0;
+        @include mx-576{
+            padding-left: 0;
+        }
+    }
+
+
+}
+    }
+
+    // rtl ends here
+    
+    .events-main-area{
+    .main-heading{
+    @include mx-430{
+    font-size: 1.25rem;
+    }
+    }
+    .events-home{
+    // margin-top: 30px;
+    .sharing-area{
+    justify-content: flex-end;
+    @include mx-991{
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    
+    }
+    }
+    .no-padding-left{
+    padding-left: 0;
+    }
+    .tab-pane-socialmedia{
+    justify-content: flex-end;
+    @include mx-430{
+    flex-direction: column;
+    
+    }
+    ul{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 0;
+    // padding-bottom: 10px;
+    @include mx-430 {
+    margin-bottom: .5rem;
+    }
+    
+    .circle-fb{
+    @include social-circle;
+    border: 1px solid #FFA51E;
+    }
+    .circle-mail{
+    @include social-circle;
+    border: 1px solid #35A85E;
+    }
+    .circle-msg{
+    @include social-circle;
+    border: 1px solid #0F73BB;
+    }
+    .circle-send{
+    @include social-circle;
+    border: 1px solid #E40019;
+    }
+    a{
+    color: $white;
+    }
+    
+    
+    }
+    .common-button{
+    position: relative;
+    padding: 5px 30px 5px 10px;
+    margin-left: 10px;
+    @include mx-430{
+    
+    margin-left: 0;
+    width: 156px;    }
+    cursor: pointer;
+    &:hover{
+    background-color: $secondary-color;
+    color: $white;
+    }
+    .download-heading{
+    @include mx-430{
+    font-size: 0.75rem;
+    }
+    }
+    .events-download-button{
+    display: flex;
+    flex-direction: column;
+    }
+    .download-events{
+    font-size: 0.625rem;
+    text-transform: lowercase;
+    position: relative;
+    &:after{
+    content: "";
+    position: absolute;
+    background-image: url(../images/download-icon.svg);
+    height: 21px;
+    width: 19px;
+    right: -25px;
+    bottom: 1px;
+    }
+    .download-icon{
+    margin-left: 10px;
+    img{
+    padding-bottom: 10px;
+    }
+    
+    }
+    
+    }
+    }
+    }
+    
+    &__elements{
+    .title-headings{
+    position: relative;
+    
+    
+    .heading-with-arrow{
+    text-align: right;
+    padding-right: 30px;
+    position: relative;
+    
+    
+    .more-data{
+    color: $secondary-color;
+    font-weight: 600;
+    &::after{
+    content: "";
+    position: absolute;
+    background-image: url(../images/arrow.svg);
+    top: 20%;
+    right: 0;
+    height: 18px;
+    width: 18px;
+    }
+    }
+    }
+    }
+    .green-border-bottom{
+    border-bottom: 4px solid #35A85E;
+    }
+    &-box{
+    padding: 15px 15px;
+    background-color: $white;
+    border-radius: 5px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+    @include mx-576{
+    padding: 10px;
+    text-align: center;
+    }
+    
+    .event-box-left{
+    // border: 1px solid #EAF0F5;
+    border-radius: 4px;
+    @include mx-991{
+    border: 0;
+    }
+    }
+    .event-box-right{
+    @include mx-576{
+    padding-top: 10px;
+    }
+    .semi-bold-para{
+    font-size: 0.875rem;
+    color: $breadcrumb-color;
+    font-weight: 700;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    @include mx-1200{
+    font-size: 0.75rem;
+    }
+    @include mx-991{
+    font-size: 0.75rem;
+    }
+    @include mx-767{
+        font-size: 0.75rem;
+    }
+    @include mx-576{
+        font-size: 1rem;
+    }
+    }
+    .event-date{
+    font-size: 0.75rem;
+    color: $breadcrumb-color;
+    font-weight: 500;
+    @include mx-991{
+    font-size: 0.625rem;
+    }
+    @include mx-576{
+        font-size: 0.75rem;
+    }
+    }
+    }
+    }
+    }
+    
+    }
+    }
+    
+    // event page two social icons
+    .social-right-icon{
+    justify-content: flex-end;
+    display: flex;
+    padding-right: 30px;
+    @include mx-576{
+    justify-content: flex-end;
+    margin-bottom: -50px;
+    margin-top: 20px;
+    
+    }
+    }
+    .events-social-icons{
+    .sharing-area{
+    justify-content: flex-end;
+    @include mx-576{
+        margin-bottom: 30px;
+    }
+    
+    }
+    .tab-pane-socialmedia{
+    justify-content: flex-end;
+    @include mx-430{
+    flex-direction: column;
+    
+    }
+    
+    ul{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    
+    .circle-fb{
+    @include social-circle;
+    border: 1px solid #FFA51E;
+    }
+    .circle-mail{
+    @include social-circle;
+    border: 1px solid #35A85E;
+    }
+    .circle-msg{
+    @include social-circle;
+    border: 1px solid #0F73BB;
+    }
+    .circle-send{
+    @include social-circle;
+    border: 1px solid #E40019;
+    }
+    a{
+    color: $white;
+    }
+    
+    
+    }
+    }
+    }
+    
+    .algeria-awards{
+    background-color: $white;
+    padding: 15px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+    border-radius: 4px;
+    .awards-area{
+    &__left{
+    
+    }
+    &__right{
+    padding-left: 0;
+    @include mx-576{
+        padding-left: 15px;
+        margin-top: 15px;
+    }
+    .awards-content{
+    .main-heading{
+    @include mx-576{
+    font-size: 1.25rem;
+    }
+    @include mx-430{
+    font-size: 1rem;
+    }
+    @include mx-400{
+    font-size: 0.875rem;
+    }
+    }
+    .awards-date{
+    margin-top: 10px;
+    color: $breadcrumb-color;
+    @include mx-430{
+    font-size: 0.625rem;
+    margin-top: 5px;
+    }
+    }
+    }
+    }
+    }
+    
+    
+    }
+    
+    .awards-article{
+    .awards-heading{
+    font-size: 1rem;
+    font-weight: 700;
+    color: $breadcrumb-color;
+    }
+    .awards-heading-caption{
+    font-size: 1rem;
+    font-weight: 500;
+    color: $breadcrumb-color;
+    text-align: justify;
+    }
+    .participation-file{
+    .common-button{
+    @include mx-576{
+    font-size: 0.75rem;
+    }
+    @include mx-400{
+        font-size: 0.625rem;
+        padding: 10px 5px;
+    }
+    }
+    .tab-pane-socialmedia{
+    @include mx-991{
+    margin-top: 15px;
+    }
+    }
+    
+    }
+    .tab-pane-socialmedia{
+    ul{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    
+    .circle-fb{
+    @include social-circle;
+    border: 1px solid #FFA51E;
+    }
+    .circle-mail{
+    @include social-circle;
+    border: 1px solid #35A85E;
+    }
+    .circle-msg{
+    @include social-circle;
+    border: 1px solid #0F73BB;
+    }
+    .circle-send{
+    @include social-circle;
+    border: 1px solid #E40019;
+    }
+    }
+    }
+    .organizer-contact{
+    .no-padding-left{
+    padding-left: 0;
+    @include mx-576{
+        padding-right: 0;
+    }
+    }
+    .participation-download{
+    display: flex;
+    justify-content: space-evenly;
+    }
+    .list-of-exhibitors{
+    position: relative;
+    font-size: 1rem;
+    color: $breadcrumb-color;
+    font-weight: 700;
+    &::after{
+    content: "";
+    position: absolute;
+    right: -100px;
+    top: -17px;
+    background-image: url(../images/exhibitors.svg);
+    width: 41px;
+    height: 57px;
+    }
+    }
+    }
+    }
+    
+    .events-same-sector{
+    .brand-carousel{
+    padding-top: 0 !important;
+    .event-partners{
+        .carousel-control-next{
+            left: 32%;
+            top: 0;
+            @include mx-1200{
+                left: 35%;
+            }
+            @include mx-991{
+            // left: 32%;
+            display: none;
+            }
+            }
+
+            .carousel-control-prev{
+                left: 29%;
+                top: 0;
+                @include mx-1200{
+                    left: 33%;
+                }
+                @include mx-991{
+                // left: 30%;
+                display: none;
+                }
+                }
+    }
+    
+    
+    }
+    }
+
+    .no-post-found{
+        padding: 15px;
+        background-color: $white;
+        border-radius: 5px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.01);
+        margin-top: 50px;
+        margin-bottom: 20px;
+        // display: none;
+    }

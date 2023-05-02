@@ -1,0 +1,235 @@
+
+
+html {
+    &[dir="rtl"] {
+        .login-modal__right--form .privacy-policy-grid__elements{
+            text-align: right;
+        }
+        .login-modal__left--titles{
+            padding-right: 30px;
+            padding-left: 0;
+           
+        }
+        .login-modal__left .login-social{
+            right: 6%;
+            left: auto;
+        }
+        }
+    }
+
+.login-modal{
+    background-color: #0F73BB;
+    border-radius: 15px;
+    .no-padding{
+        padding-left: 0;
+        padding-right: 0;
+        overflow: hidden;
+       
+       }
+       .grey-border{
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+       }
+       .grey-close{
+        background-color: #E8ECFA;
+        height: 55px;
+        width: 55px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        position: absolute;
+        right: -12px;
+        top: -14px;
+        text-shadow: none;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        opacity: 1;
+        &:focus{
+            outline: none;
+        }
+       }
+    &__left{
+        @include mx-576{
+            display: none;
+        }
+       background-image: url(../images/left-login-img1.png);
+       background-position: center;
+       background-repeat: no-repeat;
+       background-size: cover;
+       height: 100%;
+       max-width: 100%;
+       border-top-left-radius: 15px;
+       border-bottom-left-radius: 15px;
+       background-color: $secondary-color;
+       position: relative;
+       &--titles{
+           padding-left: 30px;
+           padding-top: 40%;
+           @include mx-991{
+               padding-top: 20%;
+           }
+           
+       }
+       .login-social{
+           position: absolute;
+           left: 4%;
+           bottom: 5%;
+           
+       }
+
+       .heading-one{
+           color: $white;
+           text-align: left;
+           @include mx-991{
+               font-size: 2rem;
+           }
+       }
+       .sub-heading{
+           font-size: 1rem;
+           color: $white;
+           text-align: left;
+           font-weight: 500;
+           width: 62%;
+           @include mx-767{
+               width: 100%;
+           }
+           @include mx-991{
+            font-size: 0.875rem;
+            margin-top: 10px;
+            }
+       }
+        
+       
+    }
+    &__right{
+        background-color: $white;
+        height: 100%;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        padding-top: 80px;
+        @include mx-991{
+            padding-top: 20px;
+        }
+        &--logo{
+
+        }
+        &--form{
+          .form-elements{
+              padding-top: 70px;
+              @include mx-991{
+                  padding-top: 30px;
+              }
+          }
+            a{
+                font-size: 0.75rem;
+            }
+            .register{
+                width: 100%;
+                font-size: 0.875rem;
+                padding: 10px;
+                &:hover{
+                    background-color: $white;
+                    color: $secondary-color;
+                    border: 1px solid $secondary-color;
+                    transform: scale(1);
+                 }
+                 &:focus{
+                     outline: none;
+                 }
+            }
+            .form-width{
+                width: 80%;
+                // text-align: center;
+               
+            }
+            .login-name{
+                font-size: 0.875rem;
+                color: $grey;
+                text-align: left;
+                .form-control{
+                    border: 1px solid $grey;
+                    color: black;
+                    @include mx-576{
+                        font-size: 0.75rem;
+                    }
+                }
+                
+            }
+            .form-check{
+                display: flex;
+                justify-content: space-between;
+                @include mx-991{
+                    flex-direction: column;
+                    justify-content: left;
+                    a{
+                        text-align: center;
+                        padding-top: 20px;
+                    }
+                }
+                
+            }
+            
+            .login-name-check{
+                font-size: 0.75rem;
+                color: $grey;
+                text-align: left;
+               
+            }
+            .privacy-policy-grid{
+                padding-bottom: 30px;
+                padding-top: 25%;
+                @include mx-991{
+                    padding-top: 15%;
+                }
+                .i2b{
+                    @include i2b;
+                    @include mx-1200{
+                        font-size: 0.5rem;
+                    }
+                    @include mx-400{
+                        font-size: 0.4rem;
+                    }
+                    justify-content: flex-end;
+                    @include mx-991{
+                        justify-content: flex-start;
+                    }
+                }
+                &__elements{
+                    text-align: center;
+                    display: flex;
+                    flex-wrap: wrap;
+                    
+                   
+                    @include mx-991{
+                        text-align: left;
+                        margin-top: 10px;
+                        flex-direction: column;
+                    }
+                    
+                    .pricay-btn{
+                        @include privacy-btn;
+                        margin-left: 5px;
+                        font-size: 0.625rem;
+                        @include mx-1200{
+                            font-size: 0.5rem;
+                            padding: 7px;
+                        }
+                        @include mx-991{
+                            font-size: 0.5rem;
+                        }
+                        color: $black;
+                        &:hover{
+                            background-color: #ededed;
+                        }
+                    }
+                    li{
+                        padding-left: 0;
+                        margin-top: 15px;
+                    }
+                    
+                }
+            }
+        }
+
+    }
+}

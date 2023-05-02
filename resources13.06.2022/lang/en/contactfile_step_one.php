@@ -1,0 +1,35 @@
+<?php
+
+return [
+    'breadcrumb_home' => 'Home',
+    'business_directory' => 'Business Directory',
+    'contact_file_detail' => 'Contact file detail',
+    'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis',
+    'description2' => 'I choose my targeting criteria ',
+    'description3' => 'I select geolocated prospects according to relevant socio-demographic or socio-professional criteria. I discover my potential available in real time',
+    'Turn_over' => 'Turn-over (From-To)',
+    'Capital' => 'Capital (From-To)',
+    'Sector' => 'Sector',
+    'Area' => 'Area',
+    'Creation_Date' => 'Creation Date (From-To)',
+    'Number_of_employees' => 'Number of employees (From-To)',
+    'Search' => 'Search',
+    'records_not_found' => 'Records not found with this criteria',
+    'keyword' => 'Keyword',
+    'Step1' => 'Step 1',
+    'Step2' => 'Step 2',
+    'Step3' => 'Step 3',
+    'joinAlgeriaNetwork' => 'Join Algeria Invest Business Network',
+    'join' => 'JOIN',
+    'downloadResources' => 'Download the latest Resources',
+    'businessServices' => 'Business Services',
+    'viewServices' => 'View services',
+    'featured_companies' => 'Featured Companies',
+    'something_went_wrong' => 'Something Went Wrong',
+    'error_search_criteria' => 'Please enter the search criteria',
+    'something_went_wrong' => 'Something went wrong',
+    'form_submitted_successfully' => 'Form submitted successfully.',
+    'thanku_for_contact_us' => 'Merci de nous contacter, je vous répondrai bientôt',
+
+
+];

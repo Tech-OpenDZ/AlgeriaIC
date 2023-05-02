@@ -1,0 +1,750 @@
+html {
+    &[dir="rtl"] {
+        .signup-process {
+            p {
+                margin-right: 0.5rem;
+                margin-left: 0 !important;
+            }
+        }
+        .dotted-line {
+            position: relative;
+            &::after {
+                right: 87px;
+            }
+        }
+        .update-plan-caption{
+            text-align: right;
+        }
+        .plan-main-heading{
+            text-align: right;
+            padding-right: 15px;
+        }
+        .signup-container #msform fieldset .form-card .alert-msg-box{
+            right: 15px;
+            left: auto;
+        }
+        .signup-container .signup-form-area__elements .mode-selection__elements li{
+            margin-right: 0;
+            margin-left: 25px;
+            @include mx-576{
+                margin-left: 0;
+            }
+        }
+        .user-plan-detail{
+            text-align: right;
+        }
+        .signup-form-area {
+            .main-heading {
+                text-align: right;
+            }
+            p {
+                text-align: right;
+            }
+            .common-button {
+                display: flex;
+            }
+        }
+        .form-check {
+            text-align: right;
+        }
+        .button-reg {
+            right: 20px;
+        }
+        .privacy-policy-grid {
+            .row {
+                align-items: center;
+                justify-content: flex-end;
+                > div {
+                    margin-left: 0;
+                    // @include mx-430 {
+                    //    text-align: center;
+                    // }
+                }
+            }
+        }
+        .label-text {
+            width: 100%;
+            text-align: right;
+        }
+        .label-text-check {
+            margin-right: 1rem !important;
+        }
+        .radio-inline .sub-heading {
+            margin-right: 0.5rem !important;
+            margin-left: 0;
+        }
+        .sub-heading-two {
+            text-align: right;
+        }
+        .mod-selection__bottom {
+            text-align: right;
+        }
+        .mode-selection {
+            &__elements {
+                li {
+                    &:first-child {
+                        margin-right: 0;
+                    }
+                    @include mx-576 {
+                        margin-right: 0px !important;
+                       
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// normal ltr starts here
+.signup-container{
+    
+    .not-allowed{ 
+        cursor: not-allowed; }
+    #msform {
+        text-align: center;
+        position: relative;
+       
+     }
+      .choose{
+          background-color: $secondary-color !important;
+          color: $white !important;
+      }
+     #msform fieldset .form-card {
+       
+        position: relative;
+        .main-heading{
+            @include mx-576{
+                font-size: 1.25rem;
+            }
+            @include mx-430{
+                font-size: 1rem;
+                font-weight: 900;
+            }
+            p{
+                @include mx-400{
+                    font-size: 0.75rem;
+                }
+            }
+        }
+        .alert-msg-box{
+            position: absolute;
+            top: 20px;
+            left: 15px;
+            
+            .danger-alert-msg{
+                color: #E50019;
+                font-weight: 700;
+                font-size: 0.75rem;
+                padding-top: 10px;
+            }
+            
+        }
+     }
+     
+     
+     
+     #msform fieldset:not(:first-of-type) {
+        display: none
+     }
+     .planselected{
+        border: 2px solid $secondary-color !important;
+    }
+    .sub-box-one{
+        @include mx-767{
+            min-height: 900px !important;
+        }
+    }
+    .sub-box-two{
+        @include mx-767{
+            min-height: 900px !important;
+        }
+    }
+     .subscription-box{
+        //  border: 1px solid $grey;
+         box-shadow: 0px 1px 10px rgba(245, 178, 178, 0.2);
+         background-color: $white;
+         padding: 20px 10px;
+         border-radius: 10px;
+         min-height: 1320px;
+         cursor: pointer;
+         @include mx-1200{
+            min-height: 1450px;
+         }
+         @include mx-991{
+             min-height: 1800px;
+         }
+         @include mx-767{
+             min-height: 1280px;
+         }
+         @include mx-576{
+             min-height: auto !important;
+         }
+         input[type="radio"]{
+            visibility:hidden;
+        }
+        
+         .nav-item{
+            background-color: transparent;
+            border: 1px solid $blue;
+            border-radius: 4px;
+            &:focus{
+                outline: none;
+            }
+            &:hover{
+                background-color: $blue;
+                border: 0;
+            
+            }
+            a:hover{
+                color: white;
+            }
+            
+         }
+         .plan-select{
+            background-color: transparent;
+            color: $secondary-color;
+            padding: 10px 20px;
+            position: absolute;
+            text-transform: uppercase;
+            @include mx-576{
+                position: relative;
+                margin-top: 20px;
+                bottom: 0;
+            }
+            bottom: 10px;
+            font-size: 0.875rem;
+            border-radius: 4px;
+            border: 1px solid $secondary-color;
+            cursor: pointer;
+            &:focus{
+                outline: none;
+            }
+            &:hover{
+                background-color: $secondary-color;
+                color: $white;
+                
+            
+            }
+            
+         }
+
+     }
+     
+     #msform .action-button {
+        @include register;
+        padding: 10px 30px;
+        font-size: 0.875rem;
+        margin-bottom: 15px;
+      
+        @include mx-767{
+            padding: 12px;
+        }
+        @include mx-400{
+            padding: 9px;
+            font-size: 0.65rem;
+        }
+        &:hover{
+            background-color: $white;
+            color: $secondary-color;
+            
+        }
+        &:focus{
+            outline: none;
+        }
+     }
+     
+     
+     
+     #msform .action-button-previous {
+        @include register;
+        padding: 10px 30px;
+        font-size: 0.875rem;
+        margin-bottom: 15px;
+        @include mx-767{
+            padding: 12px;
+        }
+        @include mx-400{
+            padding: 9px;
+            font-size: 0.65rem;
+        }
+        &:hover{
+            background-color: $white;
+            color: $secondary-color;
+            
+        }
+     }
+     
+     
+
+     
+     
+     
+     .card {
+        z-index: 0;
+        border: none;
+        border-radius: 0.5rem;
+        position: relative
+     }
+     
+    
+     
+     #progressbar {
+        margin-bottom: 10px;
+        overflow: hidden;
+        color: lightgrey
+     }
+     
+     #progressbar .active {
+        color: #000000
+     }
+     
+     #progressbar li {
+        // list-style-type: none;
+        // font-size: 12px;
+        // width: 25%;
+        // float: left;
+        // position: relative
+     }
+     
+     #progressbar #account:before {
+        font-family: 'Muli', sans-serif;
+        content: "1";
+     }
+     .tick:before{
+        font-family: FontAwesome;
+        content: "\f00c";
+     }
+     #progressbar #personal:before {
+        font-family: 'Muli', sans-serif;
+        content: "2";
+     }
+     
+     #progressbar #payment:before {
+        font-family: 'Muli', sans-serif;
+        content: "3";
+     }
+     
+     #progressbar #confirm:before {
+        font-family: 'Muli', sans-serif;
+        content: "4";
+     }
+     .button-reg{
+         position: absolute;
+         left: 15px;
+         bottom: 60px;
+         display: flex;
+         @include mx-991{
+            bottom: 110px;
+         }
+         @include mx-400{
+             bottom: 182px;
+         }
+
+     }
+     .continue{
+         display: flex;
+     }
+     #progressbar li:before {
+        width: 40px;
+        height: 40px;
+        @include mx-576{
+            width: 35px;
+            height: 35px;
+            line-height: 31px;
+            display: block;
+            font-size: 15px;
+        }
+        line-height: 39px;
+        display: block;
+        font-size: 18px;
+        color: #ffffff;
+        background: $grey-opacity;
+        border-radius: 50%;
+        margin: 0 auto 10px auto;
+        @include mx-576{
+            margin: 10px 15px 10px 15px;
+        }
+        @include mx-400{
+            margin: 0px;
+        }
+        padding: 2px;
+     }
+     
+     #progressbar li:after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: $grey-opacity;
+        position: absolute;
+        left: 0;
+        top: 25px;
+        z-index: -1
+     }
+     
+     #progressbar li.active:before,
+     #progressbar li.active:after {
+        background: $green;
+     }
+    background-color: $body-background;
+    &__elements{
+        display: flex;
+        @include mx-576{
+            flex-direction: column;
+        }
+       width: 100%;
+       justify-content: space-between;
+       padding: 30px 0 20px 0;
+       @include mx-400{
+           border-top: 1px solid $grey;
+       }
+       .dotted-line{
+           position: relative;
+           &::after{
+            content: "";
+            position: absolute;
+            right: -82px;
+            @include mx-1200{
+                right: -57%;
+                width: 74px;
+            }
+            border-bottom: 2px solid;
+            border-style: dotted;
+            width: 70px;
+            height: 0px;
+            border-top: 0;
+            top: 60%;
+            display: block;
+            color: #A5BDC6;
+            /* background-color: black; */
+            border-left: 0;
+            border-right: 0;
+            @include mx-1200{
+                display: none;
+            }
+        }
+       }
+        .signup-process{
+            display: flex;
+            align-items: center;
+            position: relative;
+            @include mx-767{
+                padding: 0 5px;
+            }
+           
+            
+            @include mx-400{
+                
+                padding-bottom: 15px;
+            }
+           
+            p{
+                color: $breadcrumb-color;
+                @include mx-767{
+                    font-size: 0.875rem;
+            
+                }
+                // @include mx-576{
+                //     font-size: 0.65rem;
+                // }
+                // @include mx-430{
+                //     font-size: 0.5rem;
+                // }
+                // @include mx-400{
+                //     font-size: 0.75rem;
+                // }
+                
+            }
+            .not-completed{
+                color: $grey;
+            }
+            .signup-circle{
+                @include signup-circles;
+                @include mx-767{
+                    height: 30px;
+                    width: 30px;
+                }
+                .tick{
+                    background-image: url(../images/tick.svg);
+                    height: 13px;
+                    width: 17px;
+                    @include mx-767{
+                        height: 13px;
+                        width: 15px ;
+                    }
+                    background-repeat: no-repeat;
+                }
+                .tick-number{
+                    color: $white;
+                    font-size: 1.25rem;
+                    @include mx-767{
+                        font-size: 1rem;
+                    }
+                    @include mx-576{
+                        font-size: 0.875rem;
+                    }
+                }
+                
+            
+            }
+            .pending{
+                background-color: $grey-opacity;
+            }
+        }
+           
+    }
+
+    .signup-form-area{
+
+        
+
+
+
+        .main-heading{
+            color: $breadcrumb-color;
+            @include mx-430{
+                font-size: 1.25rem;
+            }
+        }
+        p{
+            color: $breadcrumb-color;
+            font-weight: 500;
+        }
+        .notice{
+            font-size: 0.75rem;
+            color: $grey;
+        }
+        &__elements{
+           
+            .label-text{
+                font-size: 0.875rem;
+                color: $grey;
+                
+            }
+            .label-text-check{
+                font-size: 0.75rem;
+                color: $grey;
+            }
+            .label-text-check-anchor{
+                font-size: 0.75rem;
+                color: $secondary-color;
+                text-decoration: underline;
+            }
+            .form-control{
+                background-color: transparent;
+                border: 1px solid $grey !important;
+            }
+            input[type="checkbox"]{
+                background-color: transparent !important;
+            }
+            .register{
+                @include register;
+                padding: 10px 30px;
+                @include mx-767{
+                    padding: 12px;
+                }
+                @include mx-400{
+                    padding: 9px;
+                    font-size: 0.65rem;
+                }
+                &:hover{
+                    background-color: $white;
+                    color: $secondary-color;
+                    
+                }
+            }
+            .register-button{
+                font-size: 0.875rem;
+                @include mx-400{
+                   
+                    font-size: 0.65rem;
+                }
+            }
+            .privacy-policy-grid{
+                padding-bottom: 30px;
+                padding-top: 60px;
+                .i2b{
+                    @include i2b;
+                    @include mx-1200{
+                        font-size: 0.6rem;
+                    }
+                    justify-content: flex-end;
+                    @include mx-991{
+                        justify-content: flex-start;
+                    }
+                }
+                &__elements{
+                    text-align: center;
+                    @include mx-991{
+                        text-align: left;
+                        margin-top: 10px;
+                       
+                    }
+                    @include mx-400{
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    
+                    .pricay-btn{
+                        @include privacy-btn;
+                        font-size: 0.625rem;
+                        color: $black;
+                        &:hover{
+                            background-color: #ededed;
+                        }
+                    }
+                    li{
+                        display: inline-block;
+                    }
+                    
+                }
+            }
+
+            // for radio buttons
+            .radio-buttons-area{
+
+                .sub-heading{
+                    color: $breadcrumb-color;
+                    @include mx-991{
+                        font-size: 1rem;
+                    }
+
+                }
+                
+            }
+
+            // offline payment mode
+            .mode-selection{
+                padding-bottom: 30px;
+                
+                .sub-heading-two{
+                    color: $breadcrumb-color;
+                }
+                .language-button{
+                    background-color: transparent !important;
+                    border: 1px solid $grey !important;
+                    min-width: 160px;
+                    font-size: 1rem !important;
+                    padding: 10px 80px 10px 15px !important;
+                    border-radius: 4px !important;
+                    text-align: left;
+                    position: relative;
+                    font-size: 1rem;
+                    color: $grey;
+                    &:focus{
+                        outline: none;
+                    }
+                }
+                .dropdown-toggle::after{
+                    border: solid $grey;
+                    border-width: 0 2px 2px 0;
+                    display: inline-block;
+                    padding: 3px;
+                    transform: rotate(45deg);
+                    -webkit-transform: rotate(45deg);
+                    position: absolute;
+                    right: 0%;
+                     top: 35%;
+                } 
+                &__elements{
+                    @include mx-430{
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    input[type="radio"]{
+                        visibility: hidden;
+                    }
+                    li{
+                        margin-right: 25px;
+                        @include mx-576{
+                            margin-right: 0px;
+                            width: 100%;
+                            margin-top: 15px;
+                        }
+                       
+                    }
+                  
+                    
+                    .offline-mode-box{
+                        @include offline-mode-box;
+                        min-width: 180px;
+                        @include mx-767{
+                           
+                            padding: 15px 15px 15px 40px;
+                            font-size: 0.875rem;
+                        }
+                        @include mx-576{
+                            width: 100%;
+                            padding: 15px 15px;
+                            font-size: 0.875rem;
+                        }
+                        @include mx-430{
+                            width: 100%;
+                            padding: 15px 15px;
+                            font-size: 0.875rem;
+                        }
+                        display: inline-block;
+                        &.active{
+                            background-color: $green;
+                            color: $white;
+                        }
+                        .cheque::before{
+                            @include cheque-before;
+                            background-image: url(../images/cheque.svg);
+                            &:hover{
+                                filter:  brightness(0) invert(1);
+                            }
+
+                         }
+                         img:hover{
+                            -webkit-filter: grayscale(100%); /* Ch 23+, Saf 6.0+, BB 10.0+ */
+                            filter: grayscale(100%); /* FF 35+ */
+                        }
+                        
+                        &:hover{
+                            background-color: $green;
+                            color: $white;
+                        }
+                        
+                        .bank-transfer::before{
+                            @include cheque-before;
+                            background-image: url(../images/bank-transfer.svg);
+                            height: 30px;
+                            @include mx-576{
+                               
+                            }
+                            width: 30px;
+                            top: 20%;
+                        }
+                        .cash::before{
+                            @include cheque-before;
+                            background-image: url(../images/cash.svg);
+                            width: 30px;
+                            height: 24px;
+                            top: 30%;
+                        }
+                        .credit-card::before{
+                            @include cheque-before;
+                            background-image: url(../images/credit-card.svg);
+                            width: 30px;
+                            height: 24px;
+                            top: 30%;
+                        }
+                        .debit-card::before{
+                            @include cheque-before;
+                            background-image: url(../images/debit-card.svg);
+                            width: 30px;
+                            height: 24px;
+                            top: 30%;
+                        }
+                    }
+                   
+                       
+                   
+                }
+            }
+        }
+
+
+    }
+}

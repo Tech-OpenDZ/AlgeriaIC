@@ -1,0 +1,30 @@
+<?php
+    return [
+        'home' => 'الصفحة الرئيسية' ,
+        'newsDetailPage' => 'صفحة تفاصيل الأخبار' ,
+        'economicNews' => 'أخبار اقتصادية',
+        'searchEngine' => 'محرك البحث' ,
+        'keyword' => 'الكلمة الرئيسية' ,
+        'sector' => 'القطاع' ,
+        'zone' => 'المنطقة' ,
+        'search' => 'بحث' ,
+        'date' => 'التاريخ' ,
+        'source' => 'المصدر' ,
+        'joinAlgeriaNetwork' => 'انضم إلى شبكة أعمال الاستثمار الجزائرية',
+        'join' => 'انضم' ,
+        'downloadResources' => 'تنزيل أحدث الموارد' ,
+        'businessServices' => 'خدمات الأعمال' ,
+        'viewServices' => 'عرض الخدمات' ,
+        'premiumNews' => 'أخبار مميزة',
+        'pressNews' => 'اضغط على الأخبار',
+        'similarArticles' => 'مقالات مماثلة' ,
+        'article' => 'مقالة',
+        'selectSector' => 'حدد القطاع' ,
+        'selectZone' => 'حدد المنطقة' ,
+        'selectSource' => 'حدد تاريخ' ,
+        'selectDate' => 'حدد التاريخ',
+        'searchEngine' => 'محرك البحث' ,
+        'keywordPlaceholder' => 'بحث ...' ,
+    ];
+
+?>

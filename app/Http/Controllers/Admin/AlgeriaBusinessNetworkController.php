@@ -1,0 +1,322 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\AlgeriaBusinessNetwork,
+    App\Models\AlgeriaBusinessNetworkTranslate,
+    App\User;
+use Auth;
+use LaravelLocalization;
+use DataTables;
+
+class AlgeriaBusinessNetworkController extends Controller
+{
+    function __construct()
+    {
+        $this->middleware('permission:algeria-business-network-list');
+        $this->middleware('permission:algeria-business-network-create', ['only' => ['create','store']]);
+        $this->middleware('permission:algeria-business-network-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:algeria-business-network-delete', ['only' => ['destroy']]);
+    }
+
+     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function index(Request $request)
+    {
+        if($request->ajax()){
+            $algeriaBusinessNetwork = AlgeriaBusinessNetwork::with('localeAll');
+             return Datatables::of($algeriaBusinessNetwork)
+                    ->addIndexColumn()
+                    ->addColumn('description', function($algeriaBusinessNetwork){
+                        foreach($algeriaBusinessNetwork->localeAll as $algeriaBusinessNetwork_data){
+                            if($algeriaBusinessNetwork_data->locale == "en"){
+                                return strip_tags(str_replace("&nbsp;", "",$algeriaBusinessNetwork_data->description));
+                            }
+                            else {
+                                return "";
+                            }
+                        }
+                    })
+                    ->addColumn('action', function($algeriaBusinessNetwork){ 
+                        if (\Auth::user()->can('algeria-business-network-edit')) { 
+                            $editBtn = '<a href="' . route('manage-algeria-business-network.edit', [$algeriaBusinessNetwork->id]) . '" title="edit"><i class="fas fa-edit" aria-hidden="true" style="color: #3699FF;"></i></a>&nbsp';
+                        } else {
+                            $editBtn = '';
+                        }
+                        if (\Auth::user()->can('algeria-business-network-delete')) { 
+                            $deleteBtn = '<a href="javascript:void(0)" data-href="' . route('manage-algeria-business-network.destroy', [$algeriaBusinessNetwork->id]) . '" rel="tooltip" title="Delete" class="delete_partner_btn"><i class="far fa-trash-alt" style="color: #F64E60;"></i></a>';
+                        } else {
+                            $deleteBtn = '';
+                        }
+                    })
+                    ->editColumn('created_at', function ($algeriaBusinessNetwork) {
+                        return [
+                           'display' => e($algeriaBusinessNetwork->created_at->format('m/d/Y')),
+                           'timestamp' => $algeriaBusinessNetwork->created_at->timestamp
+                        ];
+                    })
+                    ->filter(function ($instance) use ($request) {
+                        if (!empty($request->get('search'))) {
+                            $instance->whereHas('localeAll', function($w) use($request){
+                                $search = $request->get('search');
+                                $w->where('name', 'LIKE', "%$search%");
+                            });
+                        }
+
+                    })
+                     ->rawColumns(['action','status','logo'])
+                     ->make(true);
+        }
+        return view('admin.algeria_business_network.index');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function create()
+    {
+        return view('admin.algeria_business_network.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function store(Request $request)
+    {
+
+        $validatedData = $request->validate([
+            'top_image'   => 'required',
+            'bottom_first_image'   => 'required',
+            'bottom_second_image'   => 'required',
+            'bottom_third_image'   => 'required',
+            'bottom_fourth_image'   => 'required',
+            'description_in_english'   => 'required',
+            'description_in_arabic'   => 'required',
+            'description_in_french'   => 'required',
+        ]);
+
+        $network_data = [
+            [  'description' => $request->description_in_english,
+                'locale'      => "en"
+            ],
+            [  'description' => $request->description_in_arabic,
+                'locale'      => "ar"
+            ],
+            [  'description' => $request->description_in_french,
+                'locale'      => "fr"
+            ],
+        ];
+
+        $algeriaBusinessNetwork = new AlgeriaBusinessNetwork();
+        if ($request->hasFile('top_image')) {
+            $algeriaBusinessNetwork->image_top = $this->uploadImage($request->top_image);
+        }
+        if ($request->hasFile('bottom_first_image')) {
+            $algeriaBusinessNetwork->image_bottom_one = $this->uploadImage($request->bottom_first_image);
+        }
+        if ($request->hasFile('bottom_second_image')) {
+            $algeriaBusinessNetwork->image_bottom_two = $this->uploadImage($request->bottom_second_image);
+        }
+        if ($request->hasFile('bottom_third_image')) {
+            $algeriaBusinessNetwork->image_bottom_three = $this->uploadImage($request->bottom_third_image);
+        }
+        if ($request->hasFile('bottom_fourth_image')) {
+            $algeriaBusinessNetwork->image_bottom_four = $this->uploadImage($request->bottom_fourth_image);
+        }
+
+
+        $algeriaBusinessNetwork->created_by = Auth::user()->id;
+        $algeriaBusinessNetwork->updated_by = Auth::user()->id;
+        $result = $algeriaBusinessNetwork->save();
+
+         foreach($network_data as $key => $value) {
+            $algeriaBusinessNetwork_tanslation = new AlgeriaBusinessNetworkTranslate();
+            $algeriaBusinessNetwork_tanslation->description = $value['description'];
+            $algeriaBusinessNetwork_tanslation->network_id = $algeriaBusinessNetwork->id;
+            $algeriaBusinessNetwork_tanslation->locale = $value['locale'];
+            $algeriaBusinessNetwork_tanslation->save();
+        }
+        if($result) {
+            return redirect('admin/manage-algeria-business-network')->with('success', 'Algria Business Network added succsessfully.');
+        }
+    }
+
+    public function uploadImage($imageName) {
+        $image = $imageName;
+        $imageSaveAsName =  rand(). "_image." . $image->getClientOriginalExtension();
+        $upload_path = storage_path('app/public/uploads/algeria_network_images/');
+        $image_url = $imageSaveAsName;
+        $success = $image->move($upload_path, $imageSaveAsName);
+        return $imageSaveAsName;
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     *
+     * @return \Illuminate\View\View
+     */
+    public function edit($id)
+    {
+        $algeriaBusinessNetwork = AlgeriaBusinessNetwork::findOrFail($id);
+        // Setting the translated fields to edit
+        foreach ($algeriaBusinessNetwork->localeAll as $translate) {
+
+            switch ($translate->locale) {
+                case 'en':
+                    $algeriaBusinessNetwork->description_in_english = $translate->description;
+                    break;
+                case 'fr':
+                    $algeriaBusinessNetwork->description_in_arabic = $translate->description;
+                    break;
+                case 'ar':
+                    $algeriaBusinessNetwork->description_in_french = $translate->description;
+                    break;
+            }
+        }
+        return view('admin.algeria_business_network.edit', compact('algeriaBusinessNetwork'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param  int  $id
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'description_in_english'   => 'required',
+            'description_in_arabic'   => 'required',
+            'description_in_french'   => 'required',
+        ]);
+        $algeriaBusinessNetwork = AlgeriaBusinessNetwork::findOrFail($id);
+        if ($request->hasFile('top_image')) {
+            try { 
+                unlink('storage/uploads/algeria_network_images/'.$algeriaBusinessNetwork->image_top);
+            } catch (\Throwable $th) {
+
+            }
+            $algeriaBusinessNetwork->image_top = $this->uploadImage($request->top_image);
+        }
+        if ($request->hasFile('bottom_first_image')) {
+            try {
+                unlink('storage/uploads/algeria_network_images/'.$algeriaBusinessNetwork->image_bottom_one);
+            } catch (\Throwable $th) {
+
+            }
+            $algeriaBusinessNetwork->image_bottom_one = $this->uploadImage($request->bottom_first_image);
+        }
+        if ($request->hasFile('bottom_second_image')) {
+            try {
+                unlink('storage/uploads/algeria_network_images/'.$algeriaBusinessNetwork->image_bottom_two);
+            } catch (\Throwable $th) {
+
+            }
+            $algeriaBusinessNetwork->image_bottom_two = $this->uploadImage($request->bottom_second_image);
+        }
+        if ($request->hasFile('bottom_third_image')) {
+            try {
+                unlink('storage/uploads/algeria_network_images/'.$algeriaBusinessNetwork->image_bottom_three);
+            } catch (\Throwable $th) {
+
+            }
+            $algeriaBusinessNetwork->image_bottom_three = $this->uploadImage($request->bottom_third_image);
+        }
+        if ($request->hasFile('bottom_fourth_image')) {
+            try {
+                unlink('storage/uploads/algeria_network_images/'.$algeriaBusinessNetwork->image_bottom_four);
+            } catch (\Throwable $th) {
+
+            }
+            $algeriaBusinessNetwork->image_bottom_four = $this->uploadImage($request->bottom_fourth_image);
+        }
+
+        $algeriaBusinessNetwork->created_by = Auth::user()->id;
+        $algeriaBusinessNetwork->updated_by = Auth::user()->id;
+        $result = $algeriaBusinessNetwork->Update();
+
+        $trans_algeriaBusinessNetwork = [
+            'en' => [
+                "description"  => $request->description_in_english,
+            ],
+            'fr' => [
+                "description"  => $request->description_in_french,
+            ],
+            'ar' => [
+                "description"  => $request->description_in_arabic,
+            ],
+        ];
+        foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties) {
+            AlgeriaBusinessNetworkTranslate::where(
+                [
+                    [
+                        'network_id', '=', $id
+                    ],
+                    [
+                        'locale', '=', $localeCode
+                    ]
+                ])
+                ->update($trans_algeriaBusinessNetwork[$localeCode]);
+        }
+        if($result) {
+            return redirect('admin/manage-algeria-business-network')->with('success', 'Algria Business Network updated successfully.');
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function destroy(Request $request,$id)
+    {
+        $algeriaBusinessNetwork= AlgeriaBusinessNetwork::with('localeAll')->find($id);
+        try {
+            unlink('storage/uploads/algeria_network_images/'.$algeriaBusinessNetwork->image_top);
+        } catch (\Throwable $th) {
+
+        }
+        try { 
+            unlink('storage/uploads/algeria_network_images/'.$algeriaBusinessNetwork->image_bottom_one);
+        } catch (\Throwable $th) {
+
+        }
+        try { 
+            unlink('storage/uploads/algeria_network_images/'.$algeriaBusinessNetwork->image_bottom_two);
+        } catch (\Throwable $th) {
+
+        }
+        try { 
+            unlink('storage/uploads/algeria_network_images/'.$algeriaBusinessNetwork->image_bottom_three);
+        } catch (\Throwable $th) {
+
+        }
+        try {
+            unlink('storage/uploads/algeria_network_images/'.$algeriaBusinessNetwork->image_bottom_four);
+        } catch (\Throwable $th) {
+
+        }
+        $algeriaBusinessNetwork->localeAll()->delete();
+        $algeriaBusinessNetwork->delete();
+        $request->session()->flash('success', 'Algria Business Network deleted successfully.');
+        return redirect()->route('manage-algeria-business-network.index');
+    }
+
+}

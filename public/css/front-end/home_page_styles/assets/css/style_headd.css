@@ -1,0 +1,3749 @@
+/*
+Template Name: Callie HTML Template
+Author: yaminncco
+
+Colors:
+	Body 		  : #505050
+	Headers 	: #11151c
+	Primary 	: #ee4266
+	Dark 		  : #1b1c1e
+	Grey 		  : #e8eaed #97989b #323335
+
+Fonts: Montserrat & Muli
+
+Table OF Contents
+------------------------------------
+GENERAL
+NAVIGATION
+PAGE HEADER
+POST
+POST PAGE
+ASIDE
+FOOTER
+RESPONSIVE
+------------------------------------*/
+
+/*=========================================================
+	GENERAL
+===========================================================*/
+
+/*----------------------------*\
+	typography
+\*----------------------------*/
+
+/*body {
+  font-family: 'Muli', sans-serif;
+  font-size: 16px;
+  color: #505050;
+  font-weight: 400;
+  overflow-x: hidden;
+}*/
+
+/*h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  color: #11151c;
+  font-weight: 700;
+  margin: 0px 0px 15px;
+}*/
+
+/*h1 {
+  font-size: 32.437px;
+}
+
+h2 {
+  font-size: 25.629px;
+}
+
+h3 {
+  font-size: 20.25px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {} */
+
+/*p {
+  margin: 0px 0px 20px;
+}
+
+a {
+  color: #11151c;
+  -webkit-transition: 0.2s color;
+  transition: 0.2s color;
+}
+
+a:hover, a:focus {
+  color: #ee4266;
+  text-decoration: none;
+  outline: none;
+}*/
+
+/*::-moz-selection {
+  background-color: #ee4266;
+  color: #FFF;
+}*/
+
+/*::selection {
+  background-color: #ee4266;
+  color: #FFF;
+}*/
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+ul.list-style, ol.list-style {
+  padding-left: 15px;
+  margin-bottom: 10px;
+}
+
+ul.list-style {
+  list-style-type: disc;
+}
+
+ol.list-style {
+  list-style-type: decimal;
+}
+
+blockquote.blockquote {
+  padding: 30px;
+  margin: 0px 0px 20px;
+  border: 2px solid #e8eaed;
+}
+
+blockquote.blockquote:before {
+  content: "\f10d";
+  font-family: fontAwesome;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  border-radius: 50%;
+  color: #ee4266;
+  font-size: 30px;
+  background: #fff;
+  border: 2px solid #e8eaed;
+  float: left;
+  margin-right: 10px;
+}
+
+blockquote.blockquote .blockquote-footer {
+  color: #97989b;
+}
+
+figure {
+  margin-bottom: 20px;
+}
+
+figure>img {
+  width: 100%;
+}
+
+figure.pull-right {
+  margin-left: 15px;
+}
+
+figure.pull-left {
+  margin-right: 15px;
+}
+
+figure>figcaption {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+  /*font-style: italic;*/
+  color: #97989b;
+}
+
+/*----------------------------*\
+	section
+\*----------------------------*/
+
+.section {
+  padding-top: 30px;
+}
+
+.section-row {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.section-title .title {
+  position: relative;
+  display: inline-block;
+  background-color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-right: 10px;
+  z-index: 20;
+}
+
+.section-title:after {
+  content: "";
+  display: inline-block;
+  height: 2px;
+  background-color: #e8eaed;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 10px;
+  z-index: 10;
+}
+
+/*----------------------------*\
+	input
+\*----------------------------*/
+
+.input {
+  width: 100%;
+  height: 40px;
+  padding: 0px 15px;
+  background-color: #fff;
+  border-radius: 2px;
+  border: 2px solid #e8eaed;
+}
+
+textarea.input {
+  padding: 15px;
+  height: 90px;
+}
+
+/*----------------------------*\
+	button
+\*----------------------------*/
+
+.primary-button, .secondary-button {
+  display: inline-block;
+  padding: 10px 40px;
+  border-radius: 2px;
+  border: none;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.primary-button {
+  background-color: #ee4266;
+  color: #fff;
+  -webkit-box-shadow: 0px 0px 0px 2px #ee4266 inset;
+  box-shadow: 0px 0px 0px 2px #ee4266 inset;
+}
+
+.secondary-button {
+  background-color: #353535;
+  color: #fff;
+  -webkit-box-shadow: 0px 0px 0px 2px #353535 inset;
+  box-shadow: 0px 0px 0px 2px #353535 inset;
+}
+
+.primary-button:hover, .primary-button:focus {
+  background-color: transparent;
+  color: #ee4266;
+}
+
+.secondary-button:hover, .secondary-button:focus {
+  background-color: transparent;
+  color: #353535;
+}
+
+/*----------------------------*\
+	social colors
+\*----------------------------*/
+
+.social-facebook {
+  background: #225b99 !important;
+}
+
+.social-twitter {
+  background: #00adf2 !important;
+}
+
+.social-google-plus {
+  background: #dc4d2d !important;
+}
+
+.social-pinterest {
+  background: #cc2127 !important;
+}
+
+.social-instagram {
+  background: #d341b2 !important;
+}
+
+/*=========================================================
+	NAVIGATION
+===========================================================*/
+
+#nav {
+  border-bottom: 1px solid #e8eaed;
+}
+
+#nav:after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 90;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+#nav.shadow-active:after {
+  opacity: 1;
+  visibility: visible;
+}
+
+#nav-top {
+  text-align: center;
+}
+
+#nav-top>.container {
+  position: relative;
+}
+
+#nav-bottom {
+  border-top: 1px solid #transparent;
+}
+
+/*----------------------------*\
+	social
+\*----------------------------*/
+
+.nav-social {
+  float: left;
+  padding: 10px 0px;
+}
+
+.nav-social li {
+  display: inline-block;
+}
+
+.nav-social li a {
+  display: block;
+  padding: 15px;
+  line-height: 20px;
+}
+
+/*----------------------------*\
+	logo
+\*----------------------------*/
+
+.nav-logo {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.nav-logo .logo {
+  display: inline-block;
+  line-height: 70px;
+  height: 70px;
+}
+
+.nav-logo .logo>img {
+  width: 100%;
+  max-height: 70px;
+}
+
+/*----------------------------*\
+	search
+\*----------------------------*/
+
+.nav-btns {
+  float: right;
+  padding: 10px 0px;
+}
+
+.nav-btns>button {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border: none;
+  background: transparent;
+}
+
+#nav-search {
+  position: fixed;
+  left: 50%;
+  -webkit-transform: translate(-50%, 10px);
+  -ms-transform: translate(-50%, 10px);
+  transform: translate(-50%, 10px);
+  opacity: 0;
+  visibility: hidden;
+  max-width: 960px;
+  width: 100%;
+  padding: 60px 5%;
+  background: #1b1c1e;
+  z-index: 999;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+#nav-search.active {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translate(-50%, 0px);
+  -ms-transform: translate(-50%, 0px);
+  transform: translate(-50%, 0px);
+}
+
+#nav-search form .input {
+  height: 80px;
+  background: transparent;
+  border: 2px solid #323335;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 15px 25px;
+}
+
+/*----------------------------*\
+	menu
+\*----------------------------*/
+
+.nav-menu {
+  position: relative;
+  text-align: center;
+  float: none;
+}
+
+.nav-menu>li {
+  float: none;
+  display: inline-block;
+}
+
+.nav-menu>li>a {
+  display: block;
+  padding: 25px 15px;
+  line-height: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/*----------------------------*\
+	dropdown
+\*----------------------------*/
+
+.nav-menu li.has-dropdown {
+  position: relative;
+}
+
+.nav-menu li.has-dropdown>a:after {
+  font-family: 'FontAwesome';
+  content: "\f0d7";
+  margin-left: 5px;
+}
+
+.nav-menu li.has-dropdown>.dropdown {
+  position: absolute;
+  left: 0;
+  width: 200px;
+  text-align: left;
+  z-index: 60;
+  -webkit-transform: translateY(10px);
+  -ms-transform: translateY(10px);
+  transform: translateY(10px);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.nav-menu li.has-dropdown:hover>.dropdown {
+  -webkit-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  transform: translateY(0px);
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-menu li.has-dropdown>.dropdown .dropdown-body {
+  background-color: #fff;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+ /* border-top: 2px solid #ee4266;*/
+}
+
+/*.dropdown .dropdown-list li {
+  border-bottom: 1px solid #c8c9c0;
+}*/
+
+.dropdown .dropdown-list li a {
+  display: block;
+  padding: 10px;
+  line-height: 20px;
+}
+
+.dropdown-list {
+  background-color: #4e7cbe!important;
+  color:#000000!important;
+}
+
+.voir_plus {
+  background-color: #ffffff!important;
+  color:#000000!important;
+}
+
+.dropdown .dropdown-heading {
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  line-height: 30px;
+}
+
+/*----------------------------*\
+	mega dropdown
+\*----------------------------*/
+
+.nav-menu li.has-dropdown.megamenu {
+  position: static;
+}
+
+.nav-menu li.has-dropdown.megamenu>.dropdown {
+  width: 100%;
+  padding-right: 10px;
+}
+
+.nav-menu li.has-dropdown.megamenu>.dropdown .dropdown-body {
+  padding: 30px;
+}
+
+.nav-menu li.has-dropdown.megamenu>.dropdown .dropdown-list {
+  margin-bottom: 30px;
+}
+
+.nav-menu li.has-dropdown.megamenu>.dropdown .dropdown-list li a {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+/*----------------------------*\
+	tab dropdown
+\*----------------------------*/
+
+.nav-menu li.has-dropdown.megamenu>.dropdown.tab-dropdown .tab-content {
+  z-index: 70;
+  position: relative;
+  margin-left: -30px;
+}
+
+.nav-menu li.has-dropdown.megamenu>.dropdown.tab-dropdown .tab-nav {
+  background-color: #1b1c1e;
+  -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 60;
+}
+
+.nav-menu li.has-dropdown.megamenu>.dropdown.tab-dropdown .tab-nav li {
+  border-bottom: 1px solid #323335;
+}
+
+.nav-menu li.has-dropdown.megamenu>.dropdown.tab-dropdown .tab-nav li a {
+  display: block;
+  padding: 15px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.nav-menu li.has-dropdown.megamenu>.dropdown.tab-dropdown .tab-nav li.active {
+  background: #ee4266
+}
+
+.nav-menu li.has-dropdown.megamenu>.dropdown.tab-dropdown .tab-nav li.active a {
+  color: #fff;
+}
+
+/*----------------------------*\
+	nav aside
+\*----------------------------*/
+
+#nav-aside {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #1b1c1e;
+  max-width: 360px;
+  width: 100%;
+  padding: 80px 20px;
+  overflow-y: scroll;
+  z-index: 99;
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+  -webkit-transition: 0.4s all cubic-bezier(.77, 0, .18, 1);
+  transition: 0.4s all cubic-bezier(.77, 0, .18, 1);
+}
+
+#nav-aside.active {
+  -webkit-transform: translateX(0%);
+  -ms-transform: translateX(0%);
+  transform: translateX(0%);
+}
+
+.nav-aside-menu li a {
+  display: block;
+  padding: 15px 0px;
+  color: #fff;
+  border-bottom: 1px solid #323335;
+}
+
+
+.lien{
+  color:#444444;
+  font-weight: bold;
+
+}
+
+.link-info{
+  color:#444444;
+  font-weight: bold;
+
+}
+
+/*.nav-aside-menu li a:hover, .nav-aside-menu li a:focus {
+  color: #ee4266;
+}*/
+
+.nav-aside-menu li.has-dropdown>a {
+  cursor: pointer;
+}
+
+.nav-aside-menu li.has-dropdown>a:after {
+  font-family: 'FontAwesome';
+  content: "\f0d7";
+  float: right;
+}
+
+.nav-aside-menu li.has-dropdown>.dropdown {
+  display: none;
+  margin-left: 30px;
+  border-left: 1px solid #323335;
+}
+
+.nav-aside-menu li.has-dropdown.active>.dropdown {
+  display: block;
+}
+
+.nav-aside-menu li.has-dropdown>.dropdown a {
+  padding: 15px;
+}
+
+.nav-close {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background-color: transparent;
+  border: none;
+}
+
+.nav-close span {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.nav-close span:before, .nav-close span:after {
+  content: "";
+  display: block;
+  width: 30px;
+  background-color: #fff;
+  height: 2px;
+}
+
+.nav-close span:before {
+  -webkit-transform: translateY(0px) rotate(-135deg);
+  -ms-transform: translateY(0px) rotate(-135deg);
+  transform: translateY(0px) rotate(-135deg);
+}
+
+.nav-close span:after {
+  -webkit-transform: translateY(-2px) rotate(135deg);
+  -ms-transform: translateY(-2px) rotate(135deg);
+  transform: translateY(-2px) rotate(135deg);
+}
+
+/*=========================================================
+	PAGE HEADER
+===========================================================*/
+
+.page-header {
+  position: relative;
+  margin: 0;
+  padding-top: 120px;
+  padding-bottom: 80px;
+  background-color: #1b1c1e;
+}
+
+#post-header {
+  padding-top: 240px;
+  padding-bottom: 80px;
+}
+
+.page-header .page-header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.page-header .page-header-bg:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(27, 28, 30, 0)), color-stop(90%, rgba(27, 28, 30, 0.8)));
+  background: linear-gradient(180deg, rgba(27, 28, 30, 0) 0%, rgba(27, 28, 30, 0.8) 90%);
+}
+
+.page-header h1 {
+  font-size: 41.053px;
+  color: #FFF;
+}
+
+.page-header p.lead {
+  font-size: 20.25px;
+  color: #FFF;
+}
+
+/*=========================================================
+	POST
+===========================================================*/
+
+.post {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.post .post-body {
+  position: relative;
+  margin: -50px 0px 0px 3%;
+  padding: 5%;
+  background: #fff;
+  z-index: 10;
+}
+
+.post .post-img {
+  display: block;
+  overflow: hidden;
+}
+
+.post-img>img {
+  width: 100%;
+  -webkit-transition: 1.6s -webkit-transform;
+  transition: 1.6s -webkit-transform;
+  transition: 1.6s transform;
+  transition: 1.6s transform, 1.6s -webkit-transform;
+}
+
+.post-img:hover>img {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.post .post-title {
+  font-size: 18px;
+}
+
+.post .post-title.title-sm {
+  font-size: 16px;
+}
+
+.post .post-title.title-lg {
+  font-size: 25.629px;
+}
+
+.post .post-category {
+  margin-bottom: 10px;
+}
+
+.post-category a {
+  color: #ee4266;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.post-category a:after {
+  content: ',';
+  display: inline-block;
+}
+
+.post-category a:last-child:after {
+  display: none;
+}
+
+.post .post-meta {
+  margin-bottom: 10px;
+}
+
+.post-meta li {
+  display: inline-block;
+  color: #97989b;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.post-meta li a {
+  color: #97989b;
+  font-weight: 700;
+}
+
+.post-meta li a:hover, .post-meta li a:focus {
+  color: #ee4266;
+}
+
+.post-meta li:after {
+  content: '•';
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.post-meta li:last-child:after {
+  display: none;
+}
+
+/*----------------------------*\
+	hot post
+\*----------------------------*/
+
+.hot-post {
+  padding: 0 15px;
+}
+
+.hot-post .hot-post-left {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.hot-post .hot-post-right {
+  padding-right: 0;
+  padding-left: 5px;
+}
+
+.hot-post .post {
+  margin-bottom: 7px;
+}
+
+.hot-post {
+  margin-bottom: 25px;
+}
+
+/*----------------------------*\
+	post thumb
+\*----------------------------*/
+
+.post.post-thumb .post-img:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(27, 28, 30, 0)), color-stop(90%, rgba(27, 28, 30, 0.8)));
+  background: linear-gradient(180deg, rgba(27, 28, 30, 0) 0%, rgba(27, 28, 30, 0.8) 90%);
+}
+
+.post.post-thumb .post-body {
+  position: absolute;
+  margin: 0px;
+  padding: 0px 5%;
+  z-index: 20;
+  bottom: 5%;
+  background-color: transparent;
+}
+
+.post.post-thumb .post-title a {
+  color: #fff;
+}
+
+.post.post-thumb .post-title a:hover, .post.post-thumb .post-title a:focus {
+  color: #ee4266;
+}
+
+.post.post-thumb .post-meta li {
+  color: #fff;
+}
+
+.post.post-thumb .post-meta li a {
+  color: #fff;
+}
+
+.post.post-thumb .post-meta li a:hover, .post.post-thumb .post-meta li a:focus {
+  color: #ee4266;
+}
+
+/*----------------------------*\
+	post small
+\*----------------------------*/
+
+.post.post-sm .post-body {
+  margin: 15px 0px 0px;
+  background: transparent;
+  padding: 0;
+}
+
+/*----------------------------*\
+	post widget
+\*----------------------------*/
+
+.post.post-widget:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.post.post-widget .post-img {
+  float: left;
+  width: 130px;
+}
+
+.post.post-widget .post-body {
+  position: relative;
+  background: transparent;
+  margin: 0px 0px 0px 150px;
+  padding: 0;
+}
+
+.post.post-widget .post-title {
+  font-size: 16px;
+  margin-bottom: 0px;
+}
+
+/*----------------------------*\
+	post row
+\*----------------------------*/
+
+.post.post-row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.post.post-row .post-img {
+  width: 40%;
+  float: left;
+}
+
+.post.post-row .post-body {
+  margin: 0px 0px 0px calc(40% + 30px);
+  padding: 0;
+}
+
+/*=========================================================
+	POST PAGE
+===========================================================*/
+
+.page-header .post-category {
+  margin-bottom: 10px;
+}
+
+.page-header .post-meta li {
+  color: #fff;
+}
+
+.page-header .post-meta li a {
+  color: #fff;
+}
+
+.page-header .post-meta li a:hover, .page-header .post-meta li a:focus {
+  color: #ee4266;
+}
+
+.post-share a {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #97989b;
+  margin-right: 4px;
+  margin-bottom: 6px;
+  -webkit-transition: 0.2s opacity;
+  transition: 0.2s opacity;
+}
+
+.post-share a:hover {
+  opacity: 0.9;
+}
+
+.post-share a i {
+  width: 20px;
+  text-align: center;
+}
+
+.post-share a span {
+  padding-left: 10px;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.post-content .post-attachement.pull-left {
+  margin-right: 15px;
+}
+
+.post-content .post-attachement.pull-right {
+  margin-left: 15px;
+}
+
+.post-tags ul li {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.post-tags ul li:first-child {
+  font-weight: 400;
+}
+
+.post-tags ul li:after {
+  content: ',';
+  display: inline-block;
+}
+
+.post-tags ul li:first-child:after {
+  display: none;
+}
+
+.post-tags ul li:last-child:after {
+  display: none;
+}
+
+/*----------------------------*\
+	post nav
+\*----------------------------*/
+
+.post-nav:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.post-nav .post-title {
+  font-size: 14px;
+  margin: 0px;
+}
+
+.post-nav .prev-post {
+  float: left;
+  width: 50%;
+  padding-right: 15px;
+}
+
+.post-nav .next-post {
+  float: right;
+  width: 50%;
+  text-align: right;
+  padding-left: 15px;
+}
+
+.post-nav .post-img {
+  display: block;
+  width: 100px;
+  overflow: hidden;
+}
+
+.post-nav .prev-post .post-img {
+  float: left;
+  margin-right: 15px;
+}
+
+.post-nav .next-post .post-img {
+  float: right;
+  margin-left: 15px;
+}
+
+.post-nav .next-post span, .post-nav .prev-post span {
+  font-weight: 700;
+  color: #97989b;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.post-nav .next-post:after, .post-nav .prev-post:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/*----------------------------*\
+	author
+\*----------------------------*/
+
+.author.media .media-left {
+  position: relative;
+  padding-right: 30px;
+}
+
+.author .author-img {
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  ;
+}
+
+.author .author-social li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.author .author-social li a {
+  display: block;
+}
+
+.page-header .author .author-social li a {
+  color: #fff;
+}
+
+.page-header .author .author-social li a:hover, .page-header .author .author-social li a:focus {
+  color: #ee4266;
+}
+
+/*----------------------------*\
+	comments
+\*----------------------------*/
+
+.post-comments .media {
+  margin-top: 30px;
+}
+
+.post-comments .media:nth-child(1) {
+  margin-top: 0px;
+}
+
+.post-comments .media .media-left {
+  position: relative;
+  padding-right: 15px;
+}
+
+.post-comments .media .media-left .media-object {
+  width: 50px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 20;
+}
+
+.post-comments .media .media-left:after {
+  content: '';
+  position: absolute;
+  left: calc(50% - 9px);
+  top: 80px;
+  bottom: 15px;
+  width: 1px;
+  background-color: #e8eaed;
+}
+
+.post-comments .media .media-heading h4 {
+  display: inline-block;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.post-comments .media .media-heading .time {
+  color: #97989b;
+  margin-left: 10px;
+  font-size: 12px;
+}
+
+.post-comments .media .reply {
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 5px 13px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #323335;
+  border-radius: 2px;
+  -webkit-transition: 0.2s opacity;
+  transition: 0.2s opacity;
+}
+
+.post-comments .media .reply:hover {
+  opacity: 0.9;
+}
+
+.post-comments .media.media-author .media-heading h4 {
+  color: #ee4266;
+}
+
+.post-comments .media.media-author .media-left:after {
+  background-color: #ee4266;
+}
+
+/*=========================================================
+	ASIDE
+===========================================================*/
+
+.aside-widget {
+  margin-bottom: 30px;
+}
+
+/*----------------------------*\
+	social widget
+\*----------------------------*/
+
+.social-widget ul {
+  overflow: auto;
+}
+
+.social-widget ul li {
+  float: left;
+  width: 33.33%;
+}
+
+.social-widget ul li a {
+  display: block;
+  text-align: center;
+  padding: 30px 15px;
+  color: #fff;
+  -webkit-transition: 0.2s opacity;
+  transition: 0.2s opacity;
+}
+
+.social-widget ul li a:hover {
+  opacity: 0.9;
+}
+
+.social-widget ul li a span {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.social-widget ul li a i {
+  display: block;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+/*----------------------------*\
+	newsletter widget
+\*----------------------------*/
+
+.newsletter-widget {
+  position: relative;
+  padding: 0px 30px 30px;
+  border-left: 2px dashed #e8eaed;
+  border-right: 2px dashed #e8eaed;
+}
+
+.aside-widget:last-child .newsletter-widget {
+  border-bottom: 2px dashed #e8eaed;
+}
+
+.newsletter-widget form {
+  position: relative;
+  z-index: 20;
+}
+
+.newsletter-widget .input {
+  margin-bottom: 15px;
+}
+
+.newsletter-widget:after {
+  content: "\f003";
+  font-family: FontAwesome;
+  position: absolute;
+  bottom: -25px;
+  right: 27px;
+  font-size: 160px;
+  color: #e8eaed;
+  -webkit-transform: rotate(13deg);
+  -ms-transform: rotate(13deg);
+  transform: rotate(13deg);
+}
+
+.footer-widget .newsletter-widget {
+  padding: 0px;
+  border: none;
+}
+
+.footer-widget .newsletter-widget:after {
+  color: #323335;
+}
+
+/*----------------------------*\
+	category widget
+\*----------------------------*/
+
+.category-widget ul li {
+  padding: 15px 0px;
+  border-bottom: 1px solid #e8eaed;
+}
+
+.category-widget ul li a {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.category-widget ul li a span {
+  float: right;
+  font-size: 14px;
+  color: #97989b;
+  margin-left: 15px;
+}
+
+.footer-widget .category-widget ul li {
+  border-color: #323335;
+}
+
+/*----------------------------*\
+	tags widget
+\*----------------------------*/
+
+.tags-widget ul li {
+  display: inline-block;
+  margin-right: 4px;
+  margin-bottom: 6px;
+}
+
+.tags-widget ul li a {
+  text-transform: uppercase;
+  display: block;
+  padding: 10px 15px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #97989b;
+  background-color: #323335;
+  border-radius: 2px;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.tags-widget ul li a:hover, .tags-widget ul li a:focus {
+  color: #fff !important;
+  background-color: #ee4266;
+}
+
+/*----------------------------*\
+	galery widget
+\*----------------------------*/
+
+.galery-widget ul {
+  margin: -2px -2px;
+}
+
+.galery-widget ul li {
+  display: inline-block;
+  width: 33.33%;
+  padding: 2px;
+  margin-right: -4px;
+}
+
+.galery-widget ul li a {
+  display: block;
+  overflow: hidden;
+}
+
+.galery-widget ul li a img {
+  width: 100%;
+  -webkit-transition: 1.6s -webkit-transform;
+  transition: 1.6s -webkit-transform;
+  transition: 1.6s transform;
+  transition: 1.6s transform, 1.6s -webkit-transform;
+}
+
+.galery-widget ul li a:hover img {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+/*=========================================================
+	FOOTER
+===========================================================*/
+
+#footer {
+  margin-top: 40px;
+  padding-top: 80px;
+  padding-bottom: 40px;
+  background-color: #1b1c1e;
+}
+
+#footer {
+  color: #97989b;
+}
+
+#footer a {
+  color: #97989b;
+}
+
+#footer a:hover, #footer a:focus {
+  color: #ee4266;
+}
+
+.footer-widget {
+  margin-bottom: 30px;
+}
+
+.footer-widget .footer-title {
+  color: #fff;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.footer-logo {
+  margin-bottom: 30px;
+}
+
+.footer-logo .logo {
+  display: inline-block;
+  line-height: 70px;
+  height: 70px;
+}
+
+/*.footer-bottom {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #323335;
+}*/
+
+.footer-nav {
+  text-align: right;
+}
+
+.footer-nav li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/*----------------------------*\
+	CONTACT
+\*----------------------------*/
+
+.contact li {
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 55px;
+  padding-top: 5px;
+  min-height: 40px;
+}
+
+.contact li i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  text-align: center;
+  height: 40px;
+  background: #fff;
+  color: #ee4266;
+  border: 1px solid #e8eaed;
+  line-height: 40px;
+  border-radius: 50%;
+}
+
+.footer-widget .contact li i {
+  color: #97989b;
+  background-color: #353535;
+  border: none;
+}
+
+.contact-social li {
+  display: inline-block;
+  margin-right: 3px;
+  margin-bottom: 6px;
+}
+
+.contact-social li a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 50%;
+  color: #fff !important;
+  -webkit-transition: 0.2s opacity;
+  transition: 0.2s opacity;
+}
+
+.contact-social li a:hover {
+  opacity: 0.9;
+}
+
+/*=========================================================
+	RESPONSIVE
+===========================================================*/
+
+@media only screen and (max-width: 991px) {
+  #nav-bottom {
+    display: none;
+  }
+  .nav-social {
+    display: none;
+  }
+  .nav-logo {
+    position: static;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    left: 0;
+    display: inline-block;
+    float: left;
+  }
+  .footer-nav {
+    text-align: left;
+    margin-bottom: 30px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .page-header h1 {
+    font-size: 32.437px;
+  }
+  .post-nav .prev-post {
+    float: none;
+    width: 100%;
+    margin-bottom: 15px;
+    padding-right: 0px;
+  }
+  .post-nav .prev-post:last-child {
+    margin-bottom: 0px;
+  }
+  .post-nav .next-post {
+    float: none;
+    width: 100%;
+  }
+  .post-nav .next-post {
+    float: none;
+    width: 100%;
+    padding-left: 0px;
+    text-align: left;
+  }
+  .post-nav .next-post .post-img {
+    margin-right: 15px;
+    float: left;
+    margin-left: 0px;
+  }
+}
+
+/* *-------------------------------------------------------------- */
+/* # Hero Section */
+/* --------------------------------------------------------------*/ 
+
+.hero{
+	
+	padding:50px;
+}
+#hero {
+    width: 100%;
+    height: 83vh;
+    background: url(../img/hero3.jpg) center center;
+    background-size: cover;
+    position: relative;
+    /* margin-top: 70px; */
+    padding: 0;
+    background-size: cover;
+    background-position: 10% 67%;
+}
+
+#hero:before {
+  content: "";
+  background: rgba(0,0,0,0.4);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#hero .container {
+  z-index: 2;
+}
+
+#hero h1 {
+  margin: 0 0 10px 0;
+    font-size: 50px;
+    font-weight: 500;
+    line-height: 69px;
+    color: #efaf22;
+    letter-spacing: 2px;
+	text-shadow: 1px 1px 2px #000000;
+  
+}
+
+#hero h1 span {
+  border-bottom: 4px solid #EFAF22;
+}
+
+#hero h2 {
+ color: rgb(255 255 255);
+    margin-bottom: 35px;
+    font-size: 22px;
+    letter-spacing: 2px;
+}
+
+#hero .btn-get-started {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 2px;
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 4px;
+  transition: ease-in-out 0.3s;
+  color: #fff;
+  background: #EFAF22;
+  text-transform: uppercase;
+}
+
+#hero .btn-get-started:hover {
+  background: #4ea5e0;
+}
+
+@media (max-width: 992px) {
+  #hero {
+    height: calc(100vh - 70px);
+  }
+}
+
+@media (max-width: 768px) {
+  #hero h1 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+  #hero h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+
+/* news-ticker */
+.ticker {
+ margin: 0;
+    height: 56px!important;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    position: absolute;
+    overflow: hidden;
+    
+   
+}
+.rollnews li a{
+	color:black;
+	font-weight:bold;
+	
+}
+.ticker ul {
+  width: 100%;
+  position: relative;
+  margin: auto;
+  text-align:center;
+}
+
+.ticker ul li {
+  width: 100%;
+  display: none;
+}
+
+@media (max-width: 222px) {
+#ticker-roll {
+    display: none !important;
+}
+}
+
+.header-flash__title{
+	
+	font-weight: bold;
+    color: red;
+    border-right: 1px solid grey;
+    padding-right: 10px;
+    position: absolute;
+   
+    top: 20px;
+}
+
+@media only screen and (max-width: 992px) {
+  /* line 1, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .header-flash__title {
+    display: block
+  }
+}
+
+/* vide-area */
+.video-area {
+  background: #EFF5F8;
+  padding: 80px 150px 0 150px;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  /* line 1, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .video-area {
+    padding: 80px 50px 0 50px;
+  }
+}
+
+@media only screen and (min-width: 1601px) and (max-width: 1800px) {
+  /* line 1, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .video-area {
+    padding: 80px 150px 0 70px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 1, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .video-area {
+    padding: 80px 30px 0 30px;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  /* line 1, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .video-area {
+    padding: 80px 30px 0 30px;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  /* line 1, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .video-area {
+    padding: 80px 30px 0 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  /* line 1, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .video-area {
+    padding: 30px 0px 0 0px;
+  }
+}
+
+/* line 23, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.video-area .video-wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: space-between;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: flex-end;
+  -moz-align-items: flex-end;
+  -ms-align-items: flex-end;
+  align-items: flex-end;
+}
+
+/* line 29, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.video-area .video-wrapper .left-content {
+  width: 40%;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 29, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .video-area .video-wrapper .left-content {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 29, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .video-area .video-wrapper .left-content {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  /* line 29, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .video-area .video-wrapper .left-content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575px) {
+  /* line 29, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .video-area .video-wrapper .left-content {
+    width: 100%;
+  }
+}
+
+/* line 45, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.video-area .video-wrapper .right-content {
+  width: 50%;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 45, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .video-area .video-wrapper .right-content {
+    width: 84%;
+    padding-top: 29px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 45, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .video-area .video-wrapper .right-content {
+    width: 100%;
+    padding-top: 29px;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  /* line 45, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .video-area .video-wrapper .right-content {
+    width: 100%;
+    padding-top: 29px;
+  }
+}
+
+@media (max-width: 575px) {
+  /* line 45, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .video-area .video-wrapper .right-content {
+    width: 100%;
+    padding-top: 29px;
+  }
+}
+
+/* line 64, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.video-area .video-wrapper .right-content .video-img {
+  position: relative;
+}
+
+/* line 66, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.video-area .video-wrapper .right-content .video-img img {
+  width: 100%;
+}
+
+/* line 70, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.video-area .video-wrapper .right-content .video-img .video-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* line 78, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.video-area .video-wrapper .right-content .video-img .video-icon a {
+  background: #fff;
+  color: #ff1313;
+  width: 120px;
+  height: 120px;
+  display: inline-block;
+  text-align: center;
+  line-height: 120px;
+  border-radius: 50%;
+  transform: scale(0.5);
+}
+
+/* line 88, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.video-area .video-wrapper .right-content .video-img .video-icon a::after {
+  position: absolute;
+  border: 100px solid rgba(255, 255, 255, 0.4);
+  content: "";
+  border-radius: 50%;
+  left: -39px;
+  top: -41px;
+  right: 0;
+  z-index: 0;
+  background: #0000;
+}
+
+/* line 100, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.video-area .video-wrapper .right-content .video-img .video-icon a i {
+  font-size: 20px;
+  font-size: 20px;
+  line-height: 1;
+  position: relative;
+  right: -2px;
+  top: 2px;
+}
+
+/* line 110, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.video-area .video-wrapper .right-content .video-img .video-icon a.btn-icon {
+  position: relative;
+  /* Animations */
+  /* End Animated */
+}
+
+/* line 112, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.video-area .video-wrapper .right-content .video-img .video-icon a.btn-icon::before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  bottom: -2px;
+  right: -2px;
+  border-radius: inherit;
+  border: 1px solid #fff;
+  -webkit-animation: btnIconRipple 2s cubic-bezier(0.23, 1, 0.32, 1) both infinite;
+  animation: btnIconRipple 2s cubic-bezier(0.23, 1, 0.32, 1) both infinite;
+}
+
+@-webkit-keyframes btnIconRipple {
+  0% {
+    border-width: 4px;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    border-width: 1px;
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+  80% {
+    border-width: 1px;
+    -webkit-transform: scale(1.9);
+    transform: scale(1.9);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* line 144, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.video-area .video-wrapper .right-content .video-img .video-icon a.btn-icon:hover {
+  background: #ff1313;
+  color: #fff;
+}
+
+/* line 155, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.single-baner-nw4 {
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+  padding: 0 2px;
+}
+
+/* line 159, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.single-baner-nw4 .banner-img-cap4 .banner-img4 {
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+/* line 163, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.single-baner-nw4 .banner-img-cap4 .banner-img4 img {
+  width: 100%;
+  -webkit-transform: scale 1;
+  -moz-transform: scale 1;
+  -ms-transform: scale 1;
+  transform: scale 1;
+  transition: all 0.3s ease-out 0s;
+}
+
+/* line 169, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.single-baner-nw4 .banner-img-cap4 .banner-img4 .video-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* line 177, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.single-baner-nw4 .banner-img-cap4 .banner-img4 .video-icon a {
+  background: #fff;
+  color: #ff1313;
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  text-align: center;
+  line-height: 60px;
+  border-radius: 50%;
+  transform: scale(0.5);
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  /* line 177, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .single-baner-nw4 .banner-img-cap4 .banner-img4 .video-icon a {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+  }
+}
+
+@media (max-width: 575px) {
+  /* line 177, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .single-baner-nw4 .banner-img-cap4 .banner-img4 .video-icon a {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+  }
+}
+
+/* line 198, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.single-baner-nw4 .banner-img-cap4 .banner-img4 .video-icon a i {
+  font-size: 20px;
+  font-size: 20px;
+  line-height: 1;
+  position: relative;
+  right: -2px;
+  top: 2px;
+}
+
+/* line 208, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.single-baner-nw4 .banner-img-cap4 .banner-img4 .video-icon a.btn-icon {
+  position: relative;
+  /* End Animated */
+}
+
+/* line 211, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.single-baner-nw4 .banner-img-cap4 .banner-img4 .video-icon a.btn-icon:hover {
+  background: #ff1313;
+  color: #fff;
+}
+
+/* line 219, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.single-baner-nw4 .banner-img-cap4 .banner-cap4 {
+  padding: 22px 29px 32px 17px;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 219, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .single-baner-nw4 .banner-img-cap4 .banner-cap4 {
+    padding: 22px 29px 32px 17px;
+  }
+}
+
+/* line 225, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.single-baner-nw4 .banner-img-cap4 .banner-cap4.banner-cap4 {
+  padding: 0;
+}
+
+/* line 228, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.single-baner-nw4 .banner-img-cap4 .banner-cap4 p {
+  color: #707b8e;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+/* line 234, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.single-baner-nw4 .banner-img-cap4 .banner-cap4 h3 a {
+  color: #191d34;
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1.4;
+  display: block;
+  text-transform: capitalize;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+/* line 242, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.single-baner-nw4 .banner-img-cap4 .banner-cap4 h3 a:hover {
+  color: #140C40;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 234, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .single-baner-nw4 .banner-img-cap4 .banner-cap4 h3 a {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1600px) {
+  /* line 234, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .single-baner-nw4 .banner-img-cap4 .banner-cap4 h3 a {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  /* line 234, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .single-baner-nw4 .banner-img-cap4 .banner-cap4 h3 a {
+    font-size: 23px;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  /* line 234, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .single-baner-nw4 .banner-img-cap4 .banner-cap4 h3 a {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 575px) {
+  /* line 234, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+  .single-baner-nw4 .banner-img-cap4 .banner-cap4 h3 a {
+    font-size: 19px;
+  }
+}
+
+/* line 270, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.single-baner-nw4:hover .banner-img-cap4 .banner-img4 img {
+  -webkit-transform: scale(1.04);
+  -moz-transform: scale(1.04);
+  -ms-transform: scale(1.04);
+  transform: scale(1.04);
+}
+
+/* line 276, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_video_area.scss */
+.video-cap {
+  font-size: 22px !important;
+  color: #140C40 !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+}
+/* Sticky end */
+/*--- Margin & Padding --*/
+/*-- Margin Top --*/
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-5 {
+  margin-top: 5px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-10 {
+  margin-top: 10px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-15 {
+  margin-top: 15px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-20 {
+  margin-top: 20px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-25 {
+  margin-top: 25px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-30 {
+  margin-top: 30px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-35 {
+  margin-top: 35px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-40 {
+  margin-top: 40px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-45 {
+  margin-top: 45px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-50 {
+  margin-top: 50px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-55 {
+  margin-top: 55px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-60 {
+  margin-top: 60px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-65 {
+  margin-top: 65px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-70 {
+  margin-top: 70px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-75 {
+  margin-top: 75px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-80 {
+  margin-top: 80px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-85 {
+  margin-top: 85px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-90 {
+  margin-top: 90px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-95 {
+  margin-top: 95px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-100 {
+  margin-top: 100px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-105 {
+  margin-top: 105px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-110 {
+  margin-top: 110px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-115 {
+  margin-top: 115px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-120 {
+  margin-top: 120px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-125 {
+  margin-top: 125px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-130 {
+  margin-top: 130px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-135 {
+  margin-top: 135px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-140 {
+  margin-top: 140px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-145 {
+  margin-top: 145px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-150 {
+  margin-top: 150px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-155 {
+  margin-top: 155px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-160 {
+  margin-top: 160px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-165 {
+  margin-top: 165px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-170 {
+  margin-top: 170px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-175 {
+  margin-top: 175px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-180 {
+  margin-top: 180px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-185 {
+  margin-top: 185px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-190 {
+  margin-top: 190px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-195 {
+  margin-top: 195px;
+}
+
+/* line 532, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mt-200 {
+  margin-top: 200px;
+}
+
+/*-- Margin Bottom --*/
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-25 {
+  margin-bottom: 25px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-35 {
+  margin-bottom: 35px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-45 {
+  margin-bottom: 45px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-50 {
+  margin-bottom: 50px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-55 {
+  margin-bottom: 55px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-60 {
+  margin-bottom: 60px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-65 {
+  margin-bottom: 65px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-70 {
+  margin-bottom: 70px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-75 {
+  margin-bottom: 75px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-80 {
+  margin-bottom: 80px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-85 {
+  margin-bottom: 85px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-90 {
+  margin-bottom: 90px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-95 {
+  margin-bottom: 95px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-100 {
+  margin-bottom: 100px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-105 {
+  margin-bottom: 105px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-110 {
+  margin-bottom: 110px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-115 {
+  margin-bottom: 115px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-120 {
+  margin-bottom: 120px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-125 {
+  margin-bottom: 125px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-130 {
+  margin-bottom: 130px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-135 {
+  margin-bottom: 135px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-140 {
+  margin-bottom: 140px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-145 {
+  margin-bottom: 145px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-150 {
+  margin-bottom: 150px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-155 {
+  margin-bottom: 155px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-160 {
+  margin-bottom: 160px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-165 {
+  margin-bottom: 165px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-170 {
+  margin-bottom: 170px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-175 {
+  margin-bottom: 175px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-180 {
+  margin-bottom: 180px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-185 {
+  margin-bottom: 185px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-190 {
+  margin-bottom: 190px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-195 {
+  margin-bottom: 195px;
+}
+
+/* line 537, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mb-200 {
+  margin-bottom: 200px;
+}
+
+/*-- Margin Left --*/
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-5 {
+  margin-left: 5px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-10 {
+  margin-left: 10px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-15 {
+  margin-left: 15px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-20 {
+  margin-left: 20px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-25 {
+  margin-left: 25px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-30 {
+  margin-left: 30px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-35 {
+  margin-left: 35px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-40 {
+  margin-left: 40px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-45 {
+  margin-left: 45px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-50 {
+  margin-left: 50px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-55 {
+  margin-left: 55px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-60 {
+  margin-left: 60px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-65 {
+  margin-left: 65px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-70 {
+  margin-left: 70px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-75 {
+  margin-left: 75px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-80 {
+  margin-left: 80px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-85 {
+  margin-left: 85px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-90 {
+  margin-left: 90px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-95 {
+  margin-left: 95px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-100 {
+  margin-left: 100px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-105 {
+  margin-left: 105px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-110 {
+  margin-left: 110px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-115 {
+  margin-left: 115px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-120 {
+  margin-left: 120px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-125 {
+  margin-left: 125px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-130 {
+  margin-left: 130px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-135 {
+  margin-left: 135px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-140 {
+  margin-left: 140px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-145 {
+  margin-left: 145px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-150 {
+  margin-left: 150px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-155 {
+  margin-left: 155px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-160 {
+  margin-left: 160px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-165 {
+  margin-left: 165px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-170 {
+  margin-left: 170px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-175 {
+  margin-left: 175px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-180 {
+  margin-left: 180px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-185 {
+  margin-left: 185px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-190 {
+  margin-left: 190px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-195 {
+  margin-left: 195px;
+}
+
+/* line 541, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.ml-200 {
+  margin-left: 200px;
+}
+
+/*-- Margin Right --*/
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-5 {
+  margin-right: 5px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-10 {
+  margin-right: 10px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-15 {
+  margin-right: 15px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-20 {
+  margin-right: 20px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-25 {
+  margin-right: 25px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-30 {
+  margin-right: 30px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-35 {
+  margin-right: 35px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-40 {
+  margin-right: 40px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-45 {
+  margin-right: 45px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-50 {
+  margin-right: 50px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-55 {
+  margin-right: 55px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-60 {
+  margin-right: 60px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-65 {
+  margin-right: 65px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-70 {
+  margin-right: 70px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-75 {
+  margin-right: 75px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-80 {
+  margin-right: 80px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-85 {
+  margin-right: 85px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-90 {
+  margin-right: 90px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-95 {
+  margin-right: 95px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-100 {
+  margin-right: 100px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-105 {
+  margin-right: 105px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-110 {
+  margin-right: 110px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-115 {
+  margin-right: 115px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-120 {
+  margin-right: 120px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-125 {
+  margin-right: 125px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-130 {
+  margin-right: 130px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-135 {
+  margin-right: 135px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-140 {
+  margin-right: 140px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-145 {
+  margin-right: 145px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-150 {
+  margin-right: 150px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-155 {
+  margin-right: 155px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-160 {
+  margin-right: 160px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-165 {
+  margin-right: 165px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-170 {
+  margin-right: 170px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-175 {
+  margin-right: 175px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-180 {
+  margin-right: 180px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-185 {
+  margin-right: 185px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-190 {
+  margin-right: 190px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-195 {
+  margin-right: 195px;
+}
+
+/* line 546, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.mr-200 {
+  margin-right: 200px;
+}
+
+/*-- Padding Top --*/
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-5 {
+  padding-top: 5px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-10 {
+  padding-top: 10px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-15 {
+  padding-top: 15px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-20 {
+  padding-top: 20px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-25 {
+  padding-top: 25px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-30 {
+  padding-top: 30px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-35 {
+  padding-top: 35px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-40 {
+  padding-top: 40px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-45 {
+  padding-top: 45px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-50 {
+  padding-top: 50px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-55 {
+  padding-top: 55px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-60 {
+  padding-top: 60px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-65 {
+  padding-top: 65px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-70 {
+  padding-top: 70px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-75 {
+  padding-top: 75px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-80 {
+  padding-top: 80px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-85 {
+  padding-top: 85px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-90 {
+  padding-top: 90px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-95 {
+  padding-top: 95px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-100 {
+  padding-top: 100px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-105 {
+  padding-top: 105px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-110 {
+  padding-top: 110px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-115 {
+  padding-top: 115px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-120 {
+  padding-top: 120px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-125 {
+  padding-top: 125px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-130 {
+  padding-top: 130px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-135 {
+  padding-top: 135px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-140 {
+  padding-top: 140px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-145 {
+  padding-top: 145px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-150 {
+  padding-top: 150px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-155 {
+  padding-top: 155px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-160 {
+  padding-top: 160px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-165 {
+  padding-top: 165px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-170 {
+  padding-top: 170px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-175 {
+  padding-top: 175px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-180 {
+  padding-top: 180px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-185 {
+  padding-top: 185px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-190 {
+  padding-top: 190px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-195 {
+  padding-top: 195px;
+}
+
+/* line 551, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-200 {
+  padding-top: 200px;
+}
+
+/* line 553, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pt-260 {
+  padding-top: 260px;
+}
+
+/*-- Padding Bottom --*/
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-5 {
+  padding-bottom: 5px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-10 {
+  padding-bottom: 10px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-15 {
+  padding-bottom: 15px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-20 {
+  padding-bottom: 20px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-25 {
+  padding-bottom: 25px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-30 {
+  padding-bottom: 30px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-35 {
+  padding-bottom: 35px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-40 {
+  padding-bottom: 40px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-45 {
+  padding-bottom: 45px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-50 {
+  padding-bottom: 50px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-55 {
+  padding-bottom: 55px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-60 {
+  padding-bottom: 60px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-65 {
+  padding-bottom: 65px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-70 {
+  padding-bottom: 70px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-75 {
+  padding-bottom: 75px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-80 {
+  padding-bottom: 80px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-85 {
+  padding-bottom: 85px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-90 {
+  padding-bottom: 90px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-95 {
+  padding-bottom: 95px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-100 {
+  padding-bottom: 100px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-105 {
+  padding-bottom: 105px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-110 {
+  padding-bottom: 110px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-115 {
+  padding-bottom: 115px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-120 {
+  padding-bottom: 120px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-125 {
+  padding-bottom: 125px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-130 {
+  padding-bottom: 130px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-135 {
+  padding-bottom: 135px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-140 {
+  padding-bottom: 140px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-145 {
+  padding-bottom: 145px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-150 {
+  padding-bottom: 150px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-155 {
+  padding-bottom: 155px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-160 {
+  padding-bottom: 160px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-165 {
+  padding-bottom: 165px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-170 {
+  padding-bottom: 170px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-175 {
+  padding-bottom: 175px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-180 {
+  padding-bottom: 180px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-185 {
+  padding-bottom: 185px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-190 {
+  padding-bottom: 190px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-195 {
+  padding-bottom: 195px;
+}
+
+/* line 558, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pb-200 {
+  padding-bottom: 200px;
+}
+
+/*-- Padding Left --*/
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-5 {
+  padding-left: 5px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-10 {
+  padding-left: 10px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-15 {
+  padding-left: 15px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-20 {
+  padding-left: 20px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-25 {
+  padding-left: 25px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-30 {
+  padding-left: 30px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-35 {
+  padding-left: 35px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-40 {
+  padding-left: 40px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-45 {
+  padding-left: 45px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-50 {
+  padding-left: 50px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-55 {
+  padding-left: 55px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-60 {
+  padding-left: 60px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-65 {
+  padding-left: 65px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-70 {
+  padding-left: 70px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-75 {
+  padding-left: 75px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-80 {
+  padding-left: 80px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-85 {
+  padding-left: 85px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-90 {
+  padding-left: 90px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-95 {
+  padding-left: 95px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-100 {
+  padding-left: 100px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-105 {
+  padding-left: 105px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-110 {
+  padding-left: 110px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-115 {
+  padding-left: 115px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-120 {
+  padding-left: 120px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-125 {
+  padding-left: 125px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-130 {
+  padding-left: 130px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-135 {
+  padding-left: 135px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-140 {
+  padding-left: 140px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-145 {
+  padding-left: 145px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-150 {
+  padding-left: 150px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-155 {
+  padding-left: 155px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-160 {
+  padding-left: 160px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-165 {
+  padding-left: 165px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-170 {
+  padding-left: 170px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-175 {
+  padding-left: 175px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-180 {
+  padding-left: 180px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-185 {
+  padding-left: 185px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-190 {
+  padding-left: 190px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-195 {
+  padding-left: 195px;
+}
+
+/* line 563, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pl-200 {
+  padding-left: 200px;
+}
+
+/*-- Padding Right --*/
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-5 {
+  padding-right: 5px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-10 {
+  padding-right: 10px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-15 {
+  padding-right: 15px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-20 {
+  padding-right: 20px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-25 {
+  padding-right: 25px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-30 {
+  padding-right: 30px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-35 {
+  padding-right: 35px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-40 {
+  padding-right: 40px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-45 {
+  padding-right: 45px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-50 {
+  padding-right: 50px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-55 {
+  padding-right: 55px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-60 {
+  padding-right: 60px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-65 {
+  padding-right: 65px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-70 {
+  padding-right: 70px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-75 {
+  padding-right: 75px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-80 {
+  padding-right: 80px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-85 {
+  padding-right: 85px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-90 {
+  padding-right: 90px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-95 {
+  padding-right: 95px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-100 {
+  padding-right: 100px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-105 {
+  padding-right: 105px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-110 {
+  padding-right: 110px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-115 {
+  padding-right: 115px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-120 {
+  padding-right: 120px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-125 {
+  padding-right: 125px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-130 {
+  padding-right: 130px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-135 {
+  padding-right: 135px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-140 {
+  padding-right: 140px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-145 {
+  padding-right: 145px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-150 {
+  padding-right: 150px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-155 {
+  padding-right: 155px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-160 {
+  padding-right: 160px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-165 {
+  padding-right: 165px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-170 {
+  padding-right: 170px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-175 {
+  padding-right: 175px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-180 {
+  padding-right: 180px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-185 {
+  padding-right: 185px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-190 {
+  padding-right: 190px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-195 {
+  padding-right: 195px;
+}
+
+/* line 568, C:/Users/HP/Desktop/jun-2020/281.Magazine_News/assets/scss/_common.scss */
+.pr-200 {
+  padding-right: 200px;
+}

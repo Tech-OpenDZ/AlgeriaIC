@@ -1,0 +1,237 @@
+html {
+    &[dir="rtl"] {
+        .user-account .user-detail .name-desc{
+            text-align: right;
+        }
+        .user-account .user-detail .pack-expiry{
+            text-align: right;
+        }
+        .user-account .user-detail .validate-button{
+            justify-content: flex-end;
+        }
+        .buy-more-id{
+            display: flex;
+        }
+        .user-account .user-detail .renew-buttons .renew-sub{
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        .user-account .user-detail .not-signed{
+            text-align: right;
+        }
+        .loader-add{
+            display: flex;
+            justify-content: flex-start;
+        }
+        .user-account .user-detail .note-green .green-correct{
+            margin-left: 10px;
+            margin-right: 0;
+        }
+        .user-account .user-detail .note-red .red-cross{
+            margin-left: 10px;
+            margin-right: 0;
+        }
+        .notes-head{
+            text-align: right;
+        }
+    }
+}    
+
+// rtl ends here
+.user-account{
+    background-color: $white;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04);
+    .user-detail{
+        .name-desc{
+            font-size: 1.25rem;
+            @include mx-1200{
+                font-size: 1rem;
+            }
+        }
+        .sub-heading{
+            @include mx-991{
+                font-size: 18px;
+            }
+        }
+        .main-heading{
+            @include mx-991{
+                font-size: 1.375rem;
+            }
+            @include mx-767{
+                font-size: 1.0625rem;
+            }
+            @include mx-576{
+                font-size: 1.125rem;
+            }
+        }
+        .pass-set{
+            display: flex;
+            flex-direction: column;
+            .user-pass-field{
+                border-left: 0;
+                border-top: 0;
+                border-right: 0;
+                border-bottom: 1px solid $secondary-color;
+                width: 80%;
+                &:focus{
+                    outline: none;
+                }
+
+            }
+           
+        }
+        .pack-expiry{
+            font-size: 1rem;
+            color: $red;
+            font-weight: 700;
+            font-style: italic;
+        }
+        .edit-info{
+            color: $secondary-color;
+            padding-left: 15px;
+            @include mx-576{
+                padding-left: 3px;
+            }
+           
+            cursor: pointer;
+        }
+        .validate-button{
+            display: flex;
+            justify-content: flex-end;
+        }
+        .remove-plan{
+            color: $white;
+            background-color: $red;
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            line-height: 1;
+            border: 0;
+            &:focus{
+                border: 0;
+                outline: 0;
+            }
+           
+            @include mx-991{
+                font-size: 0.75rem;
+            }
+            @include mx-430{
+                padding: 3px;
+            }
+        }
+        .green-correct{
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background-color: green;
+            color: white;
+            font-weight: 200;
+            padding: 3px;
+            margin-left: 15px;
+            margin-right: 15px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            i{
+                font-weight: 200;
+            }
+        }
+        .note-green{
+            .green-correct{
+                margin-left: 0;
+                margin-right: 10px;
+            }
+        }
+        .note-red{
+            .red-cross{
+                margin-left: 0;
+                margin-right: 10px;
+               
+            }
+        }
+        .not-signed{
+            color: $red;
+            font-size: 0.875rem;
+            padding-top: 7px;
+            @include mx-430{
+                font-size: 0.75rem;
+                
+            }
+        }
+        .red-cross{
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            font-weight: 200;
+            background-color: $red;
+            color: white;
+            padding: 3px;
+            margin-left: 15px;
+            margin-right: 15px;
+            font-size: 12px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            i{
+                font-weight: 200;
+            }
+            
+        }
+        .user-remove-box{
+            display: flex;
+            align-items: center;
+            
+        }
+        .user-mail-width{
+            min-width: 35%;
+            @include mx-991{
+                // width: 50%;
+                font-size: 0.875rem;
+            }
+            @include mx-767{
+                width: 54%;
+            }
+            @include mx-576{
+                font-size: 0.75rem;
+                width: 60%;
+            }
+            @include mx-430{
+                width: 65%;
+                font-size: 0.75rem;
+            }
+        }
+        .add-email{
+            background-color: $secondary-color;
+            padding: 5px 15px;
+            color: $white;
+            border-radius: 4px;
+            @include mx-991{
+                font-size: 0.75rem;
+            }
+        }
+        .add-email-acct{
+            display: flex;
+            .add-user-field{
+                border-left: 0;
+                border-top: 0;
+                border-right: 0;
+                border-bottom: 1px solid $secondary-color;
+                // width: 25%;
+                font-size: 1rem;
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+        .renew-buttons{
+            display: flex;
+            flex-wrap: wrap;
+            .renew-sub{
+                margin-right: 10px;
+            }
+        }
+    }
+}

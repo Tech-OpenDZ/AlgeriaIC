@@ -1,0 +1,385 @@
+html{
+    &[dir="rtl"]{
+        .our-services-main .business-directory-main .discover-algeria__left .additional-services .ass-services .Assistance-services .sub-heading-two{
+            text-align: center;
+        }
+        .our-services-main .business-directory-main .discover-algeria__left .additional-services .reputation-report .link-ic{
+            padding-right: 15px;
+            padding-left: 0;
+            @include mx-576{
+                padding-left: 15px;
+            }
+        }
+        .our-services-main .business-directory-main .discover-algeria__left .offer-services .common-button .services-download-offer{
+            padding-left: 0;
+            padding-right: 15px;
+        }
+        .sponsered-desc .sposeredlink .sub-heading{
+            @include mx-576{
+                text-align: center;
+            }
+        }
+        .sponsered-desc .sposeredlink p{
+            @include mx-576{
+                text-align: center !important;
+            }
+        }
+        .sponsered-desc .sposeredlink .pack-price{
+            @include mx-576{
+                text-align: center;
+            }
+        }
+        .our-services-main .business-directory-main .discover-algeria__left .additional-services .ass-services .Assistance-services .heading-with-arrow{
+            padding-left: 30px;
+            text-align: left;
+
+        }
+        .our-services-main .business-directory-main .discover-algeria__left .additional-services .ass-services .Assistance-services .heading-with-arrow .more-data::after{
+            left: 0;
+            right: auto;
+            transform: rotate(180deg);
+        }
+        .our-services-main .business-directory-main .discover-algeria__left .additional-services .ass-services .Assistance-services .title-headings .main-heading:after{
+            left: -171px;
+            right: auto;
+        }
+        .our-services-main{
+            .business-directory-main{
+                .discover-algeria{
+                    &__left{
+                        .additional-services{
+                            p{
+                                text-align: right;
+                            }
+                            .reputation-report{
+                                .repo {
+                                    .more-news-icon{
+                                        margin-left: inherit;
+                                        margin-right: 15px;
+                                        transform: rotate(180deg);
+                                    }
+                                }
+                            }
+                        }
+                       
+                        .our-services-details{
+                            .our-services-details-caption{
+                                text-align: right;
+                            }
+                            p{
+                                text-align: right;
+                            }
+                        }
+                        .business-directory-contact{
+                            &__elements{
+                                text-align: right;
+                            }
+                        }
+                        .business-directory-sponserdlink{
+                            &__elements{
+                                text-align: right;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// rtl ends here
+
+.our-services-main{
+    .business-directory-main{
+        .discover-algeria{
+            &__left{
+                .our-services-details{
+                    .our-services-details-caption{
+                        // color: $grey;
+                    }
+                }
+            
+                .assist-truck{
+                    .truck{
+                        position: absolute;
+                        top: 35%;
+                        right: 36%;
+                    }
+                }
+                .services-sub-plans{
+                    .services-plan-box{
+                        padding: 15px;
+                        // border: 1px solid;
+                        border-radius: 10px;
+                        box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+                        min-height: 331px;
+                        z-index: 1;
+                        .plan-free{
+                            text-align: center;
+                            color: $white;
+                            border-bottom: 1px solid $white;
+                        }
+                        .plans-list {
+                          
+                            li{
+                                text-align: center;
+                                a{
+                                    color: $white;
+                                    font-weight: 200;
+                                    text-transform: uppercase;
+                                    
+                                }
+                            }
+                        }
+                    }
+                    .grey-background{
+                        background-color: #a5aeb4;
+                        position: relative;
+                        overflow: hidden;
+                        &:after{
+                            content: "";
+                            background-color: #aeb6bb;
+                            overflow: hidden;
+                            height: 200px;
+                            width: 138px;
+                            display: block;
+                            position: absolute;
+                            right: -66px;
+                            bottom: -58px;
+                            z-index: -1;
+                            transform: rotate(35deg)
+                        }
+                       
+                    }
+                    .yellow-background{
+                        background-color: $yellow;
+                        position: relative;
+                        overflow: hidden;
+                        &:after{
+                            content: "";
+                            background-color: #ffbb1a;
+                            overflow: hidden;
+                            height: 200px;
+                            width: 138px;
+                            display: block;
+                            position: absolute;
+                            right: -66px;
+                            bottom: -58px;
+                            z-index: -1;
+                            transform: rotate(35deg)
+                        }
+                    }
+                    .red-background{
+                        background-color: $red;
+                        position: relative;
+                        overflow: hidden;
+                        &:after{
+                            content: "";
+                            background-color: #e71a30;
+                            overflow: hidden;
+                            height: 200px;
+                            width: 138px;
+                            display: block;
+                            position: absolute;
+                            right: -66px;
+                            bottom: -58px;
+                            z-index: -1;
+                            transform: rotate(35deg)
+                        }
+                    }
+                    .green-background{
+                        background-color: $green;
+                        position: relative;
+                        overflow: hidden;
+                        &:after{
+                            content: "";
+                            background-color: #49b06e;
+                            overflow: hidden;
+                            height: 200px;
+                            width: 138px;
+                            display: block;
+                            position: absolute;
+                            right: -66px;
+                            bottom: -58px;
+                            z-index: -1;
+                            transform: rotate(35deg)
+                        }
+                    }
+                       
+                    
+                }
+                .additional-services{
+                    .reputation-report {
+                        background-color: $white;
+                        box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.04);
+                        border-radius: 4px;
+                        padding: 15px;
+                        .repo{
+                            .sub-heading{
+                                @include mx-1200{
+                                    font-size: 1rem;
+                                }
+                            }
+                            .more-news{
+                                display: flex;
+                                margin-top: 5px;
+                                color: $yellow;
+                                font-weight: 600;
+                                justify-content: flex-end;
+                            }
+                            .more-news-icon{
+                                height: 16px;
+                                width: 16px;
+                                -webkit-border-radius: 50%;
+                                -moz-border-radius: 50%;
+                                border-radius: 50%;
+                                 display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                background-color: $yellow;
+                                color: $white;
+                                margin-left: 15px;
+                                padding: 3px;
+                            }
+                        }
+                        .bussiness-desc{
+                            @include mx-576{
+                                text-align: center;
+                            }
+                        }
+                        .sposered-outer-area{
+                            @include mx-576{
+                                text-align: center;
+                            }
+                        }
+                        .sposeredlink{
+                            .sub-heading{
+                                color: $secondary-color;
+                            }
+                            .pack-price{
+                                color: $secondary-color;
+                            }
+                        }
+                        .link-ic{
+                            padding-right: 0;
+                            @include mx-576{
+                                padding-right: 15px;
+                            }
+                            .sponsered-ic{
+                                fill: $secondary-color;
+                            }
+                        }
+                    }
+                   
+                    .green-border{
+                        border-bottom: 4px solid $green;
+                        .repo{
+                            .more-news{
+                                color: $green;
+                            }
+                            .more-news-icon{
+                                background-color: $green;
+                            }
+                        }
+                    }
+                    .yellow-border{
+                        border-bottom: 4px solid $yellow;
+                    }
+                    .red-border{
+                        border-bottom: 4px solid $red;
+                    }
+                    .blue-border{
+                        border-bottom: 4px solid $secondary-color;
+                    }
+
+                    .ass-services{
+                       
+                        .Assistance-services{
+                            .title-headings{
+                                .main-heading:after{
+                                    content: "";
+                                    position: absolute;
+                                    width: 75%;
+                                    height: 1px;
+                                    background-color: $secondary-color;
+                                    display: block;
+                                    right: -171px;
+                                    bottom: 8px;
+                                    @include mx-1200{
+                                        display: none;
+                                    }
+                                }
+                            }
+                            .heading-with-arrow{
+                                text-align: right;
+                                padding-right: 30px;
+                                position: relative;
+                               
+                              
+                                .more-data{
+                                    color: $secondary-color;
+                                    font-weight: 700;
+                                    @include mx-576{
+                                        font-size: 0.75rem;
+                                    }
+                                    &::after{
+                                      content: "";
+                                      position: absolute;
+                                      background-image: url(../images/arrow.svg);
+                                      top: 20%;
+                                      right: 0;
+                                      height: 18px;
+                                      width: 18px;
+                                  }
+                                }
+                            }
+                            .main-heading{
+                                color: $secondary-color;
+                            }
+                            .sub-heading-two{
+                                color: $secondary-color;
+                            }
+                            .fill-white{
+                                fill: $secondary-color;
+                            }
+                            .assistance-border{
+                                border-bottom: 1px solid $secondary-color;
+                                padding-bottom: 10px;
+                            }
+                        }
+                    }
+                }
+                .offer-services{
+                    display: flex;
+                    justify-content: center;
+                    position: relative;
+                    .common-button{
+                        &:hover{
+                            background-color: $secondary-color;
+                            color: $white;
+                        }
+                        .services-download-offer{
+                            padding-left: 15px;
+                        }
+                    }
+                    .download-services{
+                        position: relative;
+                        padding-left: 50px;
+                        color: $white;
+                        // padding-right: 20px;
+                        &:before{
+                            content: "";
+                            position: absolute;
+                            background-image: url(../images/download-icon.svg);
+                            height: 21px;
+                            width: 19px;
+                            left: 0px;
+                            bottom: 1px;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}
